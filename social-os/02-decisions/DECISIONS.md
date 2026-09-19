@@ -99,3 +99,20 @@ account owner.
 franchises attaches GPL obligations. Structure is not copyrightable; the text is.
 Costs nearly nothing and keeps commercial rights clean.
 **Reverses if:** the operator accepts GPL terms for the distributed product.
+
+### DEC-009 — Build on Anthropic's plugins, don't rebuild them
+**Date:** 2026-09-19 · **Status:** ✅ locked
+**Decision:** Install Anthropic's `small-business` plugin (and `marketing` where
+useful) as the generic capability layer. Our own build shrinks to: the deep
+onboarding that fills the brain, the publish skill (swap seam), the learning
+loop, and the childcare domain guardrails.
+**Why:** `[PRIMARY]` Anthropic ships 43 skills in `small-business` including
+`smb-onboard`, `social-content-engine`, `brand-style` and a shared
+`voice-profile.md`. Rebuilding those is wasted work that decays as they improve.
+Three verified gaps remain ours: **no IG/FB publishing** in either plugin,
+**Canva autofill is Enterprise-only so their Pro path is semi-manual**, and
+**their memory is one opaque `## Business context` block** with no
+declared/observed split, no versioning, no portability and no learning loop.
+**Reverses if:** Anthropic ships IG/FB publishing and a structured, portable,
+client-owned context layer. Watch `anthropics/knowledge-work-plugins` — this is
+the single most important thing to monitor for this business.
