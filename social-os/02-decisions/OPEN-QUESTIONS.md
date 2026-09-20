@@ -66,3 +66,34 @@ Meta doc, and prefer the runtime quota call over any number in a document.
 ### OQ-008 — Confirm Facebook's `scheduled_publish_time` window
 Reported 10 minutes – 75 days; older guides say 30 days. Read Meta's current
 Page/feed reference.
+
+### OQ-009 — Does Zernio's free tier actually publish, and does its MCP expose publish tools?
+**Status:** open. **Blocks:** the whole launch stack (DEC-010).
+**Why it matters:** this is now the single gate on the build. Everything else is
+verified.
+**What we know `[PRIMARY]`:** pricing page states 2 free accounts, full API,
+webhooks, unlimited posts, no feature tiers. `docs.zernio.com` documents
+`POST /v1/posts` with `scheduledFor` / `publishNow`. MCP endpoint
+`https://mcp.zernio.com/mcp` returns **401** — live, auth required.
+**What is unverified:** the MCP's actual tool list, direct media upload + hosted
+public URL `[SECONDARY]`, and a real IG publish on the free tier.
+**Test (≈10 minutes, free, no card):**
+1. Sign up at zernio.com, connect **1 Instagram Business** + **1 Facebook Page**.
+   Confirm that reads as 2 accounts and stays $0.
+2. Copy the API key (`sk_…`).
+3. Probe the MCP tool list:
+   ```bash
+   curl -sS -X POST https://mcp.zernio.com/mcp \
+     -H "Authorization: Bearer $ZERNIO_API_KEY" \
+     -H "Content-Type: application/json" \
+     -H "Accept: application/json, text/event-stream" \
+     -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
+   ```
+   Looking for: create/schedule post, media upload, post status, accounts.
+4. Upload one image via the media endpoint — **confirm it returns a public HTTPS
+   URL** and that `curl -I` on that URL gives `200` + an image content-type with
+   no redirect and no auth.
+5. Schedule one real IG post ~15 min out. Confirm it publishes.
+6. Deliberately break a media URL and confirm the error is legible, not silent.
+**If it fails:** fall back to Composio (free, verified publish scopes, but Cowork's
+hourly task owns the Instagram clock), or Ayrshare at $149/mo.

@@ -116,3 +116,47 @@ declared/observed split, no versioning, no portability and no learning loop.
 **Reverses if:** Anthropic ships IG/FB publishing and a structured, portable,
 client-owned context layer. Watch `anthropics/knowledge-work-plugins` — this is
 the single most important thing to monitor for this business.
+
+### DEC-010 — **REVERSES DEC-005.** Zernio is the publisher, at $0.
+**Date:** 2026-09-20 · **Status:** ⏳ pending one verification (`OQ-009`)
+**Decision:** Zernio free tier (2 accounts = 1 IG + 1 FB) publishes and schedules.
+Ayrshare becomes the documented upgrade path, not the launch choice.
+**Why this reverses DEC-005:** that decision rested on the operator's stated
+"proven beats cheap." On 2026-09-20 he explicitly re-weighted to **most
+affordable, one client, free if possible.** With the tiebreaker flipped the
+earlier reasoning no longer holds, and Ayrshare's real floor is **$149/mo with no
+free tier** — verified on their own pricing page, not the $0 the budget now asks
+for. Zernio is **$0** for exactly the two accounts needed, with full API, an MCP
+server, webhooks and unlimited posts, and **no feature tiers** between free and paid.
+**The risk, stated plainly:** Zernio is a 2025-founded, 8-person, bootstrapped
+company. That is a real maturity gap. It is acceptable here because (a) nothing
+publishes without human approval, (b) Google Drive holds all content so a vendor
+failure loses no work, (c) the swap seam makes changing publishers a one-file
+edit, and (d) at $0 the downside is time, not money.
+**Reverses if:** client count passes ~10, or Zernio fails `OQ-009`, or a
+reliability incident occurs. Then Ayrshare Launch ($299 / 10 profiles ≈
+$30/client) becomes the rational choice.
+
+### DEC-011 — **REVERSES DEC-006.** Cloudinary replaces Bannerbear, at $0.
+**Date:** 2026-09-20 · **Status:** ✅ locked
+**Decision:** Cloudinary free tier for generated graphics + public URLs. Canva
+stays as the free manual design tool. Bannerbear is cut.
+**Why:** Bannerbear is **$49/mo** with only a 30-credit trial. Cloudinary is
+**free forever**, 25 credits/mo (1 credit = 1,000 transformations), does text
+overlay via URL parameters, and returns a public HTTPS CDN URL — which is exactly
+what Instagram requires. `[PRIMARY]` Claude cannot generate images natively, so
+some external layer is required; this is the free one.
+**Also:** if `OQ-009` confirms Zernio hosts uploaded media, Cloudinary is needed
+only for *generating* graphics, not for hosting — and becomes fully optional for v1.
+**Reverses if:** Cloudinary's URL-based text overlay proves too limited for her
+carousel layouts. Then APITemplate.io free (50/mo, visual editor) is next.
+
+### DEC-012 — Ship the loop before the graphics
+**Date:** 2026-09-20 · **Status:** ✅ locked
+**Decision:** v1 ships with real media (her Reels and photos) + Claude-written
+copy. Generated graphics are added after one real post has published end to end.
+**Why:** the sector research says Reels and real photos are the highest-converting
+content and **neither needs image generation** — only hosting. A beautiful image
+pipeline over untested publishing plumbing is the classic failure mode here.
+**Reverses if:** she has no usable photo/video library at all, making graphics the
+only possible content.
