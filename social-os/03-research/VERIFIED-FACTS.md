@@ -52,13 +52,15 @@ All entries verified **2026-09-19** unless noted.
 |---|---|
 | Instagram publishing: two-step — `POST /{ig-user-id}/media` → container, then `POST /{ig-user-id}/media_publish`. **No scheduling parameter exists.** | `[SECONDARY]` |
 | Facebook Pages: `POST /{page-id}/feed` with `published=false` + `scheduled_publish_time`. **Native scheduling, free, Meta holds the post.** Window reported 10 min – 75 days. | `[SECONDARY]` |
-| IG publish cap: Meta's current docs reportedly say **50 per rolling 24h** (carousels = 1); older docs and field reports say 25. **Design for 25.** | `[SECONDARY]` |
+| ~~IG publish cap 25–50~~ **SUPERSEDED 2026-09-20:** Zernio's docs state **100 posts per rolling 24h**, all content types combined. Read the live quota via `GET /instagram/get-instagram-publishing-limit` and compare to `quotaTotal` — never hardcode. | `[PRIMARY]` |
 | Composio exposes `INSTAGRAM_GET_IG_USER_CONTENT_PUBLISHING_LIMIT` — read real remaining quota at runtime rather than guessing | `[PRIMARY]` |
 | **`image_url` must be a public HTTPS URL returning the file directly.** Direct file upload is not supported. | `[SECONDARY]` |
 | **Google Drive share links do not work** as `image_url` — they involve login, redirects and an HTML wrapper. All three are documented failure causes. | `[SECONDARY]` |
 | IG feed/carousel images: JPEG or PNG, **max 8 MB**, aspect **4:5 to 1.91:1**, width 320–1440 px | `[SECONDARY]` |
 | IG Reels: MP4/MOV, max 1 GB, **9:16**, min ~540×960 | `[SECONDARY]` |
-| IG Business or Creator accounts only — personal accounts rejected | `[PRIMARY]` (Composio toolkit docs) |
+| IG Business or Creator accounts only — personal accounts rejected | `[PRIMARY]` |
+| **Instagram Login needs NO Facebook Page.** `loginMethod=instagram_login` (the default) authorizes the Instagram professional account directly. Facebook Login is only required for ads scopes, catalog audio and paid-partnership labels. | `[PRIMARY]` (Zernio docs) |
+| **Zernio hosts media:** `POST /v1/media/presign` returns `uploadUrl` + **`publicUrl`**, up to **5 GB**. This satisfies Instagram's public-HTTPS-URL requirement and removes the need for a separate image host. | `[PRIMARY]` |
 
 > ⚠️ **The public-URL requirement is architecturally load-bearing.** The image
 > layer must host, or you need a bucket/CDN. This is the strongest single

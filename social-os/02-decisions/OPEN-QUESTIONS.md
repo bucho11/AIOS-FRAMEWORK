@@ -97,3 +97,16 @@ public URL `[SECONDARY]`, and a real IG publish on the free tier.
 6. Deliberately break a media URL and confirm the error is legible, not silent.
 **If it fails:** fall back to Composio (free, verified publish scopes, but Cowork's
 hourly task owns the Instagram clock), or Ayrshare at $149/mo.
+
+### OQ-010 — Does Cowork's custom-connector OAuth complete against Zernio?
+**Status:** open. **Blocks:** whether she can self-connect without an API key.
+**Why:** Zernio's official plugin documents the browser sign-in flow for **Claude
+Code**, not Cowork. Zernio advertises OAuth 2.1 + PKCE + dynamic client
+registration, which is exactly what Claude's custom-connector flow needs, so it
+should work — but "should" is not verified.
+**Test:** in Cowork → Customize → Connectors → Add custom connector →
+`https://mcp.zernio.com/mcp` → confirm it opens Zernio's consent screen and
+connects. If OAuth fails, fall back to the API-key header, which is documented
+and definitely works.
+**Impact if it fails:** the operator pastes an API key during setup instead of
+her clicking sign-in. Slightly worse onboarding, not a blocker.
