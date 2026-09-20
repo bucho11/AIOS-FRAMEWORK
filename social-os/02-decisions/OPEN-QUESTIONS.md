@@ -110,3 +110,16 @@ connects. If OAuth fails, fall back to the API-key header, which is documented
 and definitely works.
 **Impact if it fails:** the operator pastes an API key during setup instead of
 her clicking sign-in. Slightly worse onboarding, not a blocker.
+
+### OQ-011 — Which Claude account and GitHub org own this venture long-term?
+**Status:** open. **Blocks:** nothing today; gets expensive to change later.
+**Why:** the Claude account and repo currently in use are employer-associated
+(`@hideitmounts.com`). DEC-013 removed the Drive exposure, but the plugin the
+clients install, the skills, and this repo are the venture's IP and currently sit
+in employer-adjacent homes. Skills on Pro are personal to an account and cannot be
+shared person-to-person `[PRIMARY]`, so whichever Claude account publishes the
+plugin marketplace is structurally the owner.
+**Decide before:** publishing the plugin marketplace publicly, or onboarding the
+first paying client.
+**Cost of moving later:** every franchise would need to re-install from a new
+marketplace URL.

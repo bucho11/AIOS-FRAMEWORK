@@ -160,3 +160,36 @@ content and **neither needs image generation** — only hosting. A beautiful ima
 pipeline over untested publishing plumbing is the classic failure mode here.
 **Reverses if:** she has no usable photo/video library at all, making graphics the
 only possible content.
+
+### DEC-013 — Nothing for this venture lives in HIDEit's Google Workspace or Claude account
+**Date:** 2026-09-20 · **Status:** ✅ locked
+**Decision:** Build nothing for this venture inside the `@hideitmounts.com`
+Workspace. No Drive folders, no files. The repo is the factory; client Drive
+folders are created in the **client's own** Google account, with a **personal
+operator Google account** (outside any employer domain) holding Editor access.
+**Why — visibility `[PRIMARY]`, Google's own docs:** in Google Workspace,
+"private" means *not shared with coworkers*, **not** hidden from admins. A super
+admin can reach any My Drive file through **Vault export** ("Drive files owned and
+shared with a specific user"), **org-wide data export**, or **ownership transfer**
+— which Google explicitly says can include *"files that aren't shared with
+anyone."* The Drive audit log records every file created. Google documents **no**
+mode in which a Workspace user can create files their admin cannot reach; the only
+remedy is to be outside the managed domain.
+*Fair nuance:* an admin cannot casually browse a My Drive from the Admin console —
+it takes a deliberate export or transfer. Not on a dashboard; fully reachable if
+anyone looks.
+**Why — ownership, the larger risk:** this venture is intended for resale to ~20
+franchises. Work product created inside an employer's systems is commonly
+claimable by that employer under standard IP terms. Visibility is the small
+problem; **ownership is the big one.**
+**Consequence:** the "master template in the operator's Drive" step from
+`delivery-model.md` Phase 1 is **removed**. It was a convenience, never a
+requirement. The template lives in the repo and is materialized directly into the
+client's Drive at setup. **Phase 1 needs no Drive at all.**
+**Also flagged, not yet decided:** the Claude account and GitHub org in use are
+likewise employer-associated. Migrating the venture to its own Claude account and
+its own GitHub is far cheaper now than after a client and 20 franchises are
+attached. Tracked as `OQ-011`.
+**Reverses if:** the operator obtains explicit written consent from HIDEit that
+this venture and its artifacts are personally owned — in which case the visibility
+point still stands and only the ownership risk clears.

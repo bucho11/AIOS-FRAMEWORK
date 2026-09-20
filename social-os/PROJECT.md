@@ -3,8 +3,8 @@
 > The router. Paths, status, and next actions. **This is the only authoritative
 > source for these facts** — never use paths or status from memory or old notes.
 
-**Updated:** 2026-09-19
-**Phase:** Design locked pending operator answers. No build started.
+**Updated:** 2026-09-20
+**Phase:** Stack locked at $0. Ready to build Phase 1 in the repo. One gate open (`OQ-009`).
 
 ---
 
@@ -16,13 +16,13 @@
 | **Repo** | `/home/user/AIOS-FRAMEWORK/social-os` |
 | **Branch** | `claude/agentic-social-media-system-kfnf7n` |
 | **Client (first)** | Lifetime of Love Nannies — one franchise location, market TBC |
-| **Client Drive folder** | ❌ not yet created |
+| **Client Drive folder** | ❌ not created. Will live in **client's** Google account; operator access via a **personal** account, never HIDEit's (DEC-013). |
 | **Operator surface** | Claude Cowork (Pro plan) |
-| **Brain / filesystem** | Google Drive via connector — **not** a local folder (see DEC-002) |
-| **Publishing layer** | ⏳ pending DEC-005 — Ayrshare (recommended) vs Composio |
-| **Image layer** | ⏳ pending DEC-006 — Bannerbear (recommended) |
-| **Connector layer** | Composio (one account, operator-owned) |
-| **Status** | Design — awaiting operator answers (Round 2 questions) |
+| **Brain / filesystem** | Google Drive via native connector — **not** a local folder (DEC-002) |
+| **Publishing layer** | **Zernio** — free at 2 accounts (DEC-010). Also hosts media + native draft gate. |
+| **Image layer** | Hosting solved by Zernio. **Cloudinary** free tier for generated graphics, optional (DEC-011). |
+| **Connector layer** | Native Google Drive + Zernio custom MCP. Composio = fallback only. |
+| **Status** | Stack locked. Building Phase 1 (repo only — no Drive, DEC-013). |
 
 ## Platforms in scope
 
@@ -40,10 +40,10 @@
 |---|---|---|
 | 1 | Operator answers Round 2 questions | — |
 | 2 | Confirm IG account is **Business/Creator** and linked to the FB Page | client access |
-| 3 | Close `OQ-001` (Composio publish scope live test) **or** choose Ayrshare and skip it | DEC-005 |
+| 3 | Close `OQ-009` — free Zernio signup, verify MCP tools + one real IG post | **the gate** |
 | 4 | Build the client Drive folder from `05-product/client-folder-template.md` | DEC-002 ✅ done |
 | 5 | Build the **onboarding skill** — the highest-leverage piece | Round 2 answers |
-| 6 | Build brand templates in the image layer | DEC-006 + brand assets |
+| 6 | Package the four skills as a **plugin repo** (the clone mechanism) | 5 |
 | 7 | Wire connectors into her Cowork, run one end-to-end test post | 3–6 |
 | 8 | Package as the clone kit | 7 |
 
