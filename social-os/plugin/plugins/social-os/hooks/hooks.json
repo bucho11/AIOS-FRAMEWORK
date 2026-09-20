@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*zernio.*__posts_(create|publish_now|cross_post|update)",
+        "hooks": [
+          {
+            "type": "prompt",
+            "timeout": 30,
+            "prompt": "You are a last-line safety check for a childcare brand's social media. A tool call is about to reach the publishing vendor. Arguments: $ARGUMENTS. Decide DENY only if any of these is true, otherwise ALLOW: (1) the arguments would publish immediately (publish_now / publishNow true, or is_draft/isDraft false with a schedule) and the conversation shows no explicit owner approval naming this post; (2) the caption contains an unsubstantiated claim \u2014 'licensed', 'certified', 'guaranteed', '100% safe', 'zero risk' \u2014 or implies nannies are 1099 contractors; (3) a media URL is a Google Drive, Dropbox, OneDrive or iCloud link. Creating a draft (is_draft/isDraft true) is always allowed. Respond with JSON only: {\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"allow\" or \"deny\", \"permissionDecisionReason\": \"one plain sentence naming the rule\"}}"
+          }
+        ]
+      }
+    ]
+  }
+}

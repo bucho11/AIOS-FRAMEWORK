@@ -150,3 +150,28 @@ design, inspect what comes back, then feed it to Zernio
 `media_generate_upload_link` and confirm a permanent `publicUrl`.
 **Fallback if the handoff is manual:** Canva export lands in her Drive, and the
 publish skill picks it up from `3 Approved/` — one extra hop, still automatic.
+
+### OQ-013 (refined) — Does Zernio fetch an external media URL at post creation or at publish?
+**Status:** open. **Blocks:** far-out scheduling of Canva graphics only.
+**Known `[PRIMARY]`:** Zernio uploads sit in temp storage 7 days and are copied to
+permanent storage on publish. External `mediaItems.url` must be public HTTPS
+returning the file. Canva export URLs are signed and expire (TTL undocumented).
+**Test:** approve a Canva-graphic post scheduled 3 days out; after 2 hours run
+`validate_media` on the Canva URL (expect expired) and `posts_get` on the Zernio
+post; at publish time confirm success or `post.failed` reason.
+**If it fails:** publish skill switches Canva posts to "export → owner drops the PNG
+into the Zernio upload link" or schedules Canva posts ≤ 1 hour out.
+
+### OQ-014 — Does the plugin's PreToolUse `prompt` hook fire in Cowork, and what is the bundled MCP tool name?
+**Status:** open. **Blocks:** nothing — the hook is defence in depth (DEC-022).
+**Known `[PRIMARY]`:** hooks run in Cowork; matcher form is `mcp__<server>__<tool>`;
+`prompt`-type hooks return `hookSpecificOutput.permissionDecision`. Unknown: whether
+a plugin-bundled server's tools are named `mcp__zernio__…` or namespaced; hence the
+regex matcher `mcp__.*zernio.*__posts_(create|publish_now|cross_post|update)`.
+**Test:** in Cowork with the plugin installed, ask Claude to list tool names, then
+attempt `posts_publish_now` without approval and see whether the hook denies.
+
+### OQ-015 — Can Cowork's Drive connector read a `.md` created with conversion disabled?
+**Status:** designed around (DEC-020) — brain files are Google Docs regardless.
+**Test if curious:** `create_file` with `disableConversionToGoogleType: true` and
+`text/markdown`, then `read_file_content` and `download_file_content`.

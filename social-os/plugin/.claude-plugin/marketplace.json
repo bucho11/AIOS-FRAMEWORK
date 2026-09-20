@@ -1,0 +1,15 @@
+{
+  "name": "social-os",
+  "owner": {
+    "name": "Bucho"
+  },
+  "plugins": [
+    {
+      "name": "social-os",
+      "displayName": "Social OS",
+      "description": "Branded social content that runs itself, from one Google Drive folder and a chat. Interviews the owner once, learns the brand, drafts Instagram and Facebook content in their voice, makes graphics in Canva, stages every post for approval, publishes and schedules through Zernio, and gets smarter every week from real performance. Built for local service businesses; ships childcare-grade compliance guardrails.",
+      "category": "marketing",
+      "source": "./plugins/social-os"
+    }
+  ]
+}

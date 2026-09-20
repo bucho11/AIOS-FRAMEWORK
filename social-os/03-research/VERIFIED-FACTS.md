@@ -103,3 +103,38 @@ All entries verified **2026-09-19** unless noted.
 | Top childcare accounts avoid children's faces by default: backs of heads, hands, toys, wide/cropped shots, staff-only, graphics and quote cards, blurred testimonials | `[SECONDARY]` |
 | COPPA: FTC treats photos/video/audio containing a child's image or voice as **personal information**. Commercial use needs a written guardian release naming platforms, duration, and **paid advertising** explicitly. | `[SECONDARY]` |
 | Meta applies child-safety enforcement to **AI-generated material identically to real material**; enforcement tightened in 2026. A false positive can kill the ad account without warning. | `[SECONDARY]` |
+
+## Build-phase verifications (2026-09-20)
+
+| Fact | Tag |
+|---|---|
+| Plugin layout: `.claude-plugin/plugin.json` (only `name` required), `.mcp.json` with `{"type":"http","url":…}` for remote servers, `skills/<name>/SKILL.md`, `agents/*.md`, `hooks/hooks.json`; marketplace `.claude-plugin/marketplace.json` with `plugins[].source` as a relative path | `[PRIMARY]` |
+| Anthropic's own plugins declare `canva` → `https://mcp.canva.com/mcp` and `google-drive` → `https://drivemcp.googleapis.com/mcp/v1`; Zernio's plugin declares `https://mcp.zernio.com/mcp` — all `type: http` | `[PRIMARY]` |
+| SKILL.md frontmatter: `name` 1–64 chars lowercase/digits/hyphens; `description` ≤ 1024 chars; optional `license`, `compatibility`, `metadata`, `allowed-tools` | `[SECONDARY]` |
+| **"Hooks and sub-agents run only in Cowork, so they appear grayed out in chat."** Hook types by surface not enumerated. | `[PRIMARY]` |
+| PreToolUse matcher `mcp__<server>__<tool>`; block via exit 2 or `hookSpecificOutput.permissionDecision: "deny"`; `prompt`/`agent` hooks return the same JSON | `[PRIMARY]` |
+| Google Drive connector: `update_file` edits **title and parent only**; `read_file_content` supports Docs/Sheets/Slides/PDF/Office/images; `download_file_content` exports Docs as text; `create_file` converts text to a Google Doc unless disabled; folders via `mimeType application/vnd.google-apps.folder`; `trash_file` exists; **no Google Docs connector in the directory** | `[PRIMARY]` |
+| Cowork cloud sandbox: *"All traffic leaving the sandbox passes through a mandatory proxy… only allow-listed destinations are reachable."* | `[PRIMARY]` |
+| Cowork scheduled tasks are created by the user (name, prompt, frequency); a plugin cannot create them | `[SECONDARY]` |
+| **Canva MCP plan gating (corrects earlier table):** Pro+ = `resize-design`, `search-brand-templates`, `list-brand-kits`, `create-design-from-brand-template`; Enterprise-only = `autofill-design`, `get-brand-template-dataset`; everything else all plans | `[PRIMARY]` |
+| Canva Pro users **can** create Brand Templates in the Canva UI | `[SECONDARY]` |
+| Canva edit loop: `start-editing-transaction` → `perform-editing-operations` (`replace_text {type, element_id, text}`; `find_and_replace_text` on responsive pages) → `commit-editing-transaction`; element ids from `get-design-content` | `[PRIMARY]` |
+| Canva `generate-design` → `job.result.generated_designs[{candidate_id,url,thumbnails}]`; `create-design-from-candidate` takes the job id + candidate | `[PRIMARY]` |
+| Canva `export-design(design, format, …)` → `job.urls[]`; **"Signed export URLs expire. Use them immediately."** Pro = lossless PNG / transparent bg. Rate limit 20/min on generate/create/resize/export | `[PRIMARY]` |
+| Canva handoff rule: always surface `https://www.canva.com/design/{id}/edit`; "don't end the workflow at export" | `[PRIMARY]` |
+| Zernio: to promote a draft send **`isDraft:false` with `scheduledFor`**; `scheduledFor` alone returns 200 and leaves it a draft | `[PRIMARY]` |
+| Zernio `mediaItems[].url` must be public HTTPS returning the file; **Google Drive, Dropbox, OneDrive, iCloud links fail**; uploads live 7 days in temp storage then are copied permanent on publish; Zernio compresses above platform limits | `[PRIMARY]` |
+| Zernio MCP media path = browser upload (`media_generate_upload_link`, 30-min link → `media_check_upload_status`), because "an AI client cannot read files on your computer" | `[PRIMARY]` |
+| Zernio `hashtags` and `mentions` fields are reference-only — hashtags must be in `content` (or `firstComment`) | `[PRIMARY]` |
+| Zernio `metadata` is free-form and echoed on every read and webhook — our packet ID lives there | `[PRIMARY]` |
+| Zernio idempotency: `x-request-id` UUID per logical post (retry returns original); identical content to same account within 24 h → **409** | `[PRIMARY]` |
+| Zernio Instagram `platformSpecificData`: `contentType:"story"`, `shareToFeed`, `firstComment`, `locationId`, `collaborators`, `userTags`, `instagramThumbnail`, `commentsEnabled`, `isAiGenerated`, `isPaidPartnership`, `muteAudio` | `[PRIMARY]` |
+| Zernio Facebook: image **4 MB**, Reel **60 s**, Story 120 s, Page required, "tokens expire frequently" | `[PRIMARY]` |
+| Zernio `GET /v1/accounts/{id}/instagram/publishing-limit` → `quotaUsage`/`quotaTotal`; "Meta's prose documentation and the live API disagree… the live value is authoritative" | `[PRIMARY]` |
+| Zernio `GET /v1/accounts/health` → `summary.needsReconnect`, per-account `canPost`, `status` | `[PRIMARY]` |
+| Zernio analytics: `GET /v1/analytics` (sortBy engagement, 90-day default, 366 max), `GET /v1/analytics/best-time` → `slots[{day_of_week 0=Mon, hour UTC, avg_engagement}]`; included on usage-based plans | `[PRIMARY]` |
+| Zernio comment-automation body: `profileId`, `accountId`, `name`, `keywords[]`, `matchMode exact|contains|word`, `typoTolerance`, `excludeKeywords`, `dmMessage`, `buttons[]`, `commentReply`, `alsoMatchInDms`, `trigger comment|story_reply`, `postId` (binds to unpublished post) | `[PRIMARY]` |
+| Zernio webhook events include `post.published`, `post.failed`, `post.partial`, `account.disconnected`, `comment.received`; they carry `post.metadata` | `[PRIMARY]` |
+| 2026 caption rules for local service: hook + keyword in first 125 chars; ≤ 5 relevant local hashtags; one CTA last; algorithm rewards watch time, saves, shares, DMs | `[SECONDARY]` |
+| Voice card backbone: Nielsen Norman's four tone dimensions (formality, humor, respect, enthusiasm) + Mailchimp/Atlassian execution rules; extract from 10–20 posts; never-dos are the strongest signal | `[SECONDARY]` |
+| FTC: testimonials must disclose material connections clearly; paraphrase may not change meaning; "licensed/certified" must be literally true; no absolute safety claims; COPPA treats a child's image/voice as personal information | `[SECONDARY]` |

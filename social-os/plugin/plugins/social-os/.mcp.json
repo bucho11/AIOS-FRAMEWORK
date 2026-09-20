@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "zernio": {
+      "type": "http",
+      "url": "https://mcp.zernio.com/mcp"
+    },
+    "canva": {
+      "type": "http",
+      "url": "https://mcp.canva.com/mcp"
+    },
+    "google-drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1"
+    }
+  }
+}

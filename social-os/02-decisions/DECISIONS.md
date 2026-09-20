@@ -321,3 +321,49 @@ public HTTPS URL. Re-hosting through Zernio (`POST /v1/media/presign` → 5 GB,
 permanent `publicUrl`) removes that whole class of failure.
 **Verify at build time (`OQ-013`):** the exact shape the Canva MCP returns on
 export, and that the handoff to Zernio's upload needs no manual download step.
+
+### DEC-020 — Brain files are Google Docs; "update" is create-new + trash-old
+**Date:** 2026-09-20 · **Status:** ✅ locked
+**Decision:** Every document in the owner's Drive brain is a **Google Doc**. Claude
+never edits in place; it replaces (create same title/parent → `trash_file` old) or
+appends a new dated doc. `Learned by us/What works` is a rolling "current" doc plus
+one immutable doc per week.
+**Why `[PRIMARY]`:** the Google Drive connector's `update_file` changes **only title
+and parent**; there is no content-edit tool. `read_file_content` supports Google
+Docs/Sheets/Slides, PDF, Office and images — not `.md`. `create_file` converts text
+to a Google Doc by default. So Docs are the only format both she and Claude can read
+and that Claude can write. The append-only weekly pattern also happens to be AIOS's
+own snapshot discipline — history for free.
+**Reverses if:** the Drive connector gains content editing, or a first-party Docs
+connector ships.
+
+### DEC-021 — Canva exports happen at approval time, never at draft time
+**Date:** 2026-09-20 · **Status:** ✅ locked
+**Decision:** `make-graphic` records `canva_design_id` + edit URL in the packet and
+does not export. `publish` exports at the moment of approval and hands the fresh URL
+straight to Zernio.
+**Why `[PRIMARY]`:** Canva: *"Signed export URLs expire. Use them immediately, and
+don't store or share them."* A URL minted at draft time is dead by approval time.
+Also Cowork's sandbox egress is **allow-listed through a mandatory proxy**, so a
+re-hosting script (GET Canva → PUT Zernio storage) cannot be relied on. Exporting
+inside the approval step removes the gap. Bonus: Canva's own handoff guidance is to
+surface the edit URL so the owner can adjust before export — which is exactly the
+approval gate.
+**Still open (`OQ-013`):** whether Zernio fetches an external `mediaItems.url` at
+post creation or at publish time. If at publish, a long-scheduled post could outlive
+the signed URL. Mitigation in the skill: `validate_media` before submit and prefer
+the Zernio upload path when the schedule is far out.
+
+### DEC-022 — Guardrails are three layers; only the first two are load-bearing
+**Date:** 2026-09-20 · **Status:** ✅ locked
+**Decision:** (1) `shared/guardrails.md` read by every drafting/design/publish skill;
+(2) an independent read-only **`compliance-reviewer` sub-agent** that fills
+`## Compliance check` before a packet can be approved; (3) an optional
+**PreToolUse prompt hook** on the vendor's publish/update tools as a last line.
+**Why:** `[PRIMARY]` Anthropic: *"Hooks and sub-agents run only in Cowork, so they
+appear grayed out in chat"* — both are available where this runs. The reviewer is
+the AIOS "independent judge" principle: a second reader catches what the author
+cannot. The hook is defence in depth but hook-*type* support in Cowork is not
+enumerated (`OQ-014`), so nothing depends on it firing.
+**Reverses if:** the hook proves reliable in Cowork — then it could become the
+primary gate and the reviewer a quality pass.
