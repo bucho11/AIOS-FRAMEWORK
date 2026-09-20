@@ -266,3 +266,58 @@ Anthropic maintains) still holds for *us* — we read their skills for patterns 
 but shipping it **to her** costs clarity, which is the thing being sold.
 **Reverses if:** the client asks for broader business automation. It is a one-click
 install at any time; nothing is lost by deferring it.
+
+### DEC-018 — Canva ships inside the plugin. Canva **Pro** is enough.
+**Date:** 2026-09-20 · **Status:** ✅ locked · **supersedes the Canva half of DEC-016**
+**Decision:** The **native Canva MCP connector** ships as part of our plugin,
+alongside Zernio. Canva **Pro** is the required plan.
+
+**The correction I owe the record:** DEC-006 and DEC-016 said "Canva is out."
+That generalised one endpoint to the whole product and was **wrong**. What is
+Enterprise-gated is **brand-template autofill**, not Canva. Canva's own MCP
+documentation gates by capability, not by product:
+
+| Capability | Free | **Pro** | Enterprise |
+|---|---|---|---|
+| Create designs | ✅ | ✅ | ✅ |
+| Edit designs | ✅ | ✅ | ✅ |
+| Search designs | ✅ | ✅ | ✅ |
+| Export | ✅ standard | ✅ **lossless PNG, transparent bg, premium elements** | ✅ |
+| Asset upload | ✅ | ✅ | ✅ |
+| Comments | ✅ | ✅ | ✅ |
+| **Resize design** | ❌ | ✅ **Pro and above** | ✅ |
+| Autofill templates | ❌ | ❌ | ✅ |
+| Brand kits / brand templates | ❌ | ❌ | ✅ |
+
+`[SECONDARY]` from Canva's official MCP docs: the server *"works with a Canva
+account on any plan"*; resize requires Pro+; autofill, brand kits and brand
+templates require Enterprise.
+
+**Why Pro is genuinely sufficient:**
+- **`resize-design` is the sleeper feature.** One design → IG feed, IG Story, FB.
+  That is the single most repetitive task in social, and it is a Pro feature.
+- **Pro exports are production-grade** — lossless PNG and transparent backgrounds.
+- **The brain replaces the Brand Kit.** Brand Kit is Enterprise, but we do not
+  need it: `Brand voice.md` and `Colors and fonts.md` in her Drive hold the exact
+  hex values, fonts and layout rules, and Claude applies them when creating the
+  design. **Our context layer substitutes for the feature we cannot buy** — which
+  is the product thesis working exactly as intended.
+
+**What we still cannot do:** fill variables into a locked brand template in one
+call. Claude creates and edits each design instead. Slightly more model work per
+graphic, same output, no Enterprise contract.
+
+**Reverses if:** a client is on Canva Free (no resize — the main loss), or turns
+out to have Enterprise (then autofill is worth wiring).
+
+### DEC-019 — Canva makes it, Zernio hosts and ships it
+**Date:** 2026-09-20 · **Status:** ✅ locked
+**Decision:** Canva is the **design** surface. Zernio remains the **hosting and
+publishing** surface. Canva exports → the file is uploaded through Zernio's
+presign flow → the returned `publicUrl` goes into the post.
+**Why not pass a Canva export URL straight to Instagram:** Canva Connect export
+URLs are job-scoped and expire; Instagram requires a durable, directly-fetchable
+public HTTPS URL. Re-hosting through Zernio (`POST /v1/media/presign` → 5 GB,
+permanent `publicUrl`) removes that whole class of failure.
+**Verify at build time (`OQ-013`):** the exact shape the Canva MCP returns on
+export, and that the handoff to Zernio's upload needs no manual download step.

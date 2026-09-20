@@ -138,3 +138,15 @@ Drive and stays private either way. A public repo also markets itself.
 `marketplace.json`, then try **Customize → Plugins → Add marketplace → Add from a
 repository** as a Pro user and see whether it authenticates.
 **Cost of changing later:** every franchise re-installs from a new URL.
+
+### OQ-013 — What does the Canva MCP return on export, and does it hand off cleanly to Zernio?
+**Status:** open. **Blocks:** the `make-graphic` skill, not the rest of the build.
+**Why:** DEC-019 routes Canva exports through Zernio's presign upload so the media
+URL is durable. Unverified: whether the Canva MCP's export returns a fetchable URL
+or binary content, and whether Claude can move it to Zernio without a manual
+download/upload step by the user.
+**Test:** with Canva Pro connected, ask Claude to create → resize → export a
+design, inspect what comes back, then feed it to Zernio
+`media_generate_upload_link` and confirm a permanent `publicUrl`.
+**Fallback if the handoff is manual:** Canva export lands in her Drive, and the
+publish skill picks it up from `3 Approved/` — one extra hop, still automatic.
