@@ -193,3 +193,76 @@ attached. Tracked as `OQ-011`.
 **Reverses if:** the operator obtains explicit written consent from HIDEit that
 this venture and its artifacts are personally owned — in which case the visibility
 point still stands and only the ownership risk clears.
+
+### DEC-014 — Distribution is our own plugin, synced from our own GitHub marketplace
+**Date:** 2026-09-20 · **Status:** ✅ locked
+**Decision:** Build one plugin in one GitHub repo that carries a
+`.claude-plugin/marketplace.json`. Clients add the marketplace once and install.
+Fork nothing.
+**Verified `[PRIMARY]`** (Anthropic, "Use plugins in Claude"): *"Add from a
+repository: Sync a marketplace from a GitHub repository or git URL."* Path is
+**Customize → Plugins → Personal plugins → "+" → Add marketplace → Add from a
+repository**. Plugins work in *"chat on the web, the Chat tab in Claude Desktop,
+and Claude Cowork."* Available on **all paid plans**, so Pro qualifies.
+> A secondary source claimed GitHub marketplaces are Claude-Code-only. **That is
+> wrong** — it was reading Claude Code docs. Anthropic's claude.ai plugins article
+> documents the repository sync for Cowork explicitly.
+**Format confirmed** from `anthropics/knowledge-work-plugins/.claude-plugin/marketplace.json`:
+a `name`, an `owner`, and a `plugins[]` array where each entry has `name`,
+`displayName`, `description`, `category` and a `source` (a local path like
+`"./productivity"`, or a `git-subdir` object).
+**Fork nothing:** real public skill libraries exist (`claude-market/marketplace`,
+`alirezarezvani/claude-skills`, `claude-office-skills/skills`, `lyndonkl/claude`,
+`VoltAgent/awesome-agent-skills`, `anthropics/skills`), but they are **generic**.
+None encode childcare compliance, nanny-agency operations, or Zernio. Read them
+for structure; the manifest is ~20 lines. The value is the domain content, not the
+scaffolding.
+**Reverses if:** Anthropic removes repository-sync from claude.ai/Cowork.
+
+### DEC-015 — The repo is NOT the brain. It cannot be.
+**Date:** 2026-09-20 · **Status:** ✅ locked
+**Decision:** The plugin repo ships **instructions**. The client's Google Drive
+holds **memory**. They are not interchangeable and neither replaces the other.
+**Why:**
+1. **A plugin is one-way.** Claude reads it on install and on update. It never
+   writes back. The brain must be written to continuously — what worked, her
+   corrections, published posts, the calendar.
+2. **There is no GitHub connector** in Claude's connector directory (checked
+   directly, 2026-09-20). Cowork cannot read or write a repo as a filesystem.
+3. **The plugin is identical for all 20 franchises; the brain is unique to each.**
+   Putting the brain in the repo would mean a fork per client that Claude could
+   not update.
+**The model:** *the repo is the machine · Drive is the memory · Zernio is the hands.*
+**Reverses if:** a first-party GitHub connector with write access ships for Cowork.
+
+### DEC-016 — Drop Cloudinary from v1. Correcting an overstatement.
+**Date:** 2026-09-20 · **Status:** ✅ locked · **supersedes DEC-011**
+**Decision:** No image-generation vendor in v1. Content is her **Reels and real
+photos** (Zernio hosts them) plus **Canva** (free, manual) for the occasional
+designed graphic.
+**Why — the correction:** Cloudinary genuinely does text-on-image by URL
+(`l_text:Arial_80:Hello,fl_layer_apply`). But verified honestly, it is suited to
+*"watermarks, badges, labels, promo callouts, and simple quote cards"* and
+explicitly **not** to *"fully designed branded social media graphics with careful
+typography, spacing, line breaks, and visual hierarchy."* DEC-011 oversold it as a
+Bannerbear replacement. It is not one.
+**Also:** the sector research says her highest-converting content is **Reels and
+real photos**, which need **no generation at all** — only hosting, which Zernio
+does. Adding a vendor for the minority case complicates the client sale for little
+gain.
+**Reverses if:** she has no usable photo or video library, making graphics the only
+possible content. Then APITemplate.io free (50/mo, real visual editor) beats
+Cloudinary.
+
+### DEC-017 — Ship only our plugin in v1. Skip Anthropic's `small-business`.
+**Date:** 2026-09-20 · **Status:** ✅ locked · **narrows DEC-009**
+**Decision:** v1 installs **one** plugin — ours. Anthropic's `small-business`
+plugin is not part of the client setup.
+**Why:** it carries **43 skills and ~34 connectors** covering payroll, tax prep,
+inventory, Shopify, bookkeeping. For a nanny franchise doing Instagram and
+Facebook that is mostly noise, and every irrelevant skill is a phantom capability
+the client can trigger by accident. DEC-009's reasoning (don't rebuild what
+Anthropic maintains) still holds for *us* — we read their skills for patterns —
+but shipping it **to her** costs clarity, which is the thing being sold.
+**Reverses if:** the client asks for broader business automation. It is a one-click
+install at any time; nothing is lost by deferring it.
