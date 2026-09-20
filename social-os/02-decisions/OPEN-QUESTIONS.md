@@ -123,3 +123,18 @@ plugin marketplace is structurally the owner.
 first paying client.
 **Cost of moving later:** every franchise would need to re-install from a new
 marketplace URL.
+
+### OQ-012 — Public or private marketplace repo?
+**Status:** open. **Decide before:** the first client install.
+**Why it matters:** `[SECONDARY]` private marketplace auth runs through org
+GitHub App connections or local git credentials — documented for Claude Code and
+org settings, **not** verified for an individual **Pro** user syncing a private
+repo in Cowork. A private repo may put a credential step in front of a
+non-technical client, or may not work at all on Pro.
+**Leaning:** public. The plugin is instructions; the client's data lives in her
+Drive and stays private either way. A public repo also markets itself.
+**Counter:** it publishes the childcare guardrails and domain logic.
+**Test if private is wanted:** create a private repo with a minimal
+`marketplace.json`, then try **Customize → Plugins → Add marketplace → Add from a
+repository** as a Pro user and see whether it authenticates.
+**Cost of changing later:** every franchise re-installs from a new URL.
