@@ -175,3 +175,17 @@ attempt `posts_publish_now` without approval and see whether the hook denies.
 **Status:** designed around (DEC-020) — brain files are Google Docs regardless.
 **Test if curious:** `create_file` with `disableConversionToGoogleType: true` and
 `text/markdown`, then `read_file_content` and `download_file_content`.
+
+### OQ-016 — The test Instagram account must be Business or Creator
+**Status:** open, operator action. **Blocks:** `OQ-009` (the live publish test).
+**Why `[PRIMARY]`, Zernio's Instagram page, verbatim:** *"Instagram requires a
+Business or Creator account; personal accounts cannot post through the API."* Their
+unsupported list names *"Posting to personal accounts (Business or Creator only)."*
+Facebook likewise: *"Facebook requires a Page; personal profiles cannot post through
+the API."*
+**Consequence:** a personal Instagram may connect to Zernio for read access and
+still fail every publish. `accounts/health` → `canPost: false` is the tell.
+**Fix (free, ~30 seconds, reversible):** Instagram app → Settings → Account type
+and tools → Switch to professional account → **Creator** is enough; Business also
+works. No Facebook Page required when connected with Instagram Login.
+**Run `social-os/tools/verify-zernio.sh` to see `canPost` before assuming.**
