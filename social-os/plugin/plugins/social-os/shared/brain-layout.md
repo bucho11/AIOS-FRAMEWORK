@@ -57,6 +57,7 @@ drive_releases_id: <folder id>
 zernio_profile_id: <24-hex>
 zernio_instagram_account_id: <24-hex>   (blank until connected)
 zernio_facebook_account_id: <24-hex>    (blank until connected)
+canva_available: yes | no          ← no ⇒ photo/video/text posts only, no graphics
 posting_capacity_per_week: 4
 reels_she_can_film_per_week: 2
 recruiting_in_scope: yes | no

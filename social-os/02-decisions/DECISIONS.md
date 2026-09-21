@@ -367,3 +367,19 @@ cannot. The hook is defence in depth but hook-*type* support in Cowork is not
 enumerated (`OQ-014`), so nothing depends on it firing.
 **Reverses if:** the hook proves reliable in Cowork — then it could become the
 primary gate and the reviewer a quality pass.
+
+### DEC-023 — Canva is an upgrade, not a dependency
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** `0 — Setup` carries `canva_available: yes | no`. With `no`, the system
+runs fully on photos, short videos and text; `make-graphic` refuses loudly rather
+than half-working, and `plan-week` converts graphic slots to photo or Reel slots.
+**Why:** the operator is not buying Canva Pro, so the Canva path cannot be tested
+before the first client. Rather than ship an untested component in the critical
+path, it moves out of it. This costs almost nothing: sector research ranks **Reels
+and real photos** as the highest-converting content for local childcare, and those
+need no design at all — only hosting, which Zernio does. Graphics matter for
+carousels and quote cards, which are the minority case.
+**Consequence:** the end-to-end path that ships **fully verified** is
+brain → plan → draft → owner media → Zernio upload → validate → schedule → publish
+→ learn. Canva is additive and gets proven on the first client who has Pro.
+**Reverses if:** the operator or a client provides a Canva Pro account to test with.

@@ -21,6 +21,18 @@ the substitute for the feature we cannot buy — read it every time.
 Read `references/canva-cheatsheet.md` for tool names, the editing transaction, and
 plan gating. Read `../../shared/guardrails.md` before choosing any imagery.
 
+## First: is Canva even available?
+
+Read `canva_available` in `0 — Setup`. **`no` ⇒ stop and say so plainly** — there is
+no partial version of this skill worth running. Tell the caller to use a photo or a
+short video instead, which is what the sector research says converts best anyway,
+and offer to note the graphic idea in `1 Ideas/` for whenever Canva is added.
+
+`canva_available` is also `no` in practice when the Canva connector is not
+connected, or when the account is Canva **Free** and the post needs more than one
+size — `resize-design` is Pro-and-above. Say which of those it is; "it didn't work"
+is not a useful answer to a non-technical owner.
+
 ## Two paths — prefer the first
 
 **A · From one of her Brand Templates (Pro+).** If the owner has built Brand

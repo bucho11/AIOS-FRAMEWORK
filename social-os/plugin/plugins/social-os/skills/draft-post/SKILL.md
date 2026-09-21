@@ -43,8 +43,11 @@ brain: `Brand voice`, `What we offer`, `Who we talk to`, `Her preferences`,
 5. **Media.**
    - `owner-upload` → note exactly what she should upload (which photo/Reel) in the
      packet; `publish` will hand her the upload link at approval time.
-   - `canva` → run `social-os:make-graphic` with the caption's headline and the
-     brand's colours; it returns a `canva_design_id` and edit URL for the packet.
+   - `canva` → **check `canva_available` in Setup first.** `yes` → run
+     `social-os:make-graphic` with the caption's headline and the brand's colours; it
+     returns a `canva_design_id` and edit URL for the packet. `no` → switch the post
+     to `owner-upload` and say which photo or short video would carry it. The system
+     is complete without Canva; graphics are an upgrade, not a dependency.
    - Any real child → check `Photo releases/` first. No match → refuse that image,
      offer the no-face framing, keep going.
 

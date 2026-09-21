@@ -34,7 +34,9 @@ in `1 — Brain/Told to us/` and `Learned by us/What works (current)`. Read
 3. **Pick the mix.** Exactly `posting_capacity_per_week` posts, cross-posted to
    Instagram + Facebook unless `Rules for the AI` says otherwise. Balance:
    - Reels ≤ `reels_she_can_film_per_week` (she has to film them)
-   - at least one educational carousel or graphic (saves and shares)
+   - at least one educational carousel or graphic (saves and shares) — **only if
+     `canva_available: yes` in Setup**; otherwise convert that slot to a photo post
+     or a talking-to-camera Reel, which the research ranks higher for reach anyway
    - at least one caregiver-facing post per week **if recruiting is in scope**
    - rotate topics; no topic twice in a week unless she asked
    - one local-presence hook (market name in the first line) per week
