@@ -189,3 +189,24 @@ still fail every publish. `accounts/health` → `canPost: false` is the tell.
 and tools → Switch to professional account → **Creator** is enough; Business also
 works. No Facebook Page required when connected with Instagram Login.
 **Run `social-os/tools/verify-zernio.sh` to see `canPost` before assuming.**
+
+
+---
+
+## Closed
+
+- **OQ-009 — does Zernio publish?** ✅ 2026-09-21. Live account verified: auth, two
+  healthy accounts with `canPost: true`, live quota 100, full media upload
+  round-trip, and a real cross-posted `validate_post` returning
+  `{"valid": true}`. Nothing published.
+- **OQ-013 — Canva → Zernio handoff.** ✅ 2026-09-21. Zernio fetches external URLs
+  **server-side**, proven with a `raw.githubusercontent.com` URL. A live Canva export
+  URL can be passed directly as `mediaItems[].url`. The publish skill now does
+  export → validate → create in one unbroken pass, and falls back to the Zernio
+  upload link for schedules more than a few hours out.
+- **OQ-016 — Instagram account type.** ✅ 2026-09-21. Switched to **Creator**;
+  `accounts/health` reports `canPost: true`. The fix is free and reversible.
+
+**Still open:** OQ-011 (owning GitHub account) · OQ-012 (public vs private repo) ·
+OQ-014 (does the PreToolUse hook fire in Cowork) · OQ-015 (Drive `.md` read-back,
+designed around).

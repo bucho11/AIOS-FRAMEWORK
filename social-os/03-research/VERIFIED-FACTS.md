@@ -138,3 +138,34 @@ All entries verified **2026-09-19** unless noted.
 | 2026 caption rules for local service: hook + keyword in first 125 chars; ≤ 5 relevant local hashtags; one CTA last; algorithm rewards watch time, saves, shares, DMs | `[SECONDARY]` |
 | Voice card backbone: Nielsen Norman's four tone dimensions (formality, humor, respect, enthusiasm) + Mailchimp/Atlassian execution rules; extract from 10–20 posts; never-dos are the strongest signal | `[SECONDARY]` |
 | FTC: testimonials must disclose material connections clearly; paraphrase may not change meaning; "licensed/certified" must be literally true; no absolute safety claims; COPPA treats a child's image/voice as personal information | `[SECONDARY]` |
+
+## Live Zernio verification — 2026-09-21, operator's real account `[PRIMARY]`
+
+Run with `social-os/tools/verify-zernio.sh` plus follow-up probes. Nothing published.
+
+| Fact | Result |
+|---|---|
+| API key auth (`Bearer sk_…`) | ✅ works |
+| Profile | one, `Default`, holds both accounts |
+| Accounts | Facebook Page + Instagram, both `isActive: true`, same profile |
+| **`accounts/health`** | `healthy 2, warning 0, error 0, needsReconnect 0`; **both `canPost: true`, `canFetchAnalytics: true`** |
+| **Creator switch works** | an Instagram switched to **Creator** reports `canPost: true` — confirms OQ-016's fix |
+| **Instagram live quota** | **`quotaTotal: 100`**, `quotaUsage: 0`, `quotaDurationSeconds: 86400`. Settles 25 vs 50 vs 100. |
+| `POST /v1/media/presign` | returns `uploadUrl` (Cloudflare R2), `publicUrl` (`media.zernio.com/temp/…`), `expiresIn: 3600` |
+| `PUT` bytes to `uploadUrl` | HTTP **200** |
+| **Presigned URL 404s until the PUT happens** | validating before upload always fails — **validate after upload** |
+| `validate_media` after upload | `valid: true` + `contentType`, `size`, per-platform `withinLimit` |
+| **Zernio fetches external URLs server-side** | a `raw.githubusercontent.com` URL → `valid: true`. **A live Canva export URL can be passed directly as `mediaItems[].url`.** Closes OQ-013. |
+| Redirecting URLs | `picsum.photos/1080` → `"URL returned HTTP 404"` — matches the Drive/Dropbox warning |
+| **`validate_post` dry run** | a real cross-posted IG+FB body (media, `firstComment`, `scheduledFor`, `timezone`) → **`{"valid": true, "message": "No validation issues found."}`**. Free pre-flight; nothing published. |
+| MCP `tools/list` authenticated | **52 tools**, incl. `validate_post`, `validate_media`, `validate_post_length`, queue, analytics, comments, mentions, `search_tools`, `call_tool` |
+| Comment automations | **not** in the core 52 — reach via `search_tools` → `call_tool` |
+| `validate_post_length` | takes **`text`**, not `content` |
+| Facebook image limit | `validate_media` says 10 MB; the Facebook platform page says 4 MB "rejected in practice" — **trust 4 MB** |
+
+> **Sandbox note, not a product fact:** this Claude environment's egress is
+> allow-listed — `upload.wikimedia.org` and `export-download.canva.com` were blocked
+> (HTTP 400/403), while `zernio.com`, Cloudflare R2 and `raw.githubusercontent.com`
+> were reachable. Cowork's architecture doc describes the same allow-list model, so
+> **do not design on Claude downloading a Canva file and re-uploading it.** Zernio's
+> own server-side fetch is the supported path.

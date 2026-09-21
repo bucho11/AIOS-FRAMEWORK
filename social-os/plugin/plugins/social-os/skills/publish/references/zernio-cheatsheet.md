@@ -4,6 +4,29 @@ Server: `https://mcp.zernio.com/mcp`. OAuth 2.1 + PKCE with dynamic client
 registration (the owner signs in; no key to paste) or `Authorization: Bearer sk_…`.
 `tools/list` returns ~50 tools; the rest are behind `search_tools` → `call_tool`.
 
+## Live verification — 2026-09-21, real account, `[PRIMARY]`
+
+Auth, accounts, health, quota, media round-trip and a full dry-run post all pass.
+`tools/list` returned **52** tools. Confirmed by running it:
+
+- **`validate_post`** is the pre-flight: same checks as creation, publishes nothing,
+  returns `{"valid": true, "message": "No validation issues found."}`. **Use it every
+  time.** A real cross-posted IG+FB body with media, `firstComment`, `scheduledFor`
+  and `timezone` validated clean.
+- **A presigned `publicUrl` 404s until the file is PUT.** Validate after upload, never
+  before. `PUT` to `uploadUrl` with the same `Content-Type` → HTTP 200.
+- **Zernio fetches external URLs server-side** — a `raw.githubusercontent.com` URL
+  validated `valid: true` with correct type and size. So a live Canva export URL can
+  be passed directly as `mediaItems[].url`.
+- **Redirecting URLs fail** — `picsum.photos/1080` → *"URL returned HTTP 404"*.
+  Consistent with the docs' warning about Drive/Dropbox links.
+- **Live Instagram quota: `quotaTotal: 100`**, `quotaDurationSeconds: 86400`. Settles
+  the 25-vs-50-vs-100 question; still read it at run time.
+- `validate_media` returns per-platform `withinLimit` — it reports **Facebook 10 MB**
+  while the Facebook platform page says 4 MB "rejected in practice". **Trust 4 MB.**
+- `validate_post_length` takes **`text`**, not `content`.
+- **Comment automations are NOT in the core 52** — use `search_tools` → `call_tool`.
+
 ## Core tools
 
 `accounts_list` · `accounts_get` · `profiles_list/get/create/update/delete` ·

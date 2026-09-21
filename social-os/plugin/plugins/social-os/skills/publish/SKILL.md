@@ -35,20 +35,35 @@ them and stop — she can override, but only explicitly.
 1. **Find the packet** in `2 Drafts/` by title. Read it.
 2. **Resolve media.**
    - `media_source: canva` → `export-design` now (PNG; lossless on Pro) for each
-     size the post needs. Export URLs are signed and short-lived — go straight to
-     step 3, never park them.
+     size the post needs. **Zernio fetches external URLs server-side** (verified), so
+     a fresh Canva export URL can go straight into `mediaItems[].url`. But those URLs
+     are signed and short-lived, so do it in one unbroken pass: export → validate →
+     create. **If the post is scheduled more than a few hours out, don't trust the
+     Canva URL to survive** — download is blocked in the sandbox, so instead ask the
+     owner to drop the exported PNG into a Zernio upload link, or schedule inside the
+     hour. Zernio storage is durable for 7 days and made permanent on publish.
    - `media_source: owner-upload` → `media_generate_upload_link`; give her the link
      ("drop the photo or Reel here, it's good for 30 minutes"); when she says done,
      `media_check_upload_status(token)` → `media_urls`. Uploads live 7 days in
      temp storage and are made permanent when the post publishes, so the publish
      time must be within 7 days.
    - Reject Google Drive / Dropbox links outright — they return HTML, not the file.
-3. **Validate.** `call_tool` the media validator with each URL (checks reachability,
-   type, and per-platform size). Fix before continuing.
+3. **Validate — after the bytes exist, never before.** `validate_media` on each URL.
+   A presigned `publicUrl` **404s until the file is actually PUT to storage**, so
+   validating a URL you just minted always fails; validate only after
+   `media_check_upload_status` reports `completed`, or after a Canva export URL is in
+   hand. A pass returns `contentType`, `size`, and per-platform `withinLimit` flags.
 4. **Quota.** For Instagram, read the publishing limit for the account and compare
    `quotaUsage` to `quotaTotal` (never hardcode a number). Near the cap → propose a
    later time.
-5. **Create or promote.**
+5. **Pre-flight the whole post.** `validate_post` with the exact body you are about
+   to send — content, `mediaItems`, `platforms` with `platformSpecificData`,
+   `scheduledFor`, `timezone`. It runs the same per-platform checks as creation and
+   returns `{"valid": true, "message": "No validation issues found."}` or the precise
+   field that would fail. **This is free and catches errors before Meta ever sees
+   them** — run it every time, and never skip it because the post "looks fine".
+
+6. **Create or promote.**
    - If no `vendor_post_id`: `posts_create` — content, `platform`/`account_id` for
      each target (or `posts_cross_post`), `media_urls`, and scheduling. For exact
      times use the REST shape through `call_tool` with `scheduledFor` + the Setup
@@ -63,9 +78,9 @@ them and stop — she can override, but only explicitly.
    - Send a fresh UUID as `x-request-id`. If Zernio answers **409**, identical
      content already went to that account within 24 hours — don't retry; tell her.
    - Refused for an ambiguous account → `accounts_list`, pick the right id, retry.
-6. **Record.** Replace the packet with `status: scheduled`, `vendor_post_id`,
+7. **Record.** Replace the packet with `status: scheduled`, `vendor_post_id`,
    `media_urls`, `approval: approved by <name> on <date>`; move it to `3 Approved/`.
-7. **Confirm** in one line: what, where, when (her local time).
+8. **Confirm** in one line: what, where, when (her local time).
 
 ## After publish
 
@@ -86,8 +101,9 @@ timezone. "Cancel" → `posts_delete` and move the packet back to `2 Drafts/`.
 
 ## Comment-to-DM automations
 
-When a post's CTA is "DM CARE", offer to create the matching automation so the
-promise is kept automatically: `call_tool` create-comment-automation with
+Not in the ~52 core tools — reach it with `search_tools` ("comment automation")
+then `call_tool`. When a post's CTA is "DM CARE", offer to create the matching
+automation so the promise is kept automatically: create-comment-automation with
 `profileId`, `accountId`, `name`, `keywords: ["CARE"]`, `matchMode: "word"`,
 `typoTolerance: true`, `alsoMatchInDms: true`, a warm `dmMessage` in her voice
 (≤ 640 chars if buttons), optional `commentReply`. One automation per keyword; they
