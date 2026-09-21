@@ -405,9 +405,52 @@ scripts, and their false-negative rate drops to zero.
 **Status:** ✅ **decided 2026-09-21 — yes, as an issue.** The operator delegated the
 call explicitly. Reasoning: the repository is MIT and actively maintained, we built on
 its thinking, both defects are one-line fixes, and a friendly bug report is ordinary
-good practice that reflects well on a venture in the same space. Filed as an **issue,
-not a pull request** — the lower-friction contribution, and a PR would need his review
-anyway. Outcome recorded in the session.
+good practice that reflects well on a venture in the same space. To be filed as an **issue, not a pull
+request** — the lower-friction contribution, and a PR would need his review anyway.
+
+**Not filed from this session: cross-owner repository attachment is refused here**, so
+the GitHub API is unavailable for `NulightJens/*`. Recording the text rather than
+claiming a post that did not happen (DEC-054). One paste at
+https://github.com/NulightJens/humanizer-stack/issues/new :
+
+> **Title:** `copy_scan.py`: the antithesis rule misses contracted forms
+>
+> Thanks for this — the two-pass framing and the convergence trap in particular
+> changed how we built our own checks.
+>
+> While testing `copy_scan.py` against social copy I hit two gaps in `copy-antithesis`.
+> Five realistic variants, two caught:
+>
+> ```
+> It's not just childcare, it's peace of mind.        ✅ caught
+> This isn't just childcare, it's peace of mind.      ❌ missed
+> It isn't just childcare, it's peace of mind.        ❌ missed
+> Not only do we screen, but we also train.           ✅ caught
+> That's not just a nanny, that's a partner.          ❌ missed
+> ```
+>
+> **1. Contractions.** The pattern anchors on `\bnot just\b`, and the letters
+> *n-o-t* do not occur in "isn't" — so every contracted negative passes clean.
+> Social and marketing copy runs on contractions, so this is most of the real
+> instances.
+>
+> **2. The closer alternation.** It accepts `it's|but`, so a `that's` / `this is` /
+> `they're` closer slips through.
+>
+> Both look like one-line fixes, roughly:
+>
+> ```python
+> NEG = r"(?:\bnot\b|\b(?:is|are|was|were|do|does|did)n[''`]?t\b)"
+> CLOSER = r"(?:it|that|this|they|we|you)\s*[''`]?(?:s|re)\b|\bit\s+is\b|\bbut\b"
+> ```
+>
+> Separately, and only as a note for the README rather than a bug: `copy-em-dash`
+> fires on em dashes used structurally. Our workspace folder names contain them
+> (`1 — Brain`), and a scan of our internal docs returned 13 hits, all folder names.
+> Your "internal docs will fire constantly" warning is accurate — this is just a
+> concrete example of the shape it takes.
+>
+> Happy to open a PR if useful.
 **Original status text follows, for the record.**
 **Status:** open, **operator's call — it is outward-facing.**
 Two measured defects in `humanizer-stack`'s `copy_scan.py`, recorded in our
