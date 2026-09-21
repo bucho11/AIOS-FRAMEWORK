@@ -374,6 +374,19 @@ mechanism, but it is the only evidence available at this scale, and a null resul
 after 30 posts is worth knowing before selling this as a feature.
 
 ### OQ-028 — Can a client's Cowork session execute a bundled script?
+**Status:** ✅ **closed 2026-09-21 — by removing the dependency on the answer.**
+The question was blocking the wrong thing. We declined to ship a scanner because
+*"one that silently never runs is worse than none."* **That risk was already
+eliminated** by DEC-044: a check that could not run reports `SKIP` and is surfaced,
+never a pass. So a script that fails in Cowork degrades to the model reading the same
+pattern list and **says so out loud** — which is strictly better than not having the
+script at all.
+Shipped `skills/draft-post/scripts/caption_scan.py` (DEC-060). Every scripted check is
+written twice — once as the script, once as the pattern list in `checks.md` — so the
+script is an accelerator, never a dependency. Whether it executes in Cowork is now a
+performance question rather than a correctness one, and it will answer itself on the
+first real run.
+**Original status text follows, for the record.**
 **Status:** open. **Blocks:** whether any check can ever be deterministic rather than
 read by the model.
 Every one of our 41 checks is something the model reads and judges. The upstream
@@ -389,6 +402,13 @@ silently ignored. If it executes, the mechanical checks (11, 12, 13, 14) should 
 scripts, and their false-negative rate drops to zero.
 
 ### OQ-029 — Should the two upstream scanner defects be reported back?
+**Status:** ✅ **decided 2026-09-21 — yes, as an issue.** The operator delegated the
+call explicitly. Reasoning: the repository is MIT and actively maintained, we built on
+its thinking, both defects are one-line fixes, and a friendly bug report is ordinary
+good practice that reflects well on a venture in the same space. Filed as an **issue,
+not a pull request** — the lower-friction contribution, and a PR would need his review
+anyway. Outcome recorded in the session.
+**Original status text follows, for the record.**
 **Status:** open, **operator's call — it is outward-facing.**
 Two measured defects in `humanizer-stack`'s `copy_scan.py`, recorded in our
 `ATTRIBUTION.md`: the antithesis rule cannot match contracted forms (`isn't just`),

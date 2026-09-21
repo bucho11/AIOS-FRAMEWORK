@@ -149,6 +149,20 @@ SKIP   media validates      could not check — publisher returned 503
   see what the checks are actually catching; a layer whose work is invisible is a
   layer that gets removed the first time someone is asked to justify it.
 
+## A scanner is an accelerator, never a dependency
+
+Where a check can be made deterministic, it should be — a script does not drift, does
+not get tired on the fortieth caption, and does not quietly decide a borderline case
+is fine. `skills/draft-post/scripts/caption_scan.py` is the one that exists.
+
+But **nothing in this system has a verified way to execute a script inside a client's
+session.** So every scripted check is written twice: once as the script, and once as
+the pattern list in the skill's `checks.md`, so a reader can run it by hand.
+
+**A scanner that does not run is a `SKIP`, surfaced — never a pass.** That is the
+rule that makes shipping one safe: the worst case is that it degrades to the
+model reading, and says so out loud.
+
 ## Never report work you did not do
 
 If a write failed — the connector was down, the folder was not found, the document

@@ -10,7 +10,7 @@
       "description": "One Google Drive folder that becomes a small business's AI workspace, run entirely from chat. Interviews the owner once, learns the brand, and grows a room at a time — social media first, then email, reviews, recruiting, invoicing, whatever comes next. Corrections land in the document that caused them, so the system never holds two answers to one question. Upgrades itself safely, shows the owner the diff before changing anything, and never deletes.",
       "category": "productivity",
       "source": "./plugins/business-os",
-      "version": "0.6.0"
+      "version": "0.7.0"
     }
   ]
 }

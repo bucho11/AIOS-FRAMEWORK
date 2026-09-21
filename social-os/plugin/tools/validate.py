@@ -167,6 +167,29 @@ if os.path.isdir(mig_dir):
             err(f"migrations/{f}: no step says how to tell if it already ran — "
                 f"an unresumable migration is one interruption from an unrepairable workspace")
 
+# ---------- 7b. Bundled scripts import and run ----------
+# A script that errors on import is a check that silently never runs.
+import subprocess
+for dirpath, dirnames, filenames in os.walk(PLUGIN):
+    dirnames[:] = [d for d in dirnames if d != ".git"]
+    if os.path.basename(dirpath) != "scripts":
+        continue
+    for fn in sorted(f for f in filenames if f.endswith(".py")):
+        f = os.path.join(dirpath, fn)
+        rel = os.path.relpath(f, ROOT)
+        r = subprocess.run([sys.executable, "-m", "py_compile", f],
+                           capture_output=True, text=True)
+        if r.returncode:
+            err(f"{rel}: does not compile — {r.stderr.strip().splitlines()[-1]}")
+            continue
+        # it must actually produce output on a trivial input, not just import
+        r = subprocess.run([sys.executable, f, "-"], input="hello world\n",
+                           capture_output=True, text=True, timeout=30)
+        if r.returncode != 0:
+            err(f"{rel}: exits {r.returncode} on trivial input — {r.stderr.strip()[:120]}")
+        elif not r.stdout.strip():
+            err(f"{rel}: produced no output on trivial input")
+
 # ---------- 8. No stale product name outside its allowed homes ----------
 # The plugin was renamed once. A leftover old name is invisible at runtime and
 # reads as a different product to anyone who sees it.

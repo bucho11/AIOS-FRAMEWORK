@@ -10,6 +10,35 @@ says so. See `shared/versioning.md`.
 
 ## [Unreleased]
 
+## [0.7.0] — 2026-09-21
+
+**No workspace migration.** Behaviour only.
+
+### Added
+- **A deterministic caption scanner.** The mechanical tells — the negate-then-assert
+  cadence, hype vocabulary, sycophancy, vague allusion, embodied emotion, em dash
+  density — are now caught by a script rather than by remembering to look. A script
+  does not drift, does not get tired on the fortieth caption, and does not quietly
+  decide a borderline case is fine.
+
+  It catches **all five** realistic variants of the "it's not just X, it's Y" tell,
+  including the contracted forms (`isn't just`, `that's not just … that's`) that a
+  pattern anchored on the literal string "not just" cannot see — the letters *n-o-t*
+  do not occur in "isn't", and social copy runs on contractions. Measured against the
+  scanner this one is informed by: two of five.
+
+  Verified clean on human-written copy, so it flags tells rather than prose.
+
+### Changed
+- **A scanner is an accelerator, never a dependency.** Every scripted check is written
+  twice: once as the script, once as the pattern list a reader can run by hand. If the
+  script does not execute, those checks report `SKIP — read manually` and are
+  surfaced. **Never a pass.**
+
+  This closes a gap in our own reasoning: the previous release declined to ship a
+  scanner because "one that silently never runs is worse than none" — a risk the
+  never-report-an-unrun-check-as-a-pass rule had already eliminated.
+
 ## [0.6.0] — 2026-09-21
 
 **No workspace migration.** Behaviour only.

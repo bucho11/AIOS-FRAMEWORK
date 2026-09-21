@@ -1086,3 +1086,29 @@ than trusting either direction.
 **Both are recorded in `ATTRIBUTION.md`** so the upstream author can have them if he
 wants them.
 **Reverses if:** never.
+
+
+### DEC-060 — Ship the scanner; a script is an accelerator, never a dependency
+**Date:** 2026-09-21 · **Status:** ✅ locked · **corrects DEC-055's reasoning**
+**Decision:** `skills/draft-post/scripts/caption_scan.py` ships. Every scripted check
+is **written twice** — once as the script, once as the pattern list in the skill's
+`checks.md` — and if the script does not run, those checks report
+`SKIP — read manually` and are surfaced. Never a pass. `tools/validate.py` now
+compiles every bundled script and runs it on a trivial input, because a script that
+errors on import is a check that silently never runs.
+**Why this reverses last release's call:** we declined to ship a scanner on the
+grounds that *"one that silently never runs is worse than none — it reads as
+coverage."* **That risk was already eliminated by our own proof contract** (DEC-044):
+a check that could not run reports SKIP and is surfaced. So the failure mode we were
+protecting against could not occur, and the honest consequence is that the scanner
+should have shipped. Worst case it degrades to the model reading the same list, and
+announces that it did.
+**Why it matters beyond this one file:** a script does not drift, does not get tired
+on the fortieth caption, and does not quietly decide a borderline case is fine. Model
+judgement is the thing this whole proof layer exists to stop relying on, so making
+any slice of it deterministic is a real gain — and the two-places rule means the gain
+costs nothing when the script is unavailable.
+**Measured:** catches **5 of 5** realistic variants of the antithesis tell where the
+upstream scanner catches 2, and returns clean on human-written copy.
+**Reverses if:** never. Extend the pattern — where a check *can* be deterministic, it
+should be.

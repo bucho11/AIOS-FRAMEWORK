@@ -130,6 +130,25 @@ for a childcare brand those are the same question, because trust is the product.
 this layer exists, the evidence behind it, and **the trap**:
 `${CLAUDE_PLUGIN_ROOT}/shared/sounds-human.md`.
 
+## Run the scanner first, then read for the rest
+
+```bash
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/draft-post/scripts/caption_scan.py <caption file>
+```
+
+It covers the mechanically catchable slice of 11–14 and 16 and takes a second.
+
+**If it does not run** — no Python, the path does not resolve, any error at all —
+**that is not a pass.** Report those checks as `SKIP — scanner unavailable, read
+manually` and then read for the same patterns yourself. The tells are listed below in
+full precisely so the scanner is an accelerator rather than a dependency
+(`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`).
+
+**What it cannot see, ever:** whether emotion is merely *technically* named but still
+performed, whether the skeleton matches the last three posts, and whether the caption
+is clean and says nothing. Those need a reader. Check 17 and
+`business-os:sounds-human` own them.
+
 **None of these block.** They are style, and blocking is reserved for what ends an
 account. They are needs-a-look, which under the fix-then-re-run rule means **you fix
 them and she never sees them** — the report records what was caught.

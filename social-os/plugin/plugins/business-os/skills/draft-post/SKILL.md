@@ -63,7 +63,10 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any fol
      offer the no-face framing, keep going.
 
 6. **Run the checks.** `${CLAUDE_PLUGIN_ROOT}/skills/draft-post/references/checks.md`
-   — seventeen of them, two blocking. Checks 11–17 ask the question a reader asks
+   — seventeen of them, two blocking. **Run
+   `${CLAUDE_PLUGIN_ROOT}/skills/draft-post/scripts/caption_scan.py` first** for the
+   mechanical slice; if it does not run, report those as `SKIP — read manually` and
+   read for the patterns yourself. Never a pass. Checks 11–17 ask the question a reader asks
    first: *did a person write this?* For a childcare brand that is not a style
    question, because trust is the product
    (`${CLAUDE_PLUGIN_ROOT}/shared/sounds-human.md`). **Every one runs, including the ones you expect to
