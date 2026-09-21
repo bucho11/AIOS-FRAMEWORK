@@ -13,7 +13,7 @@ description: >
 
 # Learn
 
-Without this skill Social OS is a posting tool. With it, the brain compounds: the
+Without this skill the social room is a posting tool. With it, the brain compounds: the
 owner's own results rewrite the strategy every week, in her own Drive, where she
 can read it. That is the product.
 

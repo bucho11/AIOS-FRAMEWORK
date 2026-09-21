@@ -167,7 +167,25 @@ if os.path.isdir(mig_dir):
             err(f"migrations/{f}: no step says how to tell if it already ran — "
                 f"an unresumable migration is one interruption from an unrepairable workspace")
 
-# ---------- 8. CHANGELOG has an entry for this version ----------
+# ---------- 8. No stale product name outside its allowed homes ----------
+# The plugin was renamed once. A leftover old name is invisible at runtime and
+# reads as a different product to anyone who sees it.
+STALE = re.compile(r"\bsocial[- ]os\b", re.I)
+ALLOWED = ("CHANGELOG.md",)          # the changelog must say what the old name was
+for dirpath, dirnames, filenames in os.walk(PLUGIN):
+    dirnames[:] = [d for d in dirnames if d != ".git"]
+    for fn in filenames:
+        if not fn.endswith((".md", ".json", ".txt")) or fn in ALLOWED:
+            continue
+        f = os.path.join(dirpath, fn)
+        for i, line in enumerate(read(f).splitlines(), 1):
+            if "github.com/bucho11/social-os" in line:
+                continue               # the repo keeps its original name on purpose
+            if STALE.search(line):
+                err(f"{os.path.relpath(f, ROOT)}:{i}: stale product name — "
+                    f"the plugin is business-os")
+
+# ---------- 9. CHANGELOG has an entry for this version ----------
 ch = os.path.join(PLUGIN, "CHANGELOG.md")
 if not os.path.exists(ch):
     err("plugins/business-os/CHANGELOG.md is missing")
