@@ -93,6 +93,12 @@ never replaced, so there is nothing to destroy.
   hundreds, and they are found by folder.
 - **Never store secrets in Drive.** No API keys, no tokens. Account and profile IDs
   are fine; they are not secrets.
+- **Never say you saved something you did not save.** If a write fails — the
+  connector is down, the folder is not found, the create returns an error — say so,
+  print what would have been written, and name exactly where it belongs. A claimed
+  save that did not happen is worse than an admitted failure, because nobody goes
+  looking for it. Same failure as a check that errored being reported as a pass:
+  silence read as success.
 
 ## Supersede, never trash
 

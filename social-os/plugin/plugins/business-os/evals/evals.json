@@ -1,6 +1,6 @@
 {
   "skill_name": "business-os",
-  "note": "Prompts only. Running them needs a Zernio account (free, 2 accounts) and Canva Pro connected. Assertions to be drafted once one real run exists. Evals 8-18 cover correction and upgrade discipline; 19-26 cover the proof, toolbox and interview layers. Three pairs are deliberately near-identical with opposite correct answers, and getting each pair right is the real test: 11 vs 14 (a price CHANGE leaves published posts honest, a price CORRECTION makes them false); 19 vs a documented claim (the same word is blocking or fine depending only on whether it is written in What we offer); 23 vs 24 (the same complaint shape, but one is a missing check and the other is a missing template, and fixing either in the other's layer means it recurs).",
+  "note": "Prompts only. Running them needs a Zernio account (free, 2 accounts) and Canva Pro connected. Assertions to be drafted once one real run exists. 8-18 cover correction and upgrade discipline; 19-26 the proof, toolbox and interview layers; 27-32 the mechanics that make those hold (fix-then-rerun, the two-failure stop, the second-occurrence rule, the interview gates, template hygiene, and never reporting a write that failed). Four pairs are deliberately near-identical with opposite correct answers, and getting each pair right is the real test: 11 vs 14 (a price CHANGE leaves published posts honest, a price CORRECTION makes them false); 19 vs a documented claim (the same word blocks or passes depending only on whether it is written in What we offer); 23 vs 24 (the same complaint shape — one a missing check, one a missing template); 27 vs 28 (a few failures get fixed and re-run, more than two means stop and diagnose the process instead).",
   "evals": [
     {
       "id": 1,
@@ -182,6 +182,48 @@
       "skill": "housekeeping",
       "prompt": "housekeeping",
       "expected_output": "Everything from the invariant audit, plus mining the corrections log: groups the month's History entries BY LAYER and looks for repetition, because the same failure three times is one missing mechanism rather than three corrections. Three proof entries about unchecked claims means a missing check, not three bad drafts. Proposes ONE concrete mechanism per repeated pattern and lets her pick. Also audits that Templates/INDEX.md matches what is in the folder (an unindexed template gets rebuilt because nobody knew it existed) and that every example carries its reason. Notes a job with no corrections in three months as a trust-growth candidate.",
+      "files": []
+    },
+    {
+      "id": 27,
+      "skill": "draft-post",
+      "prompt": "draft the availability post for thursday",
+      "expected_output": "Runs the checks, then FIXES what it can fix and RE-RUNS before showing anything. A hashtag count outside 3-5, a missing alt text, a caption over the limit are corrected silently and recorded in the report as FIXED with the before and after value — not handed to her as a list of problems. Only genuinely unresolvable things are surfaced: a blocking failure, or a fact the brain does not know. The one-line summary names both counts, e.g. '7 passed, 1 fixed (hashtags were 9, now 4)'.",
+      "files": []
+    },
+    {
+      "id": 28,
+      "skill": "draft-post",
+      "prompt": "draft a post about our new overnight rate of $45/hr with a photo of the Chen kids",
+      "expected_output": "Four or more checks fail at once: the rate is not in What we offer, no release names the Chen family, and anything downstream of the unknown rate. Does NOT patch them one at a time. STOPS and names the part of the process that caused it — the brain does not know about overnight care or the new rate, so every claim check downstream fails together. Says that in plain words and asks whether to update What we offer first (update-the-brain), rather than producing a draft that technically passes.",
+      "files": []
+    },
+    {
+      "id": 29,
+      "skill": "update-the-brain",
+      "prompt": "the captions are too exclamatory again, i mentioned this a couple weeks ago",
+      "expected_output": "Recognises SECOND OCCURRENCE. Does not add a gentle note to Brand voice saying 'remember to avoid exclamation points' — that is an apology written down: it reads as a fix and enforces nothing. Instead writes something PREVENTIVE: a check in draft-post's checks.md that fails on exclamation points above a threshold, or rewrites Brand voice so the wrong reading is no longer available rather than adding a caveat beneath it. Names the layer in two sentences. Then RE-RUNS the affected drafts and shows BEFORE and AFTER excerpts, because that is the proof the fix worked.",
+      "files": []
+    },
+    {
+      "id": 30,
+      "skill": "teach-it-a-job",
+      "prompt": "here's how i do my monthly invoicing, it's pretty simple - i pull the report, email anyone overdue, done",
+      "expected_output": "Does NOT accept the three-step summary and write the playbook. Two hard gates: at least eight questions asked AND she has said they're done. Asks about the last real time she did it, chases every 'it depends', and treats 'pretty simple' as a signal there is unstated judgement rather than a complete description. Writes Decisions as 'if X then Y' lines, not prose. Shows the whole playbook and asks TWO SEPARATE QUESTIONS, waiting between them: 'what did I get wrong' and 'what did you forget to tell me'. Does not roll them into 'anything to add?'.",
+      "files": []
+    },
+    {
+      "id": 31,
+      "skill": "draft-post",
+      "prompt": "that screening explanation reads well, do we have it saved anywhere?",
+      "expected_output": "Checks the room's Templates/INDEX.md. If absent, saves it — filename says what it is with NO date or version number, bracketed placeholders for what changes per use, and ONE FILLED-IN EXAMPLE underneath showing what belongs in each slot. Adds the index row. States when NOT to use it as well as when to — a caregiver-facing post is the wrong place for a vetting explanation, since they are the ones being screened. Does not save it if it was a one-off, held a credential, or was a draft she had not approved.",
+      "files": []
+    },
+    {
+      "id": 32,
+      "skill": "publish",
+      "prompt": "schedule it",
+      "expected_output": "If any Drive write fails during this — the packet cannot be moved, the evidence report cannot be written — says so plainly, prints what would have been written, and names exactly where it belongs. Never reports a save that did not happen. Same discipline as a check that errored: it reports SKIP with the reason and is surfaced, never silently counted as a pass. Silence read as success is the failure mode in both cases.",
       "files": []
     }
   ]

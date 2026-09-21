@@ -59,6 +59,16 @@ at a time gets the aside after the answer, and the aside is usually the real rul
 *"Walk me through the last invoice you chased"* gets you the truth. *"What's your
 invoicing process?"* gets you an idealised version she does not actually follow.
 
+**Two hard gates before you write anything.** Both, not either:
+
+> **At least eight questions asked, and she has said you're done.**
+
+Eight *topics* is not eight *questions* — three compound questions can technically
+touch all eight and will get you a summary of her process instead of her process.
+And an interview that ends when *you* feel satisfied ends early, every time, because
+the thing you don't know about is the thing you don't know to ask about. She decides
+when it's enough.
+
 Eight topics. Follow the conversation; do not read them out as a list.
 
 **1 · What starts it, and how often.**
@@ -140,11 +150,17 @@ Origin: interviewed · <date> · from <her name>
 ## Purpose          what this job is for, one line
 ## When to use      the exact words she'd say, and the schedule if it has one
 ## Inputs           what's needed and exactly where each thing lives
-## Steps            numbered, in her order
-## Decisions        each rule, with her reasoning
+## Steps            numbered, plain language, no jargon, in her order
+## Decisions        if X then Y — one line each, with her reasoning underneath
 ## Done             what finished means, and how it gets verified
 ## Edge cases       what has gone wrong, and what to do
 ```
+
+**Write decisions as `if X then Y`, not as prose.** *"If the invoice is under $50,
+leave it — chasing costs more than it collects"* can be followed by a machine and
+checked later. *"She applies judgement about which invoices are worth chasing"*
+cannot be followed by anything, and it will quietly become whatever seems reasonable
+that day.
 
 **`When to use` gets the exact wording she would actually type.** A vague trigger is
 why a job never fires. *"When she says 'chase the invoices' or 'who owes me money'"*
@@ -179,6 +195,23 @@ has ever run is a guess wearing a filename.
 
 ---
 
+### Then show her the whole thing, and ask exactly two questions
+
+Print the complete playbook and ask:
+
+> **What did I get wrong?**
+>
+> **What did you forget to tell me?**
+
+**The second one is the one that earns the interview.** The first catches errors you
+made. The second catches the knowledge she never thought to say — the thing that is
+so obvious to her it does not feel like a step. That is almost always where a job's
+real difficulty lives, and there is no question you could have asked in the interview
+that would have surfaced it, because neither of you knew it was missing.
+
+Ask them as two separate questions and wait between them. Rolled into one — *"anything
+to add or change?"* — they get one answer, and it will be about the first.
+
 ## Then run it once, with her there
 
 Do the job while she watches, from the playbook you just wrote. This is where it
@@ -205,6 +238,12 @@ Close with the two sentences she needs:
 - Never skip the checks because the interview ran long. A playbook with no checks
   makes her the quality control, which is what she was trying to stop doing.
 - Never let an upgrade overwrite an interviewed playbook. Propose, with a diff.
+- Never write the playbook before both gates are met: eight questions asked, and she
+  has said you're done.
+- **Never say you saved something you did not save.** If a write to her Drive fails,
+  say so, print the full contents in the conversation, and tell her exactly where it
+  was supposed to go. A claimed save that did not happen is worse than a failed one,
+  because nobody goes looking for it.
 - If she says *"just do what you think"*, that is not permission to invent — it means
   the job is not well-formed yet. Offer to run it once together and write it down
   afterwards from what actually happened.

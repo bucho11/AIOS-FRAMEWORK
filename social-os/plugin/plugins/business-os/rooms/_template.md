@@ -19,6 +19,7 @@ N — <Room name>/
 ├── 4 Sent/            went out, with the evidence
 ├── Templates/         the toolbox — created when the first one is needed
 │   └── INDEX.md       one line per file, so nothing is rebuilt unknowingly
+│                      names say what a file is — never a date or a version
 ├── Examples/          work she approved, each with WHY it was good (best 10)
 └── Results/
 ```

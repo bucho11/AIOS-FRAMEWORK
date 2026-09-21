@@ -99,12 +99,58 @@ If a caption's screening paragraph gets rewritten every month, that is a templat
 If the same five hashtags are re-derived every week, that is reference data. If the
 same intro is retyped, that is a snippet.
 
-Watch for it while working, not on a schedule — you are the one rebuilding it, so
-you are the only one who can notice. When you do: say so in one line, write the file
-into the room's `Templates/`, add a row to its index, and use it from then on.
+**Two ways to catch it, and the second one is the real test.**
 
-A template carries **placeholders**, not one client's finished text:
-`We screen every caregiver with {{screening_steps}}.`
+*Passively*, while working: you are the one rebuilding it, so you are the only one
+who can notice. When you do, say so in one line and save it.
+
+*Actively*, after a job runs: **run the whole job again from scratch and say which
+saved files you used and which parts you built from nothing.** Everything in the
+second list is a toolbox candidate. This is a test rather than a hope — noticing
+depends on attention, and attention is exactly what fails on the fortieth run.
+
+Do the active test when a job is new, and again whenever it starts feeling slow.
+
+### Writing one
+
+**A filename says what it is, and nothing else.** `screening-paragraph.md`, not
+`screening-paragraph-v3.md` or `screening-2026-10-05.md`. A date or a version number
+in a filename creates a second file that does the same job the moment it is updated —
+which is Law 1, broken by a naming habit. **Replace the file; the archive keeps the
+old one** (Law 6).
+
+**Placeholders in square brackets, with one filled-in example underneath.** The
+brackets mark what changes per use; the example shows what belongs there, which the
+slot name alone never quite does.
+
+```
+We screen every caregiver with [screening_steps], and every placement is
+backed by [guarantee_terms].
+
+---
+Example, as used 2026-10-05:
+We screen every caregiver with a national background check, driving record,
+CPR verification and three reference calls, and every placement is backed
+by a 30-day replacement guarantee.
+```
+
+*(These brackets are not the `{{double braces}}` used in onboarding seed documents.
+Those are filled once, at setup, by `brand-onboarding`. These are filled every time
+the template is used. Different lifetimes, different marks — deliberately.)*
+
+**The playbook step points at the file by name, and says when NOT to use it.** A
+template applied in the wrong place is worse than no template, because it looks
+considered. *"Use for any post explaining vetting. Do not use for a caregiver-facing
+post — they are the ones being screened, and it reads as a warning."*
+
+### What never goes in the toolbox
+
+- **One-off outputs.** Something written for one occasion is not reusable; saving it
+  guarantees it gets reused somewhere it does not fit.
+- **Anything holding a password, key or token.** Never, and not only here —
+  `drive-conventions.md` forbids it workspace-wide.
+- **A draft she has not approved.** An unapproved draft saved as a template makes a
+  guess into a standard, quietly, and every future post inherits it.
 
 `Templates/INDEX.md` — one line each, so nothing is rebuilt because nobody knew it
 existed:

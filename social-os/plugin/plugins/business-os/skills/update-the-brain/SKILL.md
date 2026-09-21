@@ -82,9 +82,32 @@ next month, and the month after, until a check exists.
 > job's `checks.md`, with a tier.
 
 Most corrections are **context** — that is what the rest of this skill is for. But
-answer this question first, out loud, in one line, because *"the checks didn't catch
-it"* and *"the voice document was wrong"* are different problems and only one of
-them is fixed by editing a brain document.
+answer this question first, out loud, **in two sentences**, because *"the checks
+didn't catch it"* and *"the voice document was wrong"* are different problems and
+only one of them is fixed by editing a brain document. Two sentences, not a
+paragraph: naming the layer is a diagnosis, not an essay.
+
+### If this is the second time, write a rule — not a reminder
+
+> **Once is a correction. Twice is a missing rule.**
+
+The second occurrence changes what the fix has to be. A gentle note in the document
+— *"remember to keep hashtags between three and five"* — is what an apology looks
+like once it has been written down: it reads as a fix, it changes nothing
+enforceable, and the same thing happens a third time.
+
+The second occurrence earns something that **prevents** it:
+
+- a **check** that fails when it happens (proof) — the strongest, and the default
+- a **decision rule** written `if X then Y` in the playbook (process)
+- a **template** that makes the wrong version harder to produce than the right one
+  (toolbox)
+- a **document rewritten so the wrong reading is no longer available** (context) —
+  not a caveat added beneath the wrong reading
+
+`housekeeping` also looks for a third occurrence monthly, but that is the backstop.
+**By the third time, this should already have been caught here**, in the moment,
+when the evidence is in front of you and it costs one edit.
 
 ### 1 · Find the source
 
@@ -206,7 +229,23 @@ count. Added the hashtag check to draft-post, needs-a-look, 3-5.
 `housekeeping` reads these monthly and looks for the same layer failing the same
 way three times — which is not three corrections, it is one missing mechanism.
 
-### 9 · Go back to what she asked for
+### 9 · Re-run it, and show the before and the after
+
+Do the thing that went wrong **again, from the start**, with the fix in place — and
+show her both versions.
+
+The before-and-after is the proof the fix worked, and it is the step that separates
+a correction from a claim of one. She said the captions were too exclamatory; the
+only thing that actually answers that is the same caption, regenerated, without
+them. One sentence and two short excerpts is enough:
+
+> Before: *"We've got THREE amazing nannies available this week!!"*
+> After: *"Three nannies are available this week."*
+
+Skip it only when there is nothing to re-run — a settings change, a fact corrected
+with no output built on it. Then say that, rather than saying nothing.
+
+### 10 · Go back to what she asked for
 
 Resume the original task **from the corrected state**. Not from where you were.
 

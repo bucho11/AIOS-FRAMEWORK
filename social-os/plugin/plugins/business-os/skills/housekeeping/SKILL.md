@@ -120,6 +120,10 @@ mechanism**, and it will keep costing her attention until something changes:
 
    - **the same layer failing the same way 3+ times** → name it. Three `proof`
      entries about claims nobody caught is a missing check, not three bad drafts.
+     **And ask why it got here:** `update-the-brain` is supposed to catch this on the
+     *second* occurrence and write a preventive rule. A third occurrence in the log
+     means that did not happen, so the finding is two things — the missing mechanism,
+     and a correction that was handled shallowly.
    - **`toolbox` entries repeating** → something is being rebuilt weekly. That is a
      template that should exist. Propose it.
    - **`context` entries pulling one direction** → a brain document is wrong and the

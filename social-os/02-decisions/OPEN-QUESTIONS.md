@@ -304,6 +304,19 @@ then perform the documented rollback and confirm the workspace returns to versio
 Also interrupt it mid-run once and confirm the `FAILED` row lets it resume.
 
 ### OQ-024 — The four prompt texts from the Delegation Loop guide are unread
+**Status:** ✅ **closed 2026-09-21** — the operator supplied all four. They produced
+**thirteen hardenings** to what had been built from the topics alone (DEC-049…054),
+the three sharpest being: **fix what fails and re-run before she sees anything**
+(v0.4.0 only reported failures, which is a complaints department); **more than two
+failures on the first pass means stop and diagnose the process** rather than patching
+individually; and **the second occurrence earns a preventive rule, not a reminder** —
+a note saying *"remember to…"* is an apology written down.
+Also folded in: the two interview gates, the two closing questions (*what did I get
+wrong* / *what did you forget to tell me*), `if X then Y` decisions, no dates or
+versions in template filenames, a filled-in example under every template, *when not
+to use it*, the never-save list, the active rebuild test, and never reporting a write
+that failed.
+**Original status text follows, for the record.**
 **Status:** open, easily closed by the operator. **Blocks:** nothing built — the
 architecture came through, the wording did not.
 The guide body is behind an email gate. Fetching it returned the **structure and

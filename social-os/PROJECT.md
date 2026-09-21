@@ -28,6 +28,13 @@ that fills from rebuilt work and examples that carry their reason (DEC-047), and
 four-layer diagnosis where **every escape earns a check** (DEC-048). No migration —
 the release is purely additive.
 
+**Then hardened against the source's own prompts (v0.5.0).** The operator supplied
+the four prompt texts that OQ-024 was tracking. They produced thirteen changes
+(DEC-049…054) — the three that matter most: checks now **fix what they can and
+re-run** before she sees anything, **three failures on one pass stops the run** and
+diagnoses the process instead of patching output, and **the second occurrence of a
+mistake earns a preventive rule rather than a reminder.**
+
 **Previously — Phase 1 built and hardened.** Plugin scaffold, **8 skills**, reviewer agent, guardrails, Drive template, 13 evals — in `social-os/plugin/`, mirrored to the public repo `bucho11/social-os`. Zernio verified live end to end (OQ-009/013/016 closed). Latest pass added the **contradiction discipline** (DEC-027…034): one job one document, rules-vs-records, the `0 — Map` index, the `update-the-brain` guard, and the hand-edit precondition. **Untested:** nothing has been executed by Claude against a real workspace — see OQ-020.
 
 ---
@@ -46,7 +53,7 @@ the release is purely additive.
 | **Publishing layer** | **Zernio** — free at 2 accounts (DEC-010). Also hosts media + native draft gate. |
 | **Image layer** | **Canva Pro** via native MCP (DEC-018) — Brand Templates + `replace_text` + `resize-design`. Zernio hosts. |
 | **Connector layer** | Native Google Drive + Zernio custom MCP. Composio = fallback only. |
-| **Plugin** | `business-os` v0.4.0 · workspace shape version **2** · 10 skills · 1 room (social; 4-8 free) · 34 checks, 12 blocking |
+| **Plugin** | `business-os` v0.5.0 · workspace shape version **2** · 10 skills · 1 room (social; 4-8 free) · 34 checks, 12 blocking · 32 evals |
 | **Public plugin repo** | `github.com/bucho11/social-os` — branch `main`. Local clone at `/home/user/social-os`. Source of truth is `social-os/plugin/` in this repo; mirror on every change. **Repo name unchanged on purpose** — renaming it is outward-facing and the operator's call (DEC-035). |
 | **Release path** | PR + semver bump in `plugin.json` + CHANGELOG entry. `python3 tools/validate.py` gates it. Direct pushes to `main` do not trigger marketplace sync. |
 | **Correctness layer** | `0 — Map` (one index) + `shared/the-law.md` (six laws) + `skills/update-the-brain/` (the guard) + Cowork **Project instructions** pasted at setup (DEC-032). Housekeeping is the monthly backstop, not the guard (DEC-030). |
@@ -80,7 +87,7 @@ the release is purely additive.
 | 12 | Confirm whether personal plugins auto-update after a PR-with-bump — closes OQ-021. Until then the runbook says "click Update" | 7 |
 | 13 | **Test one check in both directions** — a documented claim must PASS and a one-character change must FAIL. Closes OQ-025. The verbatim match against a Google Doc read back as text is the real risk: a blocking check that false-positives gets overridden habitually within two weeks, which is worse than no check | 7 |
 | 14 | Trigger a blocking failure, override it, and read the packet back in a fresh session to confirm the override, reason and date survived — closes OQ-026 | 13 |
-| 15 | Operator signs up for the Delegation Loop guide and pastes the four prompt texts; fold anything sharper into `teach-it-a-job` — closes OQ-024 | operator |
+| 15 | ~~Get the four prompt texts and fold in anything sharper~~ **✅ done** — operator supplied them; 13 hardenings shipped as v0.5.0 (DEC-049…054). OQ-024 closed | ✅ |
 | 16 | Package as the clone kit | 8, 11, 13 |
 
 ---

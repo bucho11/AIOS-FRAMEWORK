@@ -10,6 +10,66 @@ says so. See `shared/versioning.md`.
 
 ## [Unreleased]
 
+## [0.5.0] — 2026-09-21
+
+**No workspace migration.** Behaviour only.
+
+Thirteen hardenings, from reading the four prompts behind the model v0.4.0 was built
+against. v0.4.0 had the architecture; this has the mechanics that make it hold.
+
+### Added
+- **Checks now fix what they can and re-run before the owner sees anything.** Nine
+  hashtags when the rule is three to five is not news for her — it is something to
+  correct and re-check. Handing her a list of failures you could have fixed yourself
+  turns a proof layer into a complaints department. Fixes are recorded in the report
+  so she can see what the checks are actually catching.
+- **More than two failures on the first pass stops the run.** That is not a bad
+  output, it is a broken process — a brain document that is wrong so everything
+  downstream fails together, or a step that ran out of order. Patching three failures
+  individually produces work that passes on a process that will fail the same way
+  tomorrow.
+- **The second occurrence of a mistake earns a rule, not a reminder.** Once is a
+  correction; twice is a missing mechanism. A note saying *"remember to keep hashtags
+  between three and five"* is what an apology looks like written down — it reads as a
+  fix and enforces nothing. The second time now produces a check, a decision rule, a
+  template, or a document rewritten so the wrong reading is no longer available.
+- **A correction ends with the before and the after.** The same work, re-run with the
+  fix in place, shown both ways. That is the proof the fix worked, and it is what
+  separates a correction from a claim of one.
+- **The interview has two hard gates** — at least eight questions asked, *and* she
+  has said you're done. Eight topics is not eight questions, and an interview that
+  ends when the interviewer feels satisfied ends early every time.
+- **It closes by asking two questions, separately:** *what did I get wrong*, and
+  *what did you forget to tell me*. The second earns the interview — it catches the
+  knowledge so obvious to her it never felt like a step, which is where a job's real
+  difficulty usually lives.
+- **An active test for rebuilt work**, not just passive noticing: run the job again
+  from scratch and say which saved files you used and which parts you built from
+  nothing. Noticing depends on attention, and attention is what fails on the fortieth
+  run.
+- **Nothing is ever reported as saved when the save failed.** If a write fails, it
+  says so, prints what would have been written, and names where it belongs. A claimed
+  save that did not happen is worse than an admitted failure, because nobody goes
+  looking for it.
+
+### Changed
+- **Decisions in a playbook are written `if X then Y`**, not as prose. *"If the
+  invoice is under $50, leave it"* can be followed and checked. *"She applies
+  judgement about which are worth chasing"* becomes whatever seems reasonable that
+  day.
+- **Template filenames say what a file is and nothing else** — no dates, no version
+  numbers. A version in a filename creates a second file doing the same job the
+  moment it is updated, which is the one-job-one-document law broken by a naming
+  habit. Replace the file; the archive keeps the old one.
+- **Every template carries one filled-in example underneath it.** The bracketed slot
+  says what changes; the example says what belongs there, which a slot name never
+  quite does.
+- **A template's entry says when NOT to use it**, not only when to. One applied in
+  the wrong place is worse than none, because it looks considered.
+- **Three things never enter the toolbox:** one-off outputs, anything holding a
+  password or key, and a draft she has not approved. An unapproved draft saved as a
+  template makes a guess into a standard, quietly.
+
 ## [0.4.0] — 2026-09-21
 
 **No workspace migration.** The new folders are created on first use and the new

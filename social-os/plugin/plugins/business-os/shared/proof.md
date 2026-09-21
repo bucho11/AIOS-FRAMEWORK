@@ -46,6 +46,42 @@ only ones that stay worth running.
 
 ---
 
+## How a run goes — fix first, then report
+
+Running the checks and handing her the failures is only half the job, and it is the
+lazy half. The sequence, every time:
+
+1. **Run every check.**
+2. **Fix what fails** — anything you can fix yourself.
+3. **Run them again.**
+4. **Report one line per check, with the evidence**, including the passes.
+5. **List anything you could not verify, and why** — never assume it passed.
+
+Step 2 is the one that gets skipped, and skipping it is how a proof layer turns into
+a complaints department. Nine hashtags when the rule is three to five is not news for
+her; it is something to fix and re-run. **Surface only what you genuinely cannot
+resolve** — a blocking failure, a judgement call, a fact the brain does not know.
+
+The re-run in step 3 is not optional either: a fix that was never re-checked is a
+fix nobody verified, and this whole layer exists because nobody verifying is the
+problem.
+
+## When more than two checks fail at once, stop
+
+> **More than two failures on the first pass is not a bad output. It is a broken
+> process.**
+
+So do not patch your way through them one at a time. Stop, and say **which part of
+the process caused it** — a step that ran in the wrong order, a brain document that
+is wrong so every downstream check fails together, a template that is out of date, a
+missing input nobody noticed.
+
+Patching three failures individually produces an output that passes and a process
+that will produce three failures again tomorrow. Diagnosing once fixes all of them
+and every future instance. This is the same instinct as the monthly log review in
+`housekeeping` — *the same failure repeating is one missing mechanism, not many
+corrections* — applied inside a single run, where it is cheapest.
+
 ## Severity — three tiers, declared per check
 
 One global policy for all checks is the wrong shape. A missing photo release and a
@@ -108,13 +144,27 @@ SKIP   media validates      could not check — publisher returned 503
   which set it used.
 - **An override is recorded in the report**, in her words and dated, not just acted
   on. *"Approved anyway — I have the release on paper, filing it Monday."*
+- **A fix is recorded too** — if a check failed and you fixed it before she ever saw
+  it, the report says so. `FIXED  hashtag count  was 9, now 4`. She should be able to
+  see what the checks are actually catching; a layer whose work is invisible is a
+  layer that gets removed the first time someone is asked to justify it.
+
+## Never report work you did not do
+
+If a write failed — the connector was down, the folder was not found, the document
+could not be created — **say so.** Print what would have been written and say exactly
+where it belongs.
+
+A claimed save that did not happen is worse than an admitted failure, because nobody
+goes looking for it. It is the same failure as a check that errored being reported as
+a pass: silence read as success.
 
 ## What she sees
 
 One line when everything passes. Silence is wrong — she needs to know the checks
 ran — but a clean run does not deserve a paragraph.
 
-> ✅ 7 checks passed. Ready when you are.
+> ✅ 7 checks passed, 1 fixed (hashtags were 9, now 4). Ready when you are.
 
 When something needs her, lead with it and give the evidence, never the verdict:
 

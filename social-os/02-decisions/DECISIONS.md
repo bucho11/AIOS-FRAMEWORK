@@ -892,3 +892,100 @@ serves every room, which is an advantage and which creates a failure their taxon
 cannot name: everything ran correctly and the output was still wrong, because the
 shared document was wrong.
 **Reverses if:** never.
+
+### DEC-049 — Checks fix what they can and re-run before she sees anything
+**Date:** 2026-09-21 · **Status:** ✅ locked · **hardens DEC-044**
+**Decision:** The run is: run every check → **fix what fails** → **run them again** →
+report one line per check with evidence, including the passes and the fixes → list
+what could not be verified and why. Surface only what genuinely cannot be resolved —
+a blocking failure, a judgement call, a fact the brain does not know. Fixes appear in
+the report as `FIXED` with the before and after value.
+**Why:** v0.4.0 ran the checks and handed her the failures, which is the lazy half.
+Nine hashtags when the rule is three to five is not news for her; it is something to
+correct and re-check. **A proof layer that only reports is a complaints department**,
+and she will start skimming it, which is the same as not having it. The re-run is not
+optional either: a fix nobody re-checked is a fix nobody verified, and unverified
+work is the problem this layer exists to solve.
+**Recording the fixes matters as much as making them.** A layer whose work is
+invisible is the first thing removed when someone asks what it is for.
+**Reverses if:** never.
+
+### DEC-050 — More than two failures on the first pass stops the run
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** Three or more checks failing on the first pass is **not a bad output,
+it is a broken process.** Stop, and name the part of the process that caused it — a
+brain document that is wrong so every downstream check fails together, a step that
+ran out of order, a stale template, a missing input. Do not patch them individually.
+**Why:** patching three failures one at a time produces work that passes on a process
+that will produce three failures again tomorrow. It is the same instinct as
+`housekeeping`'s monthly review — *a failure repeating is one missing mechanism, not
+many corrections* — applied **inside a single run, where it is cheapest and the
+evidence is still in front of you.**
+**The threshold is deliberately low.** Two is noise; three is a pattern, and waiting
+for more costs a wasted run and teaches everyone that the checks are just friction.
+**Reverses if:** never.
+
+### DEC-051 — The second occurrence earns a rule, not a reminder
+**Date:** 2026-09-21 · **Status:** ✅ locked · **sharpens DEC-048's cadence**
+**Decision:** Once is a correction. **Twice is a missing mechanism**, and the fix
+must be something that *prevents* it: a check that fails when it happens, a decision
+rule written `if X then Y`, a template that makes the wrong version harder to produce
+than the right one, or a document rewritten so the wrong reading is no longer
+available — **never a caveat added beneath the wrong reading.**
+**Why:** a note saying *"remember to keep hashtags between three and five"* is what
+an apology looks like once it has been written down. It reads as a fix, it enforces
+nothing, and the same thing happens a third time. We already had the monthly
+three-strikes review in `housekeeping`; this moves the trigger to **two, in the
+moment**, and `housekeeping`'s third strike becomes a backstop that also reports a
+correction handled shallowly.
+**Reverses if:** never.
+
+### DEC-052 — The interview has two hard gates and closes with two questions
+**Date:** 2026-09-21 · **Status:** ✅ locked · **hardens DEC-046**
+**Decision:** No playbook is written until **at least eight questions have been
+asked AND she has said you're done.** It then prints the whole playbook and asks two
+questions, **separately, waiting between them**: *what did I get wrong?* and *what
+did you forget to tell me?* Decisions are written `if X then Y`, not as prose.
+**Why:** eight *topics* is not eight *questions* — three compound questions touch all
+eight and return a summary of her process rather than her process. And an interview
+that ends when the interviewer feels satisfied ends early every time, because the
+thing you don't know about is the thing you don't know to ask about.
+**The second closing question is the one that earns the interview.** The first
+catches errors you made; the second catches knowledge so obvious to her it never
+registered as a step — which is where a job's real difficulty usually lives, and
+which no question asked during the interview could have surfaced, because neither
+party knew it was missing. Rolled into *"anything to add?"* they get one answer, and
+it is about the first.
+**Reverses if:** never.
+
+### DEC-053 — Toolbox hygiene: names, examples, exclusions, and an active rebuild test
+**Date:** 2026-09-21 · **Status:** ✅ locked · **hardens DEC-047**
+**Decision:** A template filename **says what the file is and nothing else** — no
+dates, no version numbers. Placeholders are bracketed, with **one filled-in example
+underneath**. The playbook step points at it by name and says **when not to use it**.
+Never saved: one-off outputs, anything holding a password or key, and a draft she has
+not approved. And rebuild detection gets an **active** test beside the passive one:
+run the job again from scratch and say which saved files were used and which parts
+were built from nothing.
+**Why:** a date or version in a filename creates a second file doing the same job the
+moment it is updated — **Law 1, broken by a naming habit.** Replace the file; the
+archive keeps the old one (Law 6). A slot name alone never quite says what belongs in
+it, so the example carries what the name cannot. A template applied in the wrong
+place is worse than none because it looks considered. An unapproved draft saved as a
+template makes a guess into a standard, quietly, and every future output inherits it.
+**The active test matters most:** passive noticing depends on attention, and attention
+is exactly what fails on the fortieth run.
+**Reverses if:** never.
+
+### DEC-054 — Never report work that did not happen
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** If a write fails, say so, print what would have been written, and name
+exactly where it belongs. Never report a save that did not happen, and never report a
+check that errored as one that passed.
+**Why:** the two are the same failure — **silence read as success** — and it is the
+quietest way any of this rots. A claimed save that did not happen is worse than an
+admitted failure, because an admitted one gets retried and a claimed one is never
+looked for again. This was already the rule for checks (DEC-044); it now covers
+writes, which is where it is more likely to bite, because a Drive write failing
+mid-session is an ordinary event.
+**Reverses if:** never.

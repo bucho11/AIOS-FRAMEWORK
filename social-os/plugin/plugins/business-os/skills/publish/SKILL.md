@@ -52,6 +52,12 @@ vendor confirms, to prove the post is actually live and the packet says so.
 from `draft-post`. That is what stops a blocking check being escaped by going around
 the skill that runs it.
 
+**Fix what you can, re-run, then report.** Handing her a list of failures you could
+have fixed yourself is the lazy half of this. Surface only what you genuinely cannot
+resolve. **More than two failures on the first pass is a broken run, not a bad
+output** — stop and say which part of the process caused it rather than patching
+three things individually (`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`).
+
 ## Approve → schedule
 
 1. **Find the packet** in `2 Drafts/` by title. Read it.

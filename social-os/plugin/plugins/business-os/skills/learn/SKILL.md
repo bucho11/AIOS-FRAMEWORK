@@ -79,8 +79,11 @@ reads through them; it never schedules.
     document wins and the disagreement is worth raising with her.
 
 11. **Run the checks.** `${CLAUDE_PLUGIN_ROOT}/skills/learn/references/checks.md`.
-    The first one is the one that matters: **every number in the report traces to the
-    analytics response it came from.** A report she cannot trace is a report she
+    Fix what you can and re-run before showing her anything; more than two failures
+    means stop and name the part of the process that caused it
+    (`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`). The first check is the one that
+    matters: **every number in the report traces to the analytics response it came
+    from.** A report she cannot trace is a report she
     cannot correct, and she will act on it anyway.
 
 ## When the results say a rule is wrong

@@ -88,6 +88,12 @@ seen by the caption checks**, and **an unreplaced `{{placeholder}}` on a publish
 graphic** is the most embarrassing failure available and is entirely mechanical to
 catch.
 
+**Fix what you can, re-run, then report.** Handing her a list of failures you could
+have fixed yourself is the lazy half of this. Surface only what you genuinely cannot
+resolve. **More than two failures on the first pass is a broken run, not a bad
+output** — stop and say which part of the process caused it rather than patching
+three things individually (`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`).
+
 ## Done means
 
 An exported image whose URL resolves, sized for its destination, using only colours

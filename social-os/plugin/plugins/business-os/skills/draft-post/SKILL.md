@@ -68,6 +68,17 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any fol
    (`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`), not into the conversation. A check that
    could not run reports `SKIP` with the reason and is surfaced — never a pass.
 
+   **Fix what you can fix, then run them again** before showing her anything. Nine
+   hashtags when the rule is three to five is not news for her — it is something to
+   correct and re-check. Surface only what you genuinely cannot resolve, and record
+   the fixes in the report so she can see what the checks are catching.
+
+   **More than two failures on the first pass means stop.** That is not a bad draft,
+   it is a broken run — a brain document that is wrong so everything downstream fails
+   together, or a step that ran out of order. Say which, rather than patching three
+   things individually and producing a draft that passes on a process that will fail
+   the same way tomorrow.
+
    **A blocking failure means the packet is not staged.** Say what failed, with the
    evidence, and offer the nearest version that would pass. She can override in
    words, and the override is written into the report with her reason and the date.
@@ -101,9 +112,14 @@ Not done: a caption in the chat. Not done: checks that were "looked at".
 If you wrote something from scratch that has been written before — the screening
 paragraph, the local hashtag set, a standard opener — that is the toolbox signal
 (`${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`). Say so in one line, write it into the
-room's `Templates/` with placeholders, index it, and use it from then on.
+room's `Templates/` with bracketed placeholders and one filled-in example, index it,
+and use it from then on.
 
-You are the only one who can notice this, because you are the one rebuilding it.
+You are the only one who can notice this passively, because you are the one
+rebuilding it. **When a job is new, or starts feeling slow, run the active test
+instead:** do the whole job again from scratch and say which saved files you used and
+which parts you built from nothing. Everything in the second list is a candidate.
+Noticing depends on attention; the re-run does not.
 
 ## Rules
 
