@@ -9,7 +9,7 @@ move on. If she is pressed for time, the minimum set is marked ★ — never few
 > end you'll have three real posts ready to look at. I've already read your site and
 > Instagram, so I'll mostly be checking what I found.
 
-## Phase 2 · The business  (→ `About the business`, `0 — Setup`)
+## Phase 2 · The business  (→ `About the business`, `0 — Map`)
 
 ★ Which location is yours, and what's the area you actually serve?
 ★ In one sentence, why do families pick you over the other options?
@@ -74,6 +74,25 @@ out', always end with an invitation rather than an order. Right?"*
 Explain the child-imagery rule as protection: Meta removes accounts over this
 without warning, and parents trust an agency that visibly guards their kids.
 
+## Phase 6b · How she wants to be worked with  (→ `How she likes to work`)
+
+Two minutes, four questions. Cheap to ask now, and it is what stops the system
+being annoying in a way she never quite articulates.
+
+> Last couple on how *we* work together, not on the posts.
+
+- When I bring you drafts — do you want them all at once, or as they're ready?
+- If I'm unsure about something, should I ask you, or make a call and tell you?
+- When's a good time for you to look at things? (this becomes the weekly rhythm)
+- Anything that would annoy you? Long messages, three options to choose from,
+  being asked twice about the same thing?
+
+Write the answers in her words. **When she later corrects you about how you work
+with her — "stop sending me three options", "just tell me on Monday" — that
+correction goes back into this document.** Never into a separate notes file: two
+documents about how to work with her is exactly the split this system is built to
+prevent (`${CLAUDE_PLUGIN_ROOT}/shared/the-law.md`).
+
 ## Phase 7 · Topics, proposed  (→ `Content Calendar` seed)
 
 Propose 5–7 topics from research + answers, each with one example post idea. Use
@@ -87,3 +106,8 @@ Build everything per SKILL.md. Then draft three posts and show them. Close with:
 > Your brain is built. From now on, when you want posts, just say "plan my week"
 > and I'll bring you drafts. To publish one, say "<approval word> <post name>".
 > Nothing goes live without that word.
+>
+> One more thing: **you never have to open that folder to change anything.** If
+> something's wrong — the wording, the price, what I'm allowed to do — just tell me
+> and I'll change it in the right place. If you ever say "I already told you," that
+> means I got something wrong at the source, and I'll go find it.

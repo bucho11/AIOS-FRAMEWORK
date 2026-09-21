@@ -31,7 +31,7 @@ plan gating. Read `${CLAUDE_PLUGIN_ROOT}/shared/guardrails.md` before choosing a
 
 ## First: is Canva even available?
 
-Read `canva_available` in `0 — Setup`. **`no` ⇒ stop and say so plainly** — there is
+Read `canva_available` in `0 — Map`. **`no` ⇒ stop and say so plainly** — there is
 no partial version of this skill worth running. Tell the caller to use a photo or a
 short video instead, which is what the sector research says converts best anyway,
 and offer to note the graphic idea in `1 Ideas/` for whenever Canva is added.
@@ -88,9 +88,18 @@ thumbnails, pick the closest, `create-design-from-candidate`.
 - If Canva returns `license_required` on export, a premium element is blocking —
   swap it, don't buy it silently.
 
+## If she pushes back while you are doing this
+
+Stop. Do not apologise and carry on, and do not just adjust for the rest of the
+conversation — that fix disappears tonight. Corrections, confusion ("why did you…"),
+disagreement, and especially "I already told you" all mean a **document** is wrong.
+Hand it to `social-os:update-the-brain`, which finds that document, fixes it, and
+fixes whatever was built from it. Then come back here and continue from the
+corrected state.
+
 ## If there is no brain yet
 
-Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Setup`
+Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Map`
 doc. **If either is missing, stop and run `social-os:brand-onboarding` instead** —
 this skill has nothing to read and would invent a brand. Say so in one plain line:
 *"I don't have your brand set up yet — let's do that first, it takes about forty

@@ -7,33 +7,31 @@ order.
 ```
 <Business> — AI Workspace/
 ├── 0 — Start Here                  (Doc) how to talk to it, written for her
-├── 0 — Setup                       (Doc) IDs and settings the skills read first
-├── 0 — What's Installed            (Doc) which rooms are live, what they connect to
+├── 0 — Map                         (Doc) every ID, every setting, every rule
+│                                         document and its role — read first,
+│                                         every session. Written for the AI.
 │
 ├── 1 — Brain/                      ── SHARED BY EVERY ROOM ──
-│   ├── Told to us/                 she writes, Claude reads
+│   ├── Told to us/                 THE RULES. Only these change behaviour.
 │   │   ├── About the business
 │   │   ├── Brand voice
 │   │   ├── Who we talk to          families AND caregivers — two audiences
 │   │   ├── What we offer
 │   │   ├── Colors and fonts        replaces Canva Brand Kit on Pro
-│   │   └── Rules for the AI        what it may do alone, what needs a yes
-│   └── Learned by us/              Claude writes, she reads
+│   │   ├── Rules for the AI        what it may do alone, what needs a yes
+│   │   └── How she likes to work   how she wants to be worked with
+│   └── Learned by us/              THE EVIDENCE. Never changes behaviour.
 │       ├── What works — Social (current)     rolling, replaced weekly
 │       ├── What works — YYYY-Www             one per week, never replaced
 │       ├── What works — YYYY Q#              quarterly compaction (housekeeping)
-│       ├── Her preferences                   every correction, remembered
-│       └── History                           dated log of what happened
+│       └── History                           dated log of every change
 │
 ├── 2 — Brand Assets/               ── SHARED BY EVERY ROOM ──
 │   ├── Logos/   Photos/   Templates/
 │   └── Photo releases/             gates any content with a real child
 │
 ├── 3 — Social/                     ── THE FIRST ROOM ──
-│   ├── 1 Ideas/
-│   ├── 2 Drafts/                   waiting for her. NOTHING publishes from here.
-│   ├── 3 Approved/                 she said yes; scheduled
-│   ├── 4 Published/                live, with the URL (ages to Archive at ~90d)
+│   ├── 1 Ideas/ 2 Drafts/ 3 Approved/ 4 Published/
 │   ├── Content Calendar            (Doc) the truth surface for the week
 │   └── Results/                    weekly performance reports
 │
@@ -49,44 +47,42 @@ the rules are in `growth-and-upkeep.md`, and every skill that creates a folder o
 document reads it first.
 
 
-## The `0 — Setup` doc
+## The `0 — Map` doc
 
-Created by `brand-onboarding`, read first by every other skill. Plain key: value
-lines so it survives Doc conversion:
+**Created by `brand-onboarding`, read first by every other skill, every session.**
+It holds every folder ID, every setting, and every rule document with the one role
+it holds — so a skill goes straight to what it needs instead of searching, and so
+"is there already a document that does this job?" is answerable in one read.
 
-```
-business_name: Lifetime of Love Nannies — Reno
-timezone: America/Los_Angeles
-drive_root_id: <folder id>
-drive_rooms: social                 ← comma-separated; a new room appends here
-drive_told_to_us_id: <folder id>
-drive_learned_by_us_id: <folder id>
-drive_social_id: <folder id>
-drive_drafts_id: <folder id>
-drive_approved_id: <folder id>
-drive_published_id: <folder id>
-drive_results_id: <folder id>
-drive_archive_id: <folder id>
-drive_releases_id: <folder id>
-zernio_profile_id: <24-hex>
-zernio_instagram_account_id: <24-hex>   (blank until connected)
-zernio_facebook_account_id: <24-hex>    (blank until connected)
-canva_available: yes | no          ← no ⇒ photo/video/text posts only, no graphics
-posting_capacity_per_week: 4
-reels_she_can_film_per_week: 2
-recruiting_in_scope: yes | no
-approval_word: approve
-```
+Its exact format, how to read it, how to heal a stale ID and when to rebuild it all
+live in **`the-map.md`** — one file, so the format cannot drift.
 
-If a value is missing, the skill that needs it asks the owner once and then
-**replaces the Setup doc** (per `drive-conventions.md`) so nobody asks again.
+It replaces the `0 — Setup` and `0 — What's Installed` documents earlier versions
+used. Two index documents can disagree about where the drafts are. One cannot.
+
+If a value the map needs is missing, the skill that needs it asks the owner once,
+then re-stamps the map (per `drive-conventions.md`) so nobody asks again.
+
 
 ## Why this shape
 
-- **`Told to us` / `Learned by us`** is the whole idea. Hers vs Claude's — so they
-  enrich each other instead of overwriting each other.
+- **`Told to us` / `Learned by us` is the contradiction firewall.** Hers and
+  Claude's — and only hers *decides anything*. `Learned by us` holds evidence: it
+  can choose between things the rules allow, never change what is allowed. When
+  results suggest a rule should change, Claude **proposes it and she says yes**, and
+  it goes into `Told to us` where it belongs. That is why there is no second file
+  quietly steering the voice. See `the-law.md`.
+- **One role, one document.** There is exactly one document for how she sounds. A
+  correction replaces it; it never adds a note beside it. Every role is listed in
+  `0 — Map`, which is what makes the rule checkable instead of aspirational.
 - **`1 Ideas → 4 Published`** is an approval gate you can *see*. A file physically
   moving is an obvious act.
 - **`Photo releases/`** turns a legal rule into a file Claude can check.
 - **`Colors and fonts`** exists because Canva's Brand Kit is Enterprise-only; the
   hex values living here is what lets Canva Pro produce on-brand output.
+- **`How she likes to work`** is a rule document, not a notes file. Earlier versions
+  kept corrections in `Learned by us/Her preferences` — a document about how to
+  write, sitting beside `Brand voice`, another document about how to write. Two
+  sources, one role: exactly the failure this system is built to prevent. Retired.
+  Voice corrections now go into `Brand voice`; permissions into `Rules for the AI`;
+  how she wants to be worked with, here.

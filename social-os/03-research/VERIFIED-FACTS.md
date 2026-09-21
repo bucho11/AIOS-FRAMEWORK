@@ -169,3 +169,27 @@ Run with `social-os/tools/verify-zernio.sh` plus follow-up probes. Nothing publi
 > were reachable. Cowork's architecture doc describes the same allow-list model, so
 > **do not design on Claude downloading a Canva file and re-uploading it.** Zernio's
 > own server-side fetch is the supported path.
+
+---
+
+## Google Drive connector — file timestamps  `[PRIMARY]` 2026-09-21
+
+Probed live against the bundled Drive connector (`list_recent_files`,
+`get_file_metadata`), read-only, on an existing file. Load-bearing for the
+hand-edit guard (DEC-033).
+
+| Fact | Evidence |
+|---|---|
+| `get_file_metadata(fileId)` returns | `id`, `title`, `mimeType`, `parentId`, `createdTime`, `modifiedTime`, `fileSize`, `fileExtension`, `canAddChildren`, `viewUrl` |
+| Timestamp format | RFC3339 UTC — `2026-09-20T18:06:54.637Z` |
+| `list_recent_files` sort orders | `recency` (default), `lastModified`, `lastModifiedByMe` |
+| **`modifiedTime` is NOT reliably wall-clock-at-write** | observed `modifiedTime: 2026-09-20T18:05:56.127Z` **earlier than** `createdTime: 2026-09-20T18:06:54.637Z` on an uploaded file — the upload preserved the source's mtime |
+
+**What that changed.** The hand-edit guard was originally specced as *"compare
+`modifiedTime` to the `claude_wrote` stamp in `0 — Map`."* That design inherits the
+quirk above and can miss an edit. It is now anchored on the file's **own**
+`createdTime`: because replacing a document always creates a new file (DEC-020),
+`createdTime` **is** the moment Claude wrote it, and it is immutable. The rule is
+`modifiedTime > createdTime ⇒ a human edited it`. The map stamp is demoted to a
+cross-check — if it disagrees with `createdTime`, the row is stale and gets healed
+before anything is decided.

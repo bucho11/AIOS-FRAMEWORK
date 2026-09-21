@@ -16,12 +16,12 @@ instead of aspirational.
 ```
 <Business> — AI Workspace/
 ├── 0 — Start Here            how to use it, written for her
-├── 0 — Setup                 IDs and settings every skill reads first
-├── 0 — What's Installed      the registry: which rooms are live, which are idle
+├── 0 — Map                   every ID, setting, rule document and room —
+│                             read first, every session
 │
 ├── 1 — Brain/                ── SHARED BY EVERY ROOM ──
-│   ├── Told to us/           who she is, how she sounds, what she sells, her rules
-│   └── Learned by us/        what we have learned, per room and overall
+│   ├── Told to us/           THE RULES — only these change behaviour
+│   └── Learned by us/        THE EVIDENCE — proposes, never decides
 │
 ├── 2 — Brand Assets/         ── SHARED BY EVERY ROOM ──
 │
@@ -59,6 +59,12 @@ of inventing a location.
 | Is it **finished and no longer live**? | `9 — Archive/` |
 | Is it **none of these**? | It probably needs a **new room** — see §3 |
 
+**Before creating anything in `1 — Brain/`, check `0 — Map` for its role.** If a
+document already answers that question, you are editing it, not creating a sibling.
+Two documents holding one role is the failure state this whole system is built
+against (`the-law.md`, Law 1) — and it is far easier to prevent here than to
+untangle in six months.
+
 **The test that settles arguments:** place it by *the question she will ask later*,
 not by where it came from. A performance report is dated, but she will ask "how did
 social do?" — so it lives in `3 — Social/Results/`, not in a logs folder.
@@ -77,16 +83,23 @@ responses, caregiver recruiting — **do not bolt it into `3 — Social/`.** Giv
 3. **Give it the same inner grammar** where it fits: ideas → drafts → approved →
    sent/published, plus its own `Results/`. The approve-before-anything-goes-out
    gate is not social-specific; it applies in every room.
-4. **Add a line to `0 — What's Installed`** — what the room is for, which connector
-   it needs, when it was added.
+4. **Rebuild `0 — Map`** — one row in the rooms table (what it is for, which
+   connector, when it was added), plus every new folder ID. Anything installed but
+   not in the map is invisible to every future session.
 5. **Add its learning file** — `1 — Brain/Learned by us/What works — <Room>`. Each
    room learns separately, because what works in email is not what works on Reels.
 6. **Never move or rename an existing room** to make space. Rooms are permanent
    addresses; other documents and her own memory point at them.
 
-**The brain does not fork.** A new room reads the same `Brand voice` and
+**The brain does not fork — this is the single most likely way this system ever
+acquires a contradiction.** A new room reads the same `Brand voice` and the same
 `What we offer`. If a room genuinely needs a different voice — a recruiting room
-might — that is a *section inside* `Brand voice`, not a second brain.
+might — that is a *section inside* `Brand voice`, not a second document.
+
+The moment there is an "Email brand voice" beside a "Brand voice", nobody can say
+which one is in force, and every future correction lands in one of the two at
+random. A room adds **working material**, never a second copy of a rule. Growth goes
+through `social-os:update-the-brain`, which checks this before the room is made.
 
 ---
 
@@ -106,9 +119,22 @@ Never reorganise her folder silently.
 
 ## 5. What keeps it healthy
 
-A workspace that only ever grows becomes unusable in about a year. The
-`housekeeping` skill runs a maintenance pass — monthly is plenty — and covers:
+Two different jobs, and they run at two different speeds. Confusing them is how a
+system looks maintained while quietly rotting.
 
+**The guard runs at change time — `social-os:update-the-brain`.** A contradiction is
+born the *instant* a change lands, not on the first of the month. So every write to
+a rule document, every room added, every correction she makes, goes through the
+guard right then: find the source, check nothing else already holds that role, fix
+it, fix what was built from it, re-stamp the map. This is the load-bearing layer.
+
+**Housekeeping runs monthly — a backstop and a janitor.** It assumes the guard is
+imperfect and audits what it might have missed, then does the maintenance that has
+no natural trigger:
+
+- **The invariants still hold** — no two documents with one role, the map matches
+  what is actually in Drive, no orphaned documents, no rule document whose
+  `modifiedTime` says a human edited it
 - **Published content ages out** to `9 — Archive/` after ~90 days, keeping the room
   small enough to scan
 - **Weekly learning documents compact** into a quarterly summary once a quarter has

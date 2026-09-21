@@ -63,14 +63,15 @@ For each:
 | Bundled file | Drive title | Parent |
 |---|---|---|
 | `0 — Start Here.md` | `0 — Start Here` | ROOT |
+| `0 — Map.md` | `0 — Map` | ROOT |
 | `Told to us/About the business.md` | `About the business` | TOLD |
 | `Told to us/Brand voice.md` | `Brand voice` | TOLD |
 | `Told to us/Who we talk to.md` | `Who we talk to` | TOLD |
 | `Told to us/What we offer.md` | `What we offer` | TOLD |
 | `Told to us/Colors and fonts.md` | `Colors and fonts` | TOLD |
 | `Told to us/Rules for the AI.md` | `Rules for the AI` | TOLD |
+| `Told to us/How she likes to work.md` | `How she likes to work` | TOLD |
 | `Learned by us/What works.md` | `What works (current)` | LEARNED |
-| `Learned by us/Her preferences.md` | `Her preferences` | LEARNED |
 | `Learned by us/History.md` | `History` | LEARNED |
 
 Also create an empty `Content Calendar` doc in CONTENT — `plan-week` fills it.
@@ -94,11 +95,17 @@ Also create an empty `Content Calendar` doc in CONTENT — `plan-week` fills it.
    account must read `canPost: true`. If one doesn't, say exactly which and why —
    do not proceed as if it worked.
 
-## Step 4 — The Setup doc
+## Step 4 — The map
 
-Write every value from `${CLAUDE_PLUGIN_ROOT}/shared/brain-layout.md` § `0 — Setup` as plain
-`key: value` lines, `create_file` into ROOT. This is the index every other skill
-reads first, so a missing ID here becomes a Drive search on every future run.
+Write `0 — Map` into ROOT, in the exact shape given in
+`${CLAUDE_PLUGIN_ROOT}/shared/the-map.md`: the settings block, every folder ID, and
+one row per rule document carrying **the one job it holds**, its Drive ID, and a
+`claude_wrote` timestamp in UTC.
+
+This is the index every other skill reads first. A missing folder ID here becomes a
+Drive search on every future run. A missing rule-document row is worse — it is how a
+second document holding the same job gets created six months from now without
+anything noticing.
 
 ## Step 5 — Prove it
 
@@ -110,5 +117,5 @@ captions. Close with the exact words that operate the system:
 ## If something fails part-way
 
 Say what exists and what doesn't, then offer to resume. The next run detects the
-folder and the Setup doc and picks up from the first missing piece — never
-re-interviews, never creates a duplicate folder.
+folder and `0 — Map` and picks up from the first missing piece — never
+re-interviews, never creates a duplicate folder, and never a duplicate document.

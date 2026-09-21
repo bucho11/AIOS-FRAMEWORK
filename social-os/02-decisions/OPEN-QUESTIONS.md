@@ -224,3 +224,38 @@ resolves by plain relative path regardless.
 **Test:** on the first real onboarding, ask Claude to quote a line from
 `${CLAUDE_PLUGIN_ROOT}/shared/guardrails.md`. If it cannot, the fallback is to move
 `shared/` content into each skill's own `references/` and accept the duplication.
+
+
+### OQ-018 — Is there a length limit on Cowork Project instructions?
+**Status:** open, low risk. **Blocks:** nothing; worth knowing before scaling.
+Anthropic's Cowork Projects documentation describes project instructions as
+"standing guidance applied to every session in the project" and **states no
+character limit**. Our bootstrap block (`shared/project-instructions.md`) is ~30
+lines / ~1.8 KB, which is small by any plausible ceiling — but "no documented
+limit" is not "no limit," and a silently truncated bootstrap would drop rule 7
+(nothing publishes without a yes) with no error.
+**Test that closes it:** at the first client setup, paste the block, start a fresh
+session, and ask Claude to repeat the project instructions back verbatim. Truncation
+shows immediately. Thirty seconds, once.
+
+### OQ-019 — Do Cowork Project instructions survive a plugin update or a connector re-auth?
+**Status:** open, low risk. **Blocks:** nothing.
+Project instructions are a Cowork project field, not plugin content, so they should
+be untouched by `claude plugin update` or a Drive/Zernio re-auth. Not verified.
+**Test that closes it:** after the first plugin update on a live client, open the
+project's instructions and confirm the block is still there. If it ever isn't, the
+bootstrap needs a check at session start — which is awkward, since the bootstrap is
+what would carry that check.
+
+### OQ-020 — Does `update-the-brain` actually fire on pushback, or only on an explicit ask?
+**Status:** open, **the most important untested thing in this build**. **Blocks:**
+confidence in the whole contradiction discipline.
+Skills are selected by matching the user's words to the skill `description`. An
+explicit "change my brand voice" will match. What is untested is whether *"why does
+everything have exclamation points"* or *"I already told you"* reliably selects it,
+rather than being answered conversationally. The bootstrap (rule 4) is the belt to
+the description's braces, but neither is verified.
+**Test that closes it:** evals 8, 9 and 11 in `evals/evals.json`, run against a real
+workspace. If pushback does not select the skill, the fix is not a longer
+description — it is making rule 4 of the bootstrap more explicit, since that text is
+in context before any skill is chosen.

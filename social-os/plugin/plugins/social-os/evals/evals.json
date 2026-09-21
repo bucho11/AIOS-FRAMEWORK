@@ -1,19 +1,19 @@
 {
   "skill_name": "social-os",
-  "note": "Prompts only for now. Running them needs a Zernio account (free, 2 accounts) and Canva Pro connected. Assertions to be drafted once one real run exists.",
+  "note": "Prompts only for now. Running them needs a Zernio account (free, 2 accounts) and Canva Pro connected. Assertions to be drafted once one real run exists. Evals 8-13 cover the contradiction discipline — they are the ones that matter over years, because a system that drafts well but corrects badly holds two truths by month six.",
   "evals": [
     {
       "id": 1,
       "skill": "brand-onboarding",
       "prompt": "hey so i just got this set up. i run the reno/tahoe location of a nanny agency called lifetime of love nannies, website is lifetimeoflovenannies.com and our instagram is @lifetimeoflovenannies. can you get me going? i can film maybe 2 short videos a week, honestly.",
-      "expected_output": "Researches site + IG before asking; confirms location and capacity; interviews one question at a time in plain English; converts adjectives into voice rules; asks about photo releases warmly; creates the Drive folder tree, Told-to-us docs, Setup doc, Zernio profile and both connect links; ends with three real drafts and the approval phrase.",
+      "expected_output": "Researches site + IG before asking; confirms location and capacity; interviews one question at a time in plain English; converts adjectives into voice rules; asks about photo releases warmly; creates the Drive folder tree, Told-to-us docs, 0 — Map doc (every folder ID plus one row per rules document naming the single job it holds), Zernio profile and both connect links; ends with three real drafts and the approval phrase.",
       "files": []
     },
     {
       "id": 2,
       "skill": "plan-week",
       "prompt": "plan my week",
-      "expected_output": "Reads Setup + brain + What works; respects posting_capacity and reels capacity; balances families and caregivers if recruiting is in scope; writes Content Calendar rows with date/time in her timezone, topic, format, media source, hook, CTA; tells her exactly what to film/upload and by when; does not publish.",
+      "expected_output": "Reads 0 — Map + brain + What works; respects posting_capacity and reels capacity; balances families and caregivers if recruiting is in scope; writes Content Calendar rows with date/time in her timezone, topic, format, media source, hook, CTA; tells her exactly what to film/upload and by when; does not publish.",
       "files": []
     },
     {
@@ -49,6 +49,48 @@
       "skill": "guardrails",
       "prompt": "make a cute post with a photo of the twins we placed a nanny with last month, the mom sent it to me",
       "expected_output": "Checks Photo releases/; with no matching release, declines the photo in one plain sentence (protection, not policing), offers the no-face framing (hands, toys, the nanny, a quote card), and proceeds with that.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "skill": "update-the-brain",
+      "prompt": "why does everything you write have exclamation points in it? that's not how i talk at all",
+      "expected_output": "Does NOT open with an apology. Names the source document in one line ('that comes from Brand voice — it says to use them'). Confirms the change, then REPLACES Brand voice (create-new + trash-old) rather than adding a note anywhere. Checks modifiedTime against the file's own createdTime first (hand-edit guard). Re-does the unpublished drafts that used the old voice; names anything already scheduled and asks. Re-stamps 0 — Map with the new file ID and timestamp. One dated line into History. Confirms in one or two lines, not a report. Never writes the preference into Learned by us.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "skill": "update-the-brain",
+      "prompt": "i already told you we don't call them babysitters. this is the third time",
+      "expected_output": "Treats the repeat as the system's failure, not hers, and says so plainly. Runs the FULL pass, not a targeted one: reads 0 — Map and checks every rules document that could plausibly govern word choice, specifically looking for a SECOND document holding the same job as Brand voice. If two exist, quotes both, asks which is right, keeps one and trashes the other. Fixes the surviving document, handles the blast radius, re-stamps the map, logs to History. Does not apologise twice or re-litigate afterwards.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "skill": "update-the-brain",
+      "prompt": "we're doing email newsletters now too, can this thing handle that?",
+      "expected_output": "Treats it as a new room, not a new kind of post. Confirms it is a genuinely new domain. Creates 4 — Email with the same ideas → drafts → approved → sent grammar and its own Results. Does NOT create an email voice or email offers document — the brain does not fork; a section inside Brand voice if one is genuinely needed. Adds Learned by us/What works — Email. Rebuilds 0 — Map with the new folder IDs and a rooms row. Touches nothing in 3 — Social.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "skill": "update-the-brain",
+      "prompt": "actually we charge $30 an hour now, not $25",
+      "expected_output": "Reads What we offer and states what it currently holds before changing it ('right now it says $25/hour — change to $30?') rather than silently flipping. Replaces the document; no 'previously $25' line left inside it. Finds the unpublished drafts and graphics showing $25 and redoes or flags them. Flags any PUBLISHED post stating $25 as now false and asks whether to take it down — never quietly edits a live post. Old value goes to History with a date. Map re-stamped.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "skill": "housekeeping",
+      "prompt": "housekeeping",
+      "expected_output": "Runs the invariant audit FIRST: two-documents-one-job, map-matches-Drive, no hand-edits (modifiedTime vs createdTime), no behaviour rule hiding in Learned by us. Does not resolve a two-documents finding itself — hands it to update-the-brain and leads the report with it. Then health, the 90-day archive sweep, quarterly compaction, staleness flags, registry, drift. Never rewrites a Told to us document. Says so in one line if the month was clean.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "skill": "drive-conventions",
+      "prompt": "i went in and edited the brand voice doc myself last night, can you write a post",
+      "expected_output": "Before writing anything to that document, get_file_metadata and compares modifiedTime to the file's own createdTime (createdTime is when Claude created it, since every replacement mints a new file). Detects the hand edit. Does NOT overwrite it — replacing would trash the file her edit lives in. Reads what it says now, tells her in one line what changed, asks whether to keep it, and folds her wording in through the system. Then drafts the post from the corrected voice. Never silently proceeds and never silently loses her edit.",
       "files": []
     }
   ]

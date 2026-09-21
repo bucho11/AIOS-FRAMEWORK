@@ -450,3 +450,171 @@ she has approved everything for months, it offers, once and by category, to let 
 low-risk category run on its own. That is AIOS's `INTENT.md` recalibration, in
 plain English.
 **Reverses if:** nothing.
+
+### DEC-027 — One job, one document. A correction replaces; it never appends.
+**Date:** 2026-09-21 · **Status:** ✅ locked · **the core invariant**
+**Decision:** Every document in `1 — Brain/` holds exactly one named job, and no
+two documents may hold the same job. A correction therefore **replaces** the
+document that caused the behaviour. It never adds a note, a "preferences" file, or
+a second document beside the old one. Every job is listed in `0 — Map`, which makes
+the rule checkable in one read rather than a Drive sweep.
+**Why:** the operator named the failure exactly: *"the agent just says oh I'm sorry
+I'm just going to go fix it but doesn't actually fix it, it just layers another
+context layer on top, so now there's two contradicting things — a corrected form
+and the older form."* Two live documents answering one question is worse than
+neither: the system is confidently wrong and nobody can see which one is winning.
+**A check nobody can afford stops running**, which is why the rule is enforced
+through the map rather than by reading the folder — two calls, not twenty.
+**Reverses if:** never. Everything else here is an implementation of this.
+
+### DEC-028 — Rules govern, records don't — and `Her preferences` is retired
+**Date:** 2026-09-21 · **Status:** ✅ locked · **supersedes the `Her preferences`
+document in DEC-002's layout**
+**Decision:** Two species of document. **Rule documents** (`1 — Brain/Told to us/`,
+`0 — Map`) hold what is true *now*, are replaced in place, and are the only things
+that change behaviour. **Record documents** (`Learned by us/`, `History`, results,
+post packets) are dated, appended, never replaced, and have **no authority**.
+Evidence may choose between options the rules allow; it may never change what is
+allowed. When results imply a rule should change, Claude **proposes** it, she says
+yes, and it goes into `Told to us/`.
+`Learned by us/Her preferences` is **deleted**. `Told to us/How she likes to work`
+is added as a proper rule document for working-style preferences.
+**Why (a defect found in our own build):** the shipped seed text for
+`Her preferences` read *"If you tell Claude 'never say X' or 'always do Y', it
+lands here and holds from then on."* That is a claim of authority over `Brand
+voice` — a second document about how to write, sitting beside the first. We shipped
+the exact failure this system exists to prevent, in the onboarding defaults, and it
+would have been seeded on day one of every client. This is also why a rule document
+holds no history: `What we offer` says $30/hour and never "was $25" — the old value
+goes to `History`, so the governing layer can never accumulate two answers.
+**Reverses if:** never. If a preference has no home, the answer is a new rule
+document with a distinct job, not a notes file.
+
+### DEC-029 — `0 — Setup` + `0 — What's Installed` merge into `0 — Map`
+**Date:** 2026-09-21 · **Status:** ✅ locked · **supersedes the two index documents
+in DEC-025**
+**Decision:** One agent-facing index at the top of the workspace, read first every
+session: settings, every folder ID, one row per rule document carrying **the single
+job it holds**, plus the rooms and connections registries. `0 — Start Here` stays
+separate — that one is written for her. Spec lives in `shared/the-map.md` and
+nowhere else, so the format cannot drift. Pointers only, never prose; records are
+excluded, which caps it at roughly thirty lines forever.
+**Why:** three things at once. (1) The operator's constraint — *"a constantly
+updating directory so the agent never searches many files; overbloating context is
+something I will not accept."* One small read replaces N searches, and the cost
+does not grow as the workspace grows into email, reviews and invoicing. (2) Two
+index documents can disagree about where the drafts are; one cannot. (3) **It is
+the contradiction index** — listing each document's job is what makes DEC-027
+enforceable at change time instead of at audit time.
+**Reverses if:** the map ever exceeds ~50 rows, which would mean records or prose
+leaked in. Fix the leak, don't split the map.
+
+### DEC-030 — The guard runs at change time; housekeeping is the backstop
+**Date:** 2026-09-21 · **Status:** ✅ locked · **narrows DEC-026**
+**Decision:** An eighth skill, `update-the-brain`, is the only sanctioned path to
+change a rule document, add a room, or respond to pushback. It runs synchronously
+on **every** rule-document write and **every** correction. `housekeeping` is
+demoted from "the maintenance pass" to a monthly **safety net plus janitor**: it
+audits the invariants the guard should have held (two-documents-one-job,
+map-matches-Drive, no hand-edits, no rule hiding in `Learned by us`), then archives,
+compacts, and flags staleness.
+**Why:** this was the operator's direct question — *is housekeeping the right
+approach?* It is not, as the guard. **A contradiction is born the instant a change
+lands, not on the first of the month.** A monthly sweep leaves a wrong rule
+governing for up to thirty days, which is long enough to produce thirty pieces of
+wrong work — precisely the *"four to six months from now they don't like what's
+happening"* scenario. The guard's check costs two calls (read the map, check
+`modifiedTime`), which is cheaper than one Drive search, so "always" is affordable.
+Defense in depth, honest about which layer is load-bearing.
+**Reverses if:** never; the two jobs are genuinely different.
+
+### DEC-031 — Pushback is a barrier, not a remark. Never apologise first.
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** Correction, confusion, disagreement, repetition, and silent rejection
+(three passes with no reason given) all stop the task in flight. The first response
+is never *"sorry, I'll fix it"* — it is **naming the document that caused it**, or
+one short question answerable in a word. Then: fix the source, handle the blast
+radius, re-stamp the map, log to `History`, resume **from the corrected state**.
+**"I already told you" gets the full pass**, not a targeted one — a repeat means a
+previous fix never landed in a document, which almost always means a second
+document holding the same job exists.
+**Why:** research into human-AI repair converges on *"acknowledge once, correct
+once, verify if needed, then proceed from the corrected state,"* and names the
+specific failure of *accepting the correction socially while leaving the internal
+state unchanged.* That is what an apology is. Two guards against overcorrecting in
+the other direction: **verify before you flip** (say what the document currently
+holds — she is usually right, but silently rewriting canon to match a
+misremembering is the same corruption wearing a nicer face), and **don't
+re-litigate afterwards** — one confirmation, then it is simply how things are.
+**Reverses if:** never.
+
+### DEC-032 — Three instruction tiers with fixed roles; the bootstrap is pasted at setup
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** **Bootstrap** (Cowork Project instructions — seven rules that must
+fire with zero tool calls; pasted once at setup, identical for every client but the
+folder name) · **Law** (this plugin — how the system behaves, same everywhere,
+versioned in git) · **Facts** (her Drive — who she is, her IDs, her rules). Nothing
+client-specific in the plugin. No behaviour rules in her Drive. Precedence is stated
+identically in all three and is **ordered, not accumulated**: what she just said >
+`Told to us/` > `0 — Map` > `Learned by us/` > plugin defaults.
+**Why:** Cowork does not read a CLAUDE.md-style file out of a connected Drive folder
+— verified. Project instructions are the only text guaranteed to be in context
+before any tool runs, which is exactly what the pushback rule and the read-the-map
+rule need, because both govern the moment *before* a skill is chosen. The research
+on multi-source instruction systems is unambiguous that tiers need **explicit
+precedence rather than accumulation**, and that rebuilding from canonical state
+beats merging historical instructions. Anthropic's docs do not say Claude can update
+*project* instructions from inside a session, so the bootstrap is deliberately fixed
+at setup and carries nothing that changes over time — no IDs, no capacities, no room
+list. Those live in `0 — Map`.
+**Reverses if:** Anthropic documents in-session editing of project instructions,
+which would let the bootstrap carry live state. Even then, probably don't — a second
+place for facts to live is a second place for them to be wrong.
+
+### DEC-033 — She changes the system by talking; a hand-edit is a stop, not an overwrite
+**Date:** 2026-09-21 · **Status:** ✅ locked · **fixes a data-loss bug in DEC-020**
+**Decision:** The owner never edits her Drive folder by hand; every change is a
+sentence in chat. Because that is a promise and not a lock, **before replacing any
+rule document**, `get_file_metadata` → is `modifiedTime` later than the file's own
+`createdTime`? Yes means a human edited it: **stop**, read it, tell her what
+changed, ask whether to keep it, fold it in properly. `0 — Start Here` teaches this
+with the reason, not as a rule — *if you change it there, I won't know, and we'll
+end up with two versions.*
+**Why:** the operator's requirement — *"we don't want the user to go into the drive
+and actually make any changes."* It is also a **live bug fix**: DEC-020 established
+replace-by-recreate (create new, trash old) because the Drive connector's
+`update_file` cannot change content. If she had a document open in Google Docs, that
+sequence would trash the file her edits live in — **silent data loss, no error**.
+One `get_file_metadata` call turns it into a question. Enforcement is impossible (it
+is her Drive), so the design is: make it unnecessary, make it detectable, make it
+recoverable.
+**Verified 2026-09-21, and the probe changed the design:** `get_file_metadata`
+returns both `modifiedTime` and `createdTime` as RFC3339 UTC — but `modifiedTime` is
+**not reliably wall-clock**. On a real uploaded file it came back *earlier* than
+`createdTime`, because the upload preserved the source's mtime. So the check is
+anchored on the file's **own** `createdTime` rather than the map's `claude_wrote`
+stamp: every replacement mints a new file, so `createdTime` *is* Claude's write
+moment, and it is immutable. The map stamp is the cross-check — if it disagrees with
+`createdTime`, the row is stale and gets healed first. The original stamp-only
+design would have inherited the mtime quirk and could have missed a hand-edit.
+**Reverses if:** the Drive connector ever gains real content editing, which removes
+the trash step and most of the risk. The check stays useful regardless.
+
+### DEC-034 — Growth goes through the same door: the brain does not fork
+**Date:** 2026-09-21 · **Status:** ✅ locked · **hardens DEC-025 §3**
+**Decision:** Adding a room, connector, or domain runs through `update-the-brain`
+and the same laws. A new room may **not** duplicate a job: no "Email brand voice"
+beside `Brand voice` — a section inside the one document if a room genuinely needs
+different treatment. A room adds *working material*, never a second copy of a rule.
+Every new room, connector or skill gets exactly one row in `0 — Map`, and the map is
+rebuilt.
+**Why:** the operator's requirement that this be *"ever evolving for everything, not
+just social media — QuickBooks, Klaviyo"* in a *"highly disciplined way."* None of
+DEC-027 through DEC-033 mentions social media; they are laws about documents and
+jobs, so they hold for every future domain unchanged. The one place growth
+predictably breaks them is room creation, because a new domain *feels* like it needs
+its own voice — and the moment there are two voice documents, every subsequent
+correction lands in one of them at random. That is the single most likely way this
+system ever acquires a contradiction, so it is checked before the room is made
+rather than audited afterwards.
+**Reverses if:** never.

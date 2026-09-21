@@ -17,7 +17,7 @@ Owners don't stop posting for lack of ideas. They stop because posting falls off
 the list when the week gets busy. This skill keeps the next week already decided,
 so the only decision left is "yes".
 
-Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`, then the `0 — Setup` doc, then everything
+Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`, then the `0 — Map` doc, then everything
 in `1 — Brain/Told to us/` and `Learned by us/What works (current)`. Read
 `references/pillars-and-cadence.md` for the mix and the sector defaults.
 
@@ -73,9 +73,18 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any fol
 - The calendar is the truth surface for the week. Drafts cite it; they don't
   compete with it.
 
+## If she pushes back while you are doing this
+
+Stop. Do not apologise and carry on, and do not just adjust for the rest of the
+conversation — that fix disappears tonight. Corrections, confusion ("why did you…"),
+disagreement, and especially "I already told you" all mean a **document** is wrong.
+Hand it to `social-os:update-the-brain`, which finds that document, fixes it, and
+fixes whatever was built from it. Then come back here and continue from the
+corrected state.
+
 ## If there is no brain yet
 
-Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Setup`
+Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Map`
 doc. **If either is missing, stop and run `social-os:brand-onboarding` instead** —
 this skill has nothing to read and would invent a brand. Say so in one plain line:
 *"I don't have your brand set up yet — let's do that first, it takes about forty

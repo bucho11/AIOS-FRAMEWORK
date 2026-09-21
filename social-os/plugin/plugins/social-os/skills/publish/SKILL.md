@@ -20,7 +20,7 @@ publisher ever changes, this file changes and nothing else does.
 
 Read `${CLAUDE_PLUGIN_ROOT}/shared/post-packet.md`, `${CLAUDE_PLUGIN_ROOT}/shared/guardrails.md`, and
 `references/zernio-cheatsheet.md` (tool names, fields, limits — all verified).
-Read `0 — Setup` for `timezone`, profile and account ids, and the approval word.
+Read `0 — Map` for `timezone`, profile and account ids, and the approval word.
 
 > **The four rules that never bend**, restated here so they hold even if the shared
 > file above fails to load: never post an identifiable child's face without a signed
@@ -125,9 +125,18 @@ stack account-wide.
 - Never pass a Drive link as media.
 - Never store an API key anywhere in Drive.
 
+## If she pushes back while you are doing this
+
+Stop. Do not apologise and carry on, and do not just adjust for the rest of the
+conversation — that fix disappears tonight. Corrections, confusion ("why did you…"),
+disagreement, and especially "I already told you" all mean a **document** is wrong.
+Hand it to `social-os:update-the-brain`, which finds that document, fixes it, and
+fixes whatever was built from it. Then come back here and continue from the
+corrected state.
+
 ## If there is no brain yet
 
-Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Setup`
+Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Map`
 doc. **If either is missing, stop and run `social-os:brand-onboarding` instead** —
 this skill has nothing to read and would invent a brand. Say so in one plain line:
 *"I don't have your brand set up yet — let's do that first, it takes about forty

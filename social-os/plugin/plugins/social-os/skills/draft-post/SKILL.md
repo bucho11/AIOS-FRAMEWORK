@@ -17,7 +17,7 @@ structure, then compliance, then stage it. Nothing here publishes.
 
 Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`, `${CLAUDE_PLUGIN_ROOT}/shared/post-packet.md`,
 `${CLAUDE_PLUGIN_ROOT}/shared/guardrails.md`, and `references/caption-rules.md`. Then read the
-brain: `Brand voice`, `What we offer`, `Who we talk to`, `Her preferences`,
+brain: `Brand voice`, `What we offer`, `Who we talk to`, `How she likes to work`,
 `What works (current)`.
 
 Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any folder or document the layout does not already name — especially if the owner asks for something that is not social media.
@@ -37,7 +37,7 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any fol
    audience, format, platforms, publish time, media source, hook idea, CTA.
 
 2. **Write in her voice.** Apply `Brand voice` literally — sliders, sentence length,
-   POV, emoji policy, never-use list, CTA verbs. Then check `Her preferences` for
+   POV, emoji policy, never-use list, CTA verbs. Then check `How she likes to work` for
    any correction she has ever made and honour it. When in doubt, pick the plainer,
    warmer line.
 
@@ -83,9 +83,18 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any fol
   `What we offer` documents the exact credential.
 - Never imply nannies are contractors.
 
+## If she pushes back while you are doing this
+
+Stop. Do not apologise and carry on, and do not just adjust for the rest of the
+conversation — that fix disappears tonight. Corrections, confusion ("why did you…"),
+disagreement, and especially "I already told you" all mean a **document** is wrong.
+Hand it to `social-os:update-the-brain`, which finds that document, fixes it, and
+fixes whatever was built from it. Then come back here and continue from the
+corrected state.
+
 ## If there is no brain yet
 
-Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Setup`
+Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Map`
 doc. **If either is missing, stop and run `social-os:brand-onboarding` instead** —
 this skill has nothing to read and would invent a brand. Say so in one plain line:
 *"I don't have your brand set up yet — let's do that first, it takes about forty

@@ -36,11 +36,33 @@ repository** → paste the marketplace repo URL → install **Social OS**.
 2. **Canva** — her Canva **Pro** login
 3. **Zernio** — browser sign-in, no key to paste
 
-### 3 · Run the interview (~30 min)
+### 3 · Paste the Project instructions (1 min — do this BEFORE the interview)
+Open the Cowork **project** → **Project instructions** → paste the block from
+`plugin/plugins/social-os/shared/project-instructions.md`, replacing `<Business>`
+with her workspace folder name (`Lifetime of Love Nannies — Reno — AI Workspace`).
+
+**This is not optional and it is not cosmetic.** Project instructions are the only
+text guaranteed to be in context before any tool runs, so they carry the rules that
+must fire *before* a skill is chosen: read `0 — Map` first, one job one document, a
+correction must land in a document, pushback stops the task, the precedence order,
+nothing publishes without a yes. Without it, a future session searches her folder
+instead of reading the map, and a correction can land as an apology instead of a
+write.
+
+It is identical for every client except the folder name. It is fixed at setup —
+Anthropic's docs do not say Claude can update *project* instructions from inside a
+session, which is exactly why nothing that changes over time (IDs, capacities, room
+list) goes in it. Those live in `0 — Map`, which Claude maintains.
+
+`brand-onboarding` also prints the block at the end of the interview, so if you
+forget it here you get a second chance.
+
+### 4 · Run the interview (~30 min)
 She says: **"set me up"**
 
-`brand-onboarding` then: researches her site and Instagram, interviews her in eight
-phases, builds the Drive folder and every brain document, creates her Zernio profile,
+`brand-onboarding` then: researches her site and Instagram, interviews her in nine
+phases, builds the Drive folder, all seven rules documents and `0 — Map`, creates
+her Zernio profile,
 hands her the Instagram and Facebook connect links, verifies `canPost: true` on both,
 and drafts three real posts.
 
@@ -48,7 +70,7 @@ and drafts three real posts.
 `canPost: false`, fix it on the call — that is almost always the Instagram account
 type.
 
-### 4 · Set two scheduled tasks (2 min — she must do this)
+### 5 · Set two scheduled tasks (2 min — she must do this)
 Plugins cannot create scheduled tasks; the owner does, once, in Cowork.
 
 | Name | When | Prompt |
@@ -56,7 +78,7 @@ Plugins cannot create scheduled tasks; the owner does, once, in Cowork.
 | **Weekly content plan** | Weekly, Sunday evening | `Run social-os:plan-week for next week, then social-os:draft-post for every planned row, stage them as drafts, and tell me what's waiting for approval and what I need to film or upload.` |
 | **Weekly results** | Weekly, Monday morning | `Run social-os:learn for last week. Lead with anything that needs me.` |
 
-### 5 · Approve one post together (5 min)
+### 6 · Approve one post together (5 min)
 Pick the best of the three drafts. She says **"approve \<post name\>"**. Watch it
 schedule. **That moment is the sale** — she sees the loop close.
 
@@ -67,6 +89,17 @@ schedule. **That moment is the sale** — she sees the loop close.
 > - **"Plan my week"** — it plans and drafts.
 > - **"Show me the drafts"** — it shows what's waiting.
 > - **"Approve \<post name\>"** — the only way anything goes live.
+
+And one more, which matters more than it sounds:
+
+> **"Don't go into the folder to change things — just tell me."** If something's
+> wrong, say it in whatever words come out. "That's not right." "Why did you do
+> that?" "I already told you." All of those work, and all of them make it go fix the
+> actual source instead of patching one post.
+
+Say the reason out loud, because it is what makes her comply: *if she edits a
+document by hand, the system doesn't know, and the next correction lands somewhere
+else — and then there are two versions of her brand voice quietly disagreeing.*
 
 Everything else is in `0 — Start Here` in her folder.
 
