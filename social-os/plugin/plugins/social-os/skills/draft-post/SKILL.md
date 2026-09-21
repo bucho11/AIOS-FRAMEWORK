@@ -20,6 +20,9 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`, `${CLAUDE_PLUGIN_ROOT}
 brain: `Brand voice`, `What we offer`, `Who we talk to`, `Her preferences`,
 `What works (current)`.
 
+Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any folder or document the layout does not already name — especially if the owner asks for something that is not social media.
+
+
 > **The four rules that never bend**, restated here so they hold even if the shared
 > file above fails to load: never post an identifiable child's face without a signed
 > release on file; never generate an AI image of a child; never write "licensed",
@@ -82,7 +85,7 @@ brain: `Brand voice`, `What we offer`, `Who we talk to`, `Her preferences`,
 
 ## If there is no brain yet
 
-Search Drive for a folder named `<Business> — Social OS` and read its `0 — Setup`
+Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Setup`
 doc. **If either is missing, stop and run `social-os:brand-onboarding` instead** —
 this skill has nothing to read and would invent a brand. Say so in one plain line:
 *"I don't have your brand set up yet — let's do that first, it takes about forty

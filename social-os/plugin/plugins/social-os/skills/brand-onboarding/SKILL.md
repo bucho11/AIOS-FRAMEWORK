@@ -26,6 +26,9 @@ saying hello, `references/interview.md` is the questions, and
 folder-tree order, seed-doc mapping, the Zernio connect flow, and the health check
 that must pass before you tell her it worked.
 
+Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any folder or document the layout does not already name — especially if the owner asks for something that is not social media.
+
+
 ## The stance
 
 - **Research first, ask second.** Read her website and Instagram *before* the first
@@ -46,7 +49,7 @@ that must pass before you tell her it worked.
 
 ## Detect where she is
 
-1. Search Drive for a folder named `<Business> — Social OS`. If she hasn't named the
+1. Search Drive for a folder named `<Business> — AI Workspace`. If she hasn't named the
    business yet, ask that one thing first.
 2. Folder exists and `0 — Setup` exists → **return visit**. Read Setup and the docs in
    `Told to us/`. Say what's in place, ask what she wants to change, run only that

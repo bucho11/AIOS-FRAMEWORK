@@ -407,3 +407,46 @@ four rules that must never bend are now written **directly into** the three skil
 that could otherwise publish something harmful. A failed file load now degrades
 gracefully instead of silently dropping safety.
 **Reverses if:** nothing. This is strictly more correct.
+
+### DEC-025 — The folder is a workspace with rooms, not a social media tool
+**Date:** 2026-09-21 · **Status:** ✅ locked · **supersedes the layout in DEC-002's spec**
+**Decision:** The client folder is `<Business> — AI Workspace`. Two shared things
+(`1 — Brain`, `2 — Brand Assets`) and **N rooms**, starting with `3 — Social`. A new
+domain — email marketing, reviews, recruiting, invoicing — takes the next free
+number and never disturbs a room that already works. `9 — Archive` is shared.
+**Why:** the operator's stated goal from the first conversation was *"she wants all
+of her tasks automated"*, and he confirmed she will want email marketing and other
+plugins over time. The previous layout hard-coded social into the top level
+(`3 — Content`, `4 — Results`), so a second domain had **nowhere to go** — it would
+have been bolted into the social room or dumped loose at the root.
+**What makes growth real rather than aspirational:** a new shared reference,
+`growth-and-upkeep.md`, carries the **router** (where does a new thing go, asked in
+order), the **rule of three** (three loose files of a kind earn a subfolder, named
+for the species not the date), the **room-creation procedure**, and the rule that
+**the brain does not fork** — a new room reads the same voice and offers, so it
+knows who she is on day one. Every skill that creates a folder or document reads it
+first. `0 — What's Installed` is the registry she and Claude both read.
+**Reverses if:** nothing. A single-domain layout was the defect.
+
+### DEC-026 — Housekeeping: the system maintains itself, and reports rather than rearranges
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** A seventh skill, `housekeeping`, runs monthly: ages published content
+into the archive at ~90 days, compacts a finished quarter's weekly learning notes
+into one summary (archiving the weeklies rather than deleting them), flags stale
+brain documents, surfaces broken connections and un-retried failures, checks the
+registry against reality, and names drift.
+**Why:** this was the largest AIOS discipline missing. AIOS's own
+`/aios:housekeeping` runs **28 audit buckets** precisely because a context system
+that only ever grows becomes unusable in about a year. Ours had **none**. Left
+alone, `Learned by us` reaches 52 weekly documents and `4 Published` reaches
+hundreds of packets, with nothing archiving, compacting, or noticing drift — and
+the owner is the one who has to look at it.
+**The stance is load-bearing:** it **reports and proposes; it does not reorganise.**
+The one exception is the mechanical 90-day archive sweep. A system that silently
+moves her things is one she stops trusting, and trust is the product. Nothing is
+ever deleted — archived.
+**One inheritance worth naming:** it also watches whether *trust should grow* — if
+she has approved everything for months, it offers, once and by category, to let a
+low-risk category run on its own. That is AIOS's `INTENT.md` recalibration, in
+plain English.
+**Reverses if:** nothing.

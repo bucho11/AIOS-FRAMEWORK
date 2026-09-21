@@ -12,15 +12,15 @@ folder's ID; you need that ID as the `parentId` of everything inside it.** So bu
 top-down, holding each ID as you go.
 
 ```
-create_file(title: "<Business> — Social OS",
+create_file(title: "<Business> — AI Workspace",
             mimeType: "application/vnd.google-apps.folder")          → ROOT
 
 with parentId = ROOT:
   "1 — Brain"          → BRAIN
   "2 — Brand Assets"   → ASSETS
-  "3 — Content"        → CONTENT
-  "4 — Results"        → RESULTS
-  "5 — Archive"        → ARCHIVE
+  "3 — Social"        → CONTENT
+  "3 — Social/Results"        → RESULTS
+  "9 — Archive"        → ARCHIVE
 
 with parentId = BRAIN:
   "Told to us"         → TOLD

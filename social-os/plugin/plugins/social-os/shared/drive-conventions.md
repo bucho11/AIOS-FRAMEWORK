@@ -18,7 +18,7 @@ corrupt the brain.
 
 | Intent | How |
 |---|---|
-| **Find the brain** | `search_files` with `title = '<Business> — Social OS' and mimeType = 'application/vnd.google-apps.folder'`. Then read the `0 — Setup` doc inside it — it holds every folder ID so you never search twice. |
+| **Find the brain** | `search_files` with `title = '<Business> — AI Workspace' and mimeType = 'application/vnd.google-apps.folder'`. Then read the `0 — Setup` doc inside it — it holds every folder ID so you never search twice. |
 | **Read a doc** | `search_files` (title + `parentId`) → `read_file_content(fileId)`. Never guess an ID. |
 | **Read a doc as raw text** | `download_file_content(fileId)` — exports Google Docs as plain text. |
 | **Create a doc** | `create_file(title, parentId, textContent, contentMimeType: "text/markdown")`. Markdown headings survive conversion well enough to read back. |

@@ -4,7 +4,7 @@ description: >
   The weekly learning loop that makes next week better than this week: pull real
   Instagram and Facebook performance from the publisher, find what worked and why,
   detect failed posts and accounts that need reconnecting, check the best posting
-  times, write a plain-English report to 4 — Results, and update Learned by us /
+  times, write a plain-English report to 3 — Social/Results, and update Learned by us /
   What works (current) so plan-week and draft-post read it next time. Use whenever
   the owner says "how did we do", "what's working", "weekly report", "any
   problems", or a weekly scheduled task runs. Read-only against the publisher
@@ -51,7 +51,7 @@ reads through them; it never schedules.
    current view: "post more of X, less of Y, at these times, because…" with the
    evidence dated. This is what `plan-week` reads. Keep it under a page.
 
-8. **Report to `4 — Results/`** — same content, in her words, as
+8. **Report to `3 — Social/Results/`** — same content, in her words, as
    `Weekly report — YYYY-Www`. Lead with anything that needs her (reconnect, film
    a Reel), then the win of the week, then the ask for next week.
 
@@ -67,7 +67,7 @@ reads through them; it never schedules.
 
 ## If there is no brain yet
 
-Search Drive for a folder named `<Business> — Social OS` and read its `0 — Setup`
+Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Setup`
 doc. **If either is missing, stop and run `social-os:brand-onboarding` instead** —
 this skill has nothing to read and would invent a brand. Say so in one plain line:
 *"I don't have your brand set up yet — let's do that first, it takes about forty

@@ -7,7 +7,7 @@ later, one category at a time.*
 - Research ideas and plan the week
 - Write draft posts and captions
 - Design graphics in Canva (drafts only)
-- Save drafts to 3 — Content / 2 Drafts
+- Save drafts to 3 — Social / 2 Drafts
 - Update 1 — Brain / Learned by us with what it learns
 - Write the weekly report
 

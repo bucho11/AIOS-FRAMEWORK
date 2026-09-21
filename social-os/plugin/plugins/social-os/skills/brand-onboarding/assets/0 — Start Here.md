@@ -18,9 +18,9 @@ don't have to manage it. You just talk to Claude in Cowork.
 - **1 — Brain / Learned by us** — what it has learned from your results. You read,
   it writes.
 - **2 — Brand Assets** — logos, photos, and photo releases from families.
-- **3 — Content** — posts move from *Drafts* → *Approved* → *Published*. If it's in
+- **3 — Social** — posts move from *Drafts* → *Approved* → *Published*. If it's in
   Drafts, it has not been posted.
-- **4 — Results** — a short report every week on what worked.
+- **3 — Social/Results** — a short report every week on what worked.
 
 ## Two promises it keeps
 

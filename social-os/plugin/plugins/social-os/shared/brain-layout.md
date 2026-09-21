@@ -5,38 +5,49 @@ understand it at a glance forever, without training. Numbers force Drive's sort
 order.
 
 ```
-<Business> — Social OS/
-├── 0 — Start Here                      (Doc) how to talk to it, written for her
-├── 0 — Setup                           (Doc) IDs and settings the skills read first
+<Business> — AI Workspace/
+├── 0 — Start Here                  (Doc) how to talk to it, written for her
+├── 0 — Setup                       (Doc) IDs and settings the skills read first
+├── 0 — What's Installed            (Doc) which rooms are live, what they connect to
 │
-├── 1 — Brain/
-│   ├── Told to us/                     she writes, Claude reads
+├── 1 — Brain/                      ── SHARED BY EVERY ROOM ──
+│   ├── Told to us/                 she writes, Claude reads
 │   │   ├── About the business
 │   │   ├── Brand voice
-│   │   ├── Who we talk to              families AND caregivers — two audiences
+│   │   ├── Who we talk to          families AND caregivers — two audiences
 │   │   ├── What we offer
-│   │   ├── Colors and fonts            replaces Canva Brand Kit on Pro
-│   │   └── Rules for the AI            what it may do alone, what needs a yes
-│   └── Learned by us/                  Claude writes, she reads
-│       ├── What works (current)        rolling synthesis, replaced weekly
-│       ├── What works — YYYY-Www       one per week, never replaced
-│       ├── Her preferences             every correction she makes, remembered
-│       └── History                     dated log of what happened
+│   │   ├── Colors and fonts        replaces Canva Brand Kit on Pro
+│   │   └── Rules for the AI        what it may do alone, what needs a yes
+│   └── Learned by us/              Claude writes, she reads
+│       ├── What works — Social (current)     rolling, replaced weekly
+│       ├── What works — YYYY-Www             one per week, never replaced
+│       ├── What works — YYYY Q#              quarterly compaction (housekeeping)
+│       ├── Her preferences                   every correction, remembered
+│       └── History                           dated log of what happened
 │
-├── 2 — Brand Assets/
+├── 2 — Brand Assets/               ── SHARED BY EVERY ROOM ──
 │   ├── Logos/   Photos/   Templates/
-│   └── Photo releases/                 gates any content with a real child
+│   └── Photo releases/             gates any content with a real child
 │
-├── 3 — Content/
+├── 3 — Social/                     ── THE FIRST ROOM ──
 │   ├── 1 Ideas/
-│   ├── 2 Drafts/                       waiting for her. NOTHING publishes from here.
-│   ├── 3 Approved/                     she said yes; scheduled in Zernio
-│   ├── 4 Published/                    live, with the URL
-│   └── Content Calendar                (Doc) the one truth surface for the week
+│   ├── 2 Drafts/                   waiting for her. NOTHING publishes from here.
+│   ├── 3 Approved/                 she said yes; scheduled
+│   ├── 4 Published/                live, with the URL (ages to Archive at ~90d)
+│   ├── Content Calendar            (Doc) the truth surface for the week
+│   └── Results/                    weekly performance reports
 │
-├── 4 — Results/                        weekly performance reports
-└── 5 — Archive/
+├── 4 — <next room>/                Email · Reviews · Recruiting · Invoicing …
+│
+└── 9 — Archive/                    ── SHARED ── retired from any room
 ```
+
+**Two shared things, N rooms.** The brain and the brand assets are shared because
+her voice and her logo do not change when the channel does. Each room holds one
+domain and nothing else. Adding a room never touches a room that already works —
+the rules are in `growth-and-upkeep.md`, and every skill that creates a folder or a
+document reads it first.
+
 
 ## The `0 — Setup` doc
 
@@ -47,12 +58,15 @@ lines so it survives Doc conversion:
 business_name: Lifetime of Love Nannies — Reno
 timezone: America/Los_Angeles
 drive_root_id: <folder id>
+drive_rooms: social                 ← comma-separated; a new room appends here
 drive_told_to_us_id: <folder id>
 drive_learned_by_us_id: <folder id>
+drive_social_id: <folder id>
 drive_drafts_id: <folder id>
 drive_approved_id: <folder id>
 drive_published_id: <folder id>
 drive_results_id: <folder id>
+drive_archive_id: <folder id>
 drive_releases_id: <folder id>
 zernio_profile_id: <24-hex>
 zernio_instagram_account_id: <24-hex>   (blank until connected)

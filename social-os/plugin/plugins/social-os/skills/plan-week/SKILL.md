@@ -21,6 +21,9 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`, then the `0 — Setup`
 in `1 — Brain/Told to us/` and `Learned by us/What works (current)`. Read
 `references/pillars-and-cadence.md` for the mix and the sector defaults.
 
+Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any folder or document the layout does not already name — especially if the owner asks for something that is not social media.
+
+
 ## Steps
 
 1. **Load the brain.** Setup → capacity (`posting_capacity_per_week`,
@@ -72,7 +75,7 @@ in `1 — Brain/Told to us/` and `Learned by us/What works (current)`. Read
 
 ## If there is no brain yet
 
-Search Drive for a folder named `<Business> — Social OS` and read its `0 — Setup`
+Search Drive for a folder named `<Business> — AI Workspace` and read its `0 — Setup`
 doc. **If either is missing, stop and run `social-os:brand-onboarding` instead** —
 this skill has nothing to read and would invent a brand. Say so in one plain line:
 *"I don't have your brand set up yet — let's do that first, it takes about forty

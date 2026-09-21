@@ -1,6 +1,6 @@
 # The post packet — the neutral object every skill hands to `publish`
 
-A post packet is **one Google Doc** in `3 — Content/`. It is the post's identity:
+A post packet is **one Google Doc** in `3 — Social/`. It is the post's identity:
 its Drive file ID is our `post_id`, and it moves `2 Drafts → 3 Approved → 4 Published`.
 
 **Nothing in a packet names a publishing vendor.** That is the swap seam. `draft-post`
