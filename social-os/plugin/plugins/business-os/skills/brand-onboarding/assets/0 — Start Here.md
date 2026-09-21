@@ -37,6 +37,25 @@ built from the old version. **One place, changed properly, every time.**
 If you ever do edit something by hand, that's fine — just mention it. Claude checks
 for hand edits before it writes, and it'll ask you rather than write over you.
 
+### One exception: your files go in the folder
+
+**2 — Brand Assets** is different. Drag your files straight in:
+
+| What | Where |
+|---|---|
+| Logo (highest quality you have) | **2 — Brand Assets / Logos** |
+| Photos you own and are happy to post | **2 — Brand Assets / Photos** |
+| Signed photo releases from families | **2 — Brand Assets / Photo releases** |
+
+That rule above is about *documents that tell Claude how to work.* A photo isn't a
+document — nothing can disagree with a logo. Put files in whenever you like, as many
+as you like, and mention it if you want them used soon.
+
+**The releases folder is the one that matters most.** Claude will not post a photo
+where a child's face is recognisable unless there's a signed release in there naming
+that family. No release on file means no post — so if you have them on paper, a phone
+photo of each one is enough to unblock it.
+
 ## What's in here
 
 - **0 — Map** — Claude's index of everything. It reads this first, every time.

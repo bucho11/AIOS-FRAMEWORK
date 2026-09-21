@@ -1,7 +1,7 @@
 {
   "name": "business-os",
   "displayName": "Business OS",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "A small business's whole AI workspace in one Google Drive folder, operated from chat. Social media is the first room; email, reviews, recruiting and invoicing are rooms you add later without touching what already works. Built so a correction always lands in the document that caused it.",
   "author": {
     "name": "Bucho"

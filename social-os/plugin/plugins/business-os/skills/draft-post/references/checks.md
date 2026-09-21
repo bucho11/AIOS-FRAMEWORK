@@ -36,6 +36,18 @@ child, which is never allowed regardless of releases
 An unreadable releases folder is `could not check`, not a pass. Do not stage on a
 `could not check` here — ask.
 
+**An EMPTY releases folder is not the same as a missing release, and saying it the
+same way trains her to ignore this check.** If the folder has no files at all, she
+has not uploaded any yet — so say that, and say what unblocks it:
+
+> I can't use that photo yet — there are no signed releases in your folder. A phone
+> photo of the signed form dropped into **2 — Brand Assets / Photo releases** is
+> enough. Want the hands-and-toys version in the meantime?
+
+The difference matters: *"no release for the Ruiz family"* is a gap in her paperwork.
+*"no releases at all"* is a setup step nobody completed, and the fix is 30 seconds
+rather than a conversation with a family.
+
 ### 3 · Worker classification
 **Tier:** blocking
 **Evidence:** the caption and first comment

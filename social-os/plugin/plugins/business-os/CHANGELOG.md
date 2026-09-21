@@ -10,6 +10,31 @@ says so. See `shared/versioning.md`.
 
 ## [Unreleased]
 
+## [0.7.1] — 2026-09-21
+
+### Fixed
+- **Onboarding created the brand-assets folders and never asked for anything to put
+  in them.** `Logos`, `Photos` and `Photo releases` were made empty at setup and
+  nothing filled them. That is now a three-minute phase of the interview: the logo,
+  ten to twenty photos she owns, her blank release form, and any signed releases.
+
+  **This was blocking, not cosmetic.** A post showing an identifiable child is
+  refused unless a signed release is on file — so with a permanently empty folder,
+  *every* such post was blocked forever, and she would have learned to override the
+  most important check in the system within her first week.
+- **"Don't edit the folder" read as "don't put anything in it."** Her own files were
+  the casualty. `2 — Brand Assets` now carries an explicit carve-out, in her words:
+  that rule is about documents that tell the system how to behave, and **nothing can
+  contradict a logo.** Drag files in whenever.
+- **An empty releases folder now reads differently from a missing release.** *"No
+  release for the Ruiz family"* is a gap in her paperwork; *"no releases at all"* is
+  a setup step nobody finished, and the fix is a phone photo of the signed form
+  rather than a conversation with a family. Saying both the same way is how a
+  blocking check becomes noise.
+- **Onboarding now records what is missing and what it blocks** — no logo yet, four
+  photos instead of twenty, no release form — so the gaps are a to-do list with
+  visible consequences rather than a surprise on the first real post.
+
 ## [0.7.0] — 2026-09-21
 
 **No workspace migration.** Behaviour only.

@@ -93,6 +93,47 @@ correction goes back into this document.** Never into a separate notes file: two
 documents about how to work with her is exactly the split this system is built to
 prevent (`${CLAUDE_PLUGIN_ROOT}/shared/the-law.md`).
 
+## Phase 6c · The actual files  (→ `2 — Brand Assets/`)
+
+Three minutes, and **skipping it breaks things later** — the folders exist, and if
+nothing goes in them the system is missing the raw material it needs.
+
+> Last practical bit. I've made you a folder for your logo, photos and release forms.
+> You don't have to do it while we're on the call, but it's five minutes and it saves
+> a lot later.
+
+**Ask for these, in this order:**
+
+1. **Logo** — the highest-resolution file she has, ideally a PNG with a transparent
+   background. If she only has it inside a Canva design or on her website, say so and
+   note it; a screenshot is not a logo and will look like one.
+2. **Ten to twenty photos she already owns and is happy to post.** Caregivers at
+   work, hands and toys, her office, her team. **Not stock.** This is what the first
+   month of posts is built from, and it is the difference between real content and
+   filler.
+3. **Her photo release form** — the one she has families sign. If she does not have
+   one, that is a real finding: say it plainly, because the child-imagery rule means
+   **no post can show an identifiable child until a signed release exists on file.**
+   Offer to note it as a to-do; do not draft a legal form for her.
+4. **Any signed releases she already holds** — one file per family, named so the
+   family is findable: `Ruiz family — 2026-03.pdf`.
+
+**Tell her how to hand them over**, because she will not guess:
+
+> Open the Drive folder, go to **2 — Brand Assets**, and drag them into the right
+> subfolder. Logos in Logos, photos in Photos, signed releases in Photo releases.
+> That's the one part of the folder you *should* put things into.
+
+**This is the exception to "don't touch the folder", and say so**, or she will not do
+it. That rule is about *documents that tell the system how to behave*. Dropping a
+photo into a folder is supplying raw material, not editing a rule. Nothing can
+contradict a logo.
+
+**Record what is missing**, in `Rules for the AI` and in your close: no logo yet, no
+release form yet, only four photos. Missing assets are not a failure — they are a
+to-do list with real consequences, and she should know which post types are blocked
+until each one lands.
+
 ## Phase 7 · Topics, proposed  (→ `Content Calendar` seed)
 
 Propose 5–7 topics from research + answers, each with one example post idea. Use

@@ -99,6 +99,12 @@ screening, credentials, guarantees — these are the only claims `draft-post` ma
 later by category. Explain the child-imagery rule warmly: it protects her account.
 Ask whether photo releases exist for client families. Fill `Rules for the AI`.
 
+**6c · The actual files (3 min)** — logo, 10–20 photos she owns, her blank release
+form, and any signed releases. Tell her to drag them into `2 — Brand Assets/` and say
+plainly that this is the one part of the folder she *should* put things into. **Record
+what is missing and what it blocks** — with no signed release on file, no post can
+show an identifiable child, and that is the first thing she will hit.
+
 **6b · How she wants to be worked with (2 min)** — when she wants drafts, whether to
 ask or decide, when she reviews, what would annoy her. Fill `How she likes to work`.
 Every later correction about *how you work with her* comes back to this one document.
@@ -126,6 +132,9 @@ Drive-title mapping, and the account-health check. Summary:
    and fonts from it; or take a plain-words description ("forest green and cream").
    Never ask for hex codes; work them out and write them down. This doc is what
    lets Canva Pro stay on-brand without an Enterprise Brand Kit.
+
+   **The hex values are not the logo file.** Ask for the actual file too (Phase 6c) —
+   `2 — Brand Assets/Logos/` starts empty and nothing else fills it.
 4. **Fold this interview's corrections into the rule documents themselves.** She
    corrected you a dozen times in the last forty minutes — that is the first real
    test of the discipline. Each correction goes into the document that owns that

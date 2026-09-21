@@ -100,6 +100,24 @@ never replaced, so there is nothing to destroy.
   looking for it. Same failure as a check that errored being reported as a pass:
   silence read as success.
 
+## Binary files — she uploads them, we don't ferry them
+
+`create_file` accepts `base64Content` alongside `textContent`, so a logo or a photo
+**can** be written to Drive by this system. That does not make it the right path.
+
+**Her files go into Drive directly — she drags them in.** Routing a photo through the
+conversation means the bytes travel through the model and come back out, which is
+slow, expensive, and unreliable at real photo sizes. Drive is also where they have to
+end up regardless, so the round trip buys nothing.
+
+**This is the one part of the folder she should put things into**, and it must be
+said out loud or she will not do it: the never-edit-the-folder rule is about
+*documents that govern behaviour*. A photo is raw material — nothing can contradict a
+logo. `0 — Start Here` carries the carve-out; onboarding Phase 6c collects the files.
+
+Use `base64Content` only for something this system generated and she is receiving —
+never as a way to accept a file she already has.
+
 ## Supersede, never trash
 
 `trash_file` looks like the safe option because trash is recoverable. It is not:
