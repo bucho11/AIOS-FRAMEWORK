@@ -33,8 +33,9 @@ draft time**, and re-check here.
 **Fails when:** a colour is used that is not in that document and is not a neutral
 **Report as:** each colour used, and whether it was found
 
-This document exists because the Brand Kit feature is out of reach on her plan. If
-nothing checks it, it is a document nobody reads.
+This document mirrors her Canva Brand Kit and adds the rules a Brand Kit cannot hold.
+Check against the document rather than the Brand Kit, because it is the one source
+every room shares — email and print have no Canva to read from.
 
 ### 4 · Dimensions match the destination
 **Tier:** needs-a-look

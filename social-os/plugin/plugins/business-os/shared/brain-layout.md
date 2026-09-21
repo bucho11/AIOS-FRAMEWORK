@@ -17,7 +17,7 @@ order.
 │   │   ├── Brand voice
 │   │   ├── Who we talk to          families AND caregivers — two audiences
 │   │   ├── What we offer
-│   │   ├── Colors and fonts        replaces Canva Brand Kit on Pro
+│   │   ├── Colors and fonts        mirrors her Canva Brand Kit, plus the rules
 │   │   ├── Rules for the AI        what it may do alone, what needs a yes
 │   │   └── How she likes to work   how she wants to be worked with
 │   └── Learned by us/              THE EVIDENCE. Never changes behaviour.
@@ -87,8 +87,12 @@ then re-stamps the map (per `drive-conventions.md`) so nobody asks again.
 - **`1 Ideas → 4 Published`** is an approval gate you can *see*. A file physically
   moving is an obvious act.
 - **`Photo releases/`** turns a legal rule into a file Claude can check.
-- **`Colors and fonts`** exists because Canva's Brand Kit is Enterprise-only; the
-  hex values living here is what lets Canva Pro produce on-brand output.
+- **`Colors and fonts` mirrors her Canva Brand Kit rather than replacing it.** On
+  Canva Pro her Brand Kit *is* readable — `list-brand-kits` is Pro+, and only
+  *autofill* is Enterprise. Onboarding reads it and writes what it finds here, then
+  adds what a Brand Kit cannot hold: when each colour is used, what the logo must
+  never sit on, her photo style. It is also the one source that survives Canva being
+  disconnected, and the only one an email or print room can read at all.
 - **`Templates/` and `Examples/` are per room, and they appear when first needed.**
   A template is anything that got rebuilt from scratch after existing before; an
   example is work she approved, carrying the reason it worked. Both are a job's

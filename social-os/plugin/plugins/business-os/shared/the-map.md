@@ -53,6 +53,8 @@ approval_word: approve
 posting_capacity_per_week: 4
 reels_she_can_film_per_week: 2
 canva_available: yes            ← no ⇒ photo/video/text posts only, no graphics
+canva_brand_kit: yes            ← her real palette and fonts; mirrored into Colors and fonts
+canva_brand_templates: 4        ← how many she built; make-graphic prefers these
 recruiting_in_scope: yes
 zernio_profile_id: <24-hex>
 zernio_instagram_account_id: <24-hex>    (blank until connected)

@@ -93,6 +93,41 @@ correction goes back into this document.** Never into a separate notes file: two
 documents about how to work with her is exactly the split this system is built to
 prevent (`${CLAUDE_PLUGIN_ROOT}/shared/the-law.md`).
 
+## Phase 6a · What she already built in Canva  (silent — before Phase 4, ideally)
+
+**Do this before asking her how her brand looks.** Two calls, no questions, and it
+can make half of the voice-and-look interview unnecessary.
+
+- `list-brand-kits` — if she has a Brand Kit, that is her **real** palette and fonts,
+  chosen on purpose, and it beats anything inferred from her website.
+- `search-brand-templates` — templates she built and already trusts. These are a
+  toolbox that exists on day one, and `make-graphic` should instantiate them rather
+  than generate something new that looks almost like her.
+- Recent designs — what she has actually published, which is style evidence rather
+  than style aspiration.
+
+Both are **Pro+**, not Enterprise. Only *autofill* is Enterprise, and we never need
+it — the edit loop fills a template on any plan.
+
+**Then show her what you found**, because it is the fastest trust you will build all
+call:
+
+> You've already got a brand kit in Canva — forest green, cream, Poppins for
+> headlines. I'll use that. And four templates, including the availability one you
+> seem to post most. I'll use those rather than making new ones.
+
+**What a Brand Kit cannot tell you, so still ask:**
+
+- **When** each colour is used — is the dark green for headlines or backgrounds?
+- What the logo must **never** sit on.
+- Photo style: warm or bright, posed or candid, faces or hands.
+- What a post of hers must **never** look like.
+
+**If she has no Canva Pro, or no Brand Kit:** say so plainly and run the normal
+questions. `Colors and fonts` is then built from her website and her answers, and it
+works — it is the one source every room reads anyway. A missing Brand Kit costs
+five minutes of interview, not a feature.
+
 ## Phase 6c · The actual files  (→ `2 — Brand Assets/`)
 
 Three minutes, and **skipping it breaks things later** — the folders exist, and if

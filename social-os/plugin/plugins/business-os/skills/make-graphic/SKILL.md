@@ -13,10 +13,17 @@ description: >
 
 # Make a graphic
 
-Canva makes the design; the brain makes it on-brand. Canva's Brand Kit is an
-Enterprise feature, so the exact colours and fonts live in
-`1 — Brain/Told to us/Colors and fonts`, and you apply them yourself. That doc is
-the substitute for the feature we cannot buy — read it every time.
+Canva makes the design; the brain makes it on-brand.
+
+**Her Canva Brand Kit and Brand Templates are readable on Pro** — `list-brand-kits`,
+`search-brand-templates` and `create-design-from-brand-template` are all Pro+. Only
+*autofill* is Enterprise, and we do not need it: the edit loop fills a template on
+any plan. **Use what she already has before making anything new.**
+
+`1 — Brain/Told to us/Colors and fonts` mirrors her Brand Kit and adds what a Brand
+Kit cannot hold — when each colour is used, what the logo must never sit on, her
+photo style. Read it every time. It is also the fallback when Canva is disconnected,
+and the only source for rooms that are not Canva at all.
 
 Read `references/canva-cheatsheet.md` for tool names, the editing transaction, and
 plan gating. Read `${CLAUDE_PLUGIN_ROOT}/shared/guardrails.md` before choosing any imagery.
@@ -43,10 +50,17 @@ is not a useful answer to a non-technical owner.
 
 ## Two paths — prefer the first
 
-**A · From one of her Brand Templates (Pro+).** If the owner has built Brand
-Templates in Canva for this format (onboarding asks; `search-brand-templates`
-confirms), instantiate one and swap the text. Consistent, fast, and it looks like
-*her*, because it is.
+**A · From one of her Brand Templates (Pro+).** Check `0 — Map` for
+`canva_brand_templates`, then `search-brand-templates` for this format.
+`create-design-from-brand-template`, then swap the text through the edit loop.
+
+**Prefer this every time one exists.** A template she built is something she already
+chose, already uses, and already recognises as hers — it is the toolbox layer, and
+unlike most toolboxes it was populated before we arrived. Generating something that
+looks *almost* like her brand is worse than reusing the thing that is her brand.
+
+Autofill being Enterprise-only does not block this: the edit loop replaces text on
+any plan.
 
 **B · Generate.** No template for this format → `generate-design` with a prompt
 that carries the exact hex colours, font names, the headline text, the format

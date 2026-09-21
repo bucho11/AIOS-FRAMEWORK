@@ -484,3 +484,20 @@ should not be the fallback.
 **Test that closes it:** invite a spare email to the Zernio team, sign in as that
 member in a separate browser, and check what it can see. Ten minutes, no client
 involved.
+
+
+### OQ-031 — Has `list-brand-kits` ever actually been called?
+**Status:** open. **Blocks:** nothing — the fallback path is the old interview, which
+works. But it decides how much of the setup call is spent on questions.
+Plan gating is `[PRIMARY]` from Canva's own docs: `list-brand-kits` and
+`search-brand-templates` are Pro+. **Neither has been executed**, because testing
+needs a Canva Pro account and the operator does not have one (`OQ` history: he said
+he would not set one up himself).
+What is unverified beyond the gating: what `list-brand-kits` actually returns on a
+Pro account — whether the palette comes back with usable hex values and font names,
+or only kit ids requiring a second call. The whole "read it and mirror it" step
+assumes usable content.
+**Test that closes it:** on the client call, with her Canva connected, call it once
+and look at the response before relying on it. Thirty seconds, and if it returns
+something thin the interview simply continues as before — which is why this is not
+blocking.

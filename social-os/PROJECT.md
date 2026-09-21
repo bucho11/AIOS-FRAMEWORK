@@ -64,7 +64,7 @@ the repo had neither.
 | **Publishing layer** | **Zernio** — free at 2 accounts (DEC-010). Also hosts media + native draft gate. |
 | **Image layer** | **Canva Pro** via native MCP (DEC-018) — Brand Templates + `replace_text` + `resize-design`. Zernio hosts. |
 | **Connector layer** | Native Google Drive + Zernio custom MCP. Composio = fallback only. |
-| **Plugin** | `business-os` v0.7.0 · workspace shape version **2** · 11 skills · 1 room (social; 4-8 free) · 41 checks, 12 blocking, 1 scanner · 37 evals · MIT + `ATTRIBUTION.md` |
+| **Plugin** | `business-os` v0.8.0 · workspace shape version **2** · 11 skills · 1 room (social; 4-8 free) · 41 checks, 12 blocking, 1 scanner · 37 evals · MIT + `ATTRIBUTION.md` |
 | **Public plugin repo** | `github.com/bucho11/social-os` — branch `main`. Local clone at `/home/user/social-os`. Source of truth is `social-os/plugin/` in this repo; mirror on every change. **Repo name unchanged on purpose** — renaming it is outward-facing and the operator's call (DEC-035). |
 | **Release path** | PR + semver bump in `plugin.json` + CHANGELOG entry. `python3 tools/validate.py` gates it. Direct pushes to `main` do not trigger marketplace sync. |
 | **Correctness layer** | `0 — Map` (one index) + `shared/the-law.md` (six laws) + `skills/update-the-brain/` (the guard) + Cowork **Project instructions** pasted at setup (DEC-032). Housekeeping is the monthly backstop, not the guard (DEC-030). |

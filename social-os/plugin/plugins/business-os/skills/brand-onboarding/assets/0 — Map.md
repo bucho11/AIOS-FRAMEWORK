@@ -20,6 +20,8 @@ approval_word: {{approval_word}}
 posting_capacity_per_week: {{posting_capacity_per_week}}
 reels_she_can_film_per_week: {{reels_per_week}}
 canva_available: {{canva_available}}
+canva_brand_kit: {{canva_brand_kit}}
+canva_brand_templates: {{canva_brand_template_count}}
 recruiting_in_scope: {{recruiting_in_scope}}
 zernio_profile_id: {{zernio_profile_id}}
 zernio_instagram_account_id: {{zernio_instagram_account_id}}

@@ -99,6 +99,14 @@ screening, credentials, guarantees — these are the only claims `draft-post` ma
 later by category. Explain the child-imagery rule warmly: it protects her account.
 Ask whether photo releases exist for client families. Fill `Rules for the AI`.
 
+**6a · What she already has in Canva (silent, 2 min)** — `list-brand-kits` and
+`search-brand-templates`. A Brand Kit is her real colours and fonts. Brand Templates
+are a toolbox she already built and already trusts, and `make-graphic` should
+instantiate them rather than generate something new. Recent designs are examples of
+what she has actually published. **Read all three before asking her a single
+question about how her brand looks** — most of this interview is only necessary
+because she has nothing.
+
 **6c · The actual files (3 min)** — logo, 10–20 photos she owns, her blank release
 form, and any signed releases. Tell her to drag them into `2 — Brand Assets/` and say
 plainly that this is the one part of the folder she *should* put things into. **Record
@@ -128,10 +136,18 @@ Drive-title mapping, and the account-health check. Summary:
    — from her answers, in plain English. Seed text lives in `assets/`; never leave a
    blank doc. **Seven documents, seven jobs, no overlaps** — every later correction
    has to land in exactly one of them (`${CLAUDE_PLUGIN_ROOT}/shared/the-law.md`).
-3. **`Colors and fonts`** — ask for her website link and pull logo, primary colours
-   and fonts from it; or take a plain-words description ("forest green and cream").
-   Never ask for hex codes; work them out and write them down. This doc is what
-   lets Canva Pro stay on-brand without an Enterprise Brand Kit.
+3. **`Colors and fonts`** — **read her Canva before asking her anything.**
+   `list-brand-kits` and `search-brand-templates` are both **Pro+**, so if she has a
+   Brand Kit it already holds her real colours and fonts, chosen deliberately, and
+   that beats anything inferred from her website. Zero work for her.
+
+   No Brand Kit → pull the logo, primary colours and fonts from her website; or take
+   a plain-words description ("forest green and cream"). Never ask for hex codes;
+   work them out and write them down.
+
+   Then add what a Brand Kit **cannot** hold and only she knows: when each colour is
+   used, what the logo must never sit on, whether photos are warm or bright, what a
+   post must never look like.
 
    **The hex values are not the logo file.** Ask for the actual file too (Phase 6c) —
    `2 — Brand Assets/Logos/` starts empty and nothing else fills it.

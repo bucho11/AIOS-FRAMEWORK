@@ -1112,3 +1112,30 @@ costs nothing when the script is unavailable.
 upstream scanner catches 2, and returns clean on human-written copy.
 **Reverses if:** never. Extend the pattern — where a check *can* be deterministic, it
 should be.
+
+### DEC-061 — Read what she already has before asking her to describe it
+**Date:** 2026-09-21 · **Status:** ✅ locked · **corrects a claim in four documents**
+**Decision:** Onboarding calls `list-brand-kits` and `search-brand-templates` **before**
+interviewing her about how her brand looks, and `make-graphic` instantiates her own
+Brand Templates in preference to generating new designs. `Colors and fonts` **mirrors**
+her Brand Kit and adds what a Brand Kit cannot hold — when each colour is used, what
+the logo must never sit on, her photo style — rather than substituting for it.
+**The correction:** four documents said her Brand Kit was an Enterprise feature and
+therefore out of reach. It is not. `[PRIMARY]`, already in `VERIFIED-FACTS.md`:
+Pro+ gives `resize-design`, `search-brand-templates`, `list-brand-kits` and
+`create-design-from-brand-template`; **Enterprise-only is `autofill-design` and
+`get-brand-template-dataset`.** Autofill is a different feature and we never needed
+it — the edit loop replaces text on any plan.
+**This is the second time the same over-generalisation has surfaced.** DEC-018
+corrected "Canva is out", which came from reading *autofill is Enterprise* as *Canva
+is Enterprise*. The decision was fixed; the prose in four other files was not, and it
+survived six releases. The file that had done the actual verification —
+`canva-cheatsheet.md` — was right the whole time. **A correction that updates the
+decision log and not the prose has not landed** (Law 5 — blast radius), and this is
+that failure, found by the operator asking a question rather than by any check.
+**Why it matters beyond accuracy:** a client with an existing Brand Kit and four
+templates has already done the work this interview was about to ask her to redo. Using
+what she built is better data, zero effort for her, and the fastest trust available on
+a setup call. Most of the look-and-feel interview exists only because a client has
+nothing.
+**Reverses if:** never.

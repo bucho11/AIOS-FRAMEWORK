@@ -10,6 +10,44 @@ says so. See `shared/versioning.md`.
 
 ## [Unreleased]
 
+## [0.8.0] — 2026-09-21
+
+**No workspace migration.** Onboarding now reads Canva before interviewing.
+
+### Fixed
+- **We were telling ourselves her Canva Brand Kit was out of reach, and it isn't.**
+  `list-brand-kits`, `search-brand-templates` and `create-design-from-brand-template`
+  are all available on **Pro**. Only *autofill* is Enterprise — a different feature,
+  and one we never needed, because the edit loop fills a template on any plan.
+
+  Four documents claimed otherwise. The one file that had actually done the
+  verification had it right; the prose everywhere else had drifted to the wrong
+  summary. This is the second time this exact over-generalisation has surfaced in
+  this project.
+
+### Added
+- **Onboarding reads what she already built in Canva before asking her anything
+  about how her brand looks.** A Brand Kit is her real palette and fonts, chosen
+  deliberately — it beats anything inferred from her website, and it costs her
+  nothing. Brand Templates are a toolbox that exists on day one. Recent designs are
+  evidence of what she actually publishes.
+
+  Most of the look-and-feel interview only exists because a client has nothing. When
+  she has something, use it and tell her you did — it is the fastest trust available
+  on a setup call.
+- **`make-graphic` now prefers her own templates over generating new ones.** A
+  template she built is something she already chose, already uses, and already
+  recognises. Generating something that looks *almost* like her brand is worse than
+  reusing the thing that is her brand.
+- **The map records what was found**, not just whether Canva is connected: whether
+  she has a Brand Kit, and how many templates.
+
+### Changed
+- **`Colors and fonts` mirrors her Brand Kit rather than substituting for it**, and
+  carries what a Brand Kit cannot: when each colour is used, what the logo must never
+  sit on, her photo style. It stays the single source every room reads — email and
+  print have no Canva to read from — and the fallback when Canva is disconnected.
+
 ## [0.7.1] — 2026-09-21
 
 ### Fixed
