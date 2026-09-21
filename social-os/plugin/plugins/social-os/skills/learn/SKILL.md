@@ -17,8 +17,8 @@ Without this skill Social OS is a posting tool. With it, the brain compounds: th
 owner's own results rewrite the strategy every week, in her own Drive, where she
 can read it. That is the product.
 
-Read `../../shared/drive-conventions.md`. Read `0 — Setup` for ids and timezone.
-Vendor tool names are in `../publish/references/zernio-cheatsheet.md` — this skill
+Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`. Read `0 — Setup` for ids and timezone.
+Vendor tool names are in `${CLAUDE_PLUGIN_ROOT}/skills/publish/references/zernio-cheatsheet.md` — this skill
 reads through them; it never schedules.
 
 ## Steps
@@ -74,4 +74,4 @@ this skill has nothing to read and would invent a brand. Say so in one plain lin
 minutes and you'll have three posts at the end."*
 
 If Setup exists but a value this skill needs is blank, ask for that one value,
-then replace the Setup doc (`../../shared/drive-conventions.md`) so nobody asks again.
+then replace the Setup doc (`${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`) so nobody asks again.

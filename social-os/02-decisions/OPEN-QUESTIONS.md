@@ -210,3 +210,17 @@ works. No Facebook Page required when connected with Instagram Login.
 **Still open:** OQ-011 (owning GitHub account) · OQ-012 (public vs private repo) ·
 OQ-014 (does the PreToolUse hook fire in Cowork) · OQ-015 (Drive `.md` read-back,
 designed around).
+
+### OQ-017 — Does Cowork substitute `${CLAUDE_PLUGIN_ROOT}` in skill content?
+**Status:** open. **Mitigated, not blocking.**
+**Known `[PRIMARY]`:** Anthropic documents `${CLAUDE_PLUGIN_ROOT}`,
+`${CLAUDE_SKILL_DIR}`, `${CLAUDE_PROJECT_DIR}` and `${CLAUDE_PLUGIN_DATA}` as
+substituted in skill and agent content — described in the **Claude Code** docs.
+Cowork is a different surface and the substitution is not separately documented there.
+**Mitigation already shipped (DEC-024):** the four hard safety rules are inlined in
+`draft-post`, `make-graphic` and `publish`, so a substitution failure costs depth,
+never safety. `brand-onboarding`'s templates now live in its own `assets/`, which
+resolves by plain relative path regardless.
+**Test:** on the first real onboarding, ask Claude to quote a line from
+`${CLAUDE_PLUGIN_ROOT}/shared/guardrails.md`. If it cannot, the fallback is to move
+`shared/` content into each skill's own `references/` and accept the duplication.

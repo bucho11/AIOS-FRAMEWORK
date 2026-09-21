@@ -1,7 +1,7 @@
 # Build the brain — the exact creation sequence
 
 Phase 8 of onboarding. Follow this order: a failure part-way leaves a usable
-partial brain rather than a broken one. Read `../../shared/drive-conventions.md`
+partial brain rather than a broken one. Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`
 first — especially that folders are files and `update_file` cannot change content.
 
 ## Step 1 — The folder tree, parents before children
@@ -46,7 +46,7 @@ becomes ambiguous.
 
 ## Step 2 — The seed documents
 
-Each file in `../../drive-template/` is the starting content for one Drive doc.
+Each file in `assets/` is the starting content for one Drive doc.
 For each:
 
 1. Read the bundled `.md` file.
@@ -96,7 +96,7 @@ Also create an empty `Content Calendar` doc in CONTENT — `plan-week` fills it.
 
 ## Step 4 — The Setup doc
 
-Write every value from `../../shared/brain-layout.md` § `0 — Setup` as plain
+Write every value from `${CLAUDE_PLUGIN_ROOT}/shared/brain-layout.md` § `0 — Setup` as plain
 `key: value` lines, `create_file` into ROOT. This is the index every other skill
 reads first, so a missing ID here becomes a Drive search on every future run.
 

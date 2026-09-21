@@ -17,7 +17,7 @@ Owners don't stop posting for lack of ideas. They stop because posting falls off
 the list when the week gets busy. This skill keeps the next week already decided,
 so the only decision left is "yes".
 
-Read `../../shared/drive-conventions.md`, then the `0 — Setup` doc, then everything
+Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`, then the `0 — Setup` doc, then everything
 in `1 — Brain/Told to us/` and `Learned by us/What works (current)`. Read
 `references/pillars-and-cadence.md` for the mix and the sector defaults.
 
@@ -65,7 +65,7 @@ in `1 — Brain/Told to us/` and `Learned by us/What works (current)`. Read
 
 - Never exceed her stated capacity. A calendar she can't keep is worse than none.
 - Never plan a post that needs a child's face unless a matching release is listed
-  in `Photo releases/` (see `../../shared/guardrails.md`).
+  in `Photo releases/` (see `${CLAUDE_PLUGIN_ROOT}/shared/guardrails.md`).
 - Never repeat a hook or angle used in the last 60 days.
 - The calendar is the truth surface for the week. Drafts cite it; they don't
   compete with it.
@@ -79,4 +79,4 @@ this skill has nothing to read and would invent a brand. Say so in one plain lin
 minutes and you'll have three posts at the end."*
 
 If Setup exists but a value this skill needs is blank, ask for that one value,
-then replace the Setup doc (`../../shared/drive-conventions.md`) so nobody asks again.
+then replace the Setup doc (`${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`) so nobody asks again.

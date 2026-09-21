@@ -383,3 +383,27 @@ carousels and quote cards, which are the minority case.
 brain → plan → draft → owner media → Zernio upload → validate → schedule → publish
 → learn. Canva is additive and gets proven on the first client who has Pro.
 **Reverses if:** the operator or a client provides a Canva Pro account to test with.
+
+### DEC-024 — Bundled files live inside their skill; cross-plugin refs use `${CLAUDE_PLUGIN_ROOT}`
+**Date:** 2026-09-21 · **Status:** ✅ locked · **fixes a real bug**
+**Decision:** `drive-template/` moved to `skills/brand-onboarding/assets/`. Every
+reference that escaped a skill's own directory now uses the documented
+`${CLAUDE_PLUGIN_ROOT}/…` variable. The four hard safety rules are also **inlined**
+into `draft-post`, `make-graphic` and `publish`.
+**Why `[PRIMARY]`:** Anthropic's skills documentation states that relative paths in
+`SKILL.md` **resolve within the skill's own directory**, and that
+`${CLAUDE_PLUGIN_ROOT}` is the way to reach other plugin resources
+(`${CLAUDE_SKILL_DIR}` for a skill's own). The convention is that bundled files —
+`references/`, `scripts/`, `assets/` — live **inside** the skill, with `assets/`
+specifically for "templates and files used in output."
+**The bug:** 22 references across 8 files used `../../shared/…` and
+`../../drive-template/…`, which escape the skill directory and would not have
+resolved. Every skill would have run without its shared guardrails, Drive
+conventions and post-packet spec — silently, with no error. Found only because the
+operator asked how the folder template reaches Drive.
+**Belt and braces:** `${CLAUDE_PLUGIN_ROOT}` substitution is documented for Claude
+Code; whether Cowork substitutes it identically is unverified (`OQ-017`). So the
+four rules that must never bend are now written **directly into** the three skills
+that could otherwise publish something harmful. A failed file load now degrades
+gracefully instead of silently dropping safety.
+**Reverses if:** nothing. This is strictly more correct.

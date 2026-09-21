@@ -15,10 +15,18 @@ description: >
 Write it so she reads it once and says "yes, that's me." Voice first, then
 structure, then compliance, then stage it. Nothing here publishes.
 
-Read `../../shared/drive-conventions.md`, `../../shared/post-packet.md`,
-`../../shared/guardrails.md`, and `references/caption-rules.md`. Then read the
+Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`, `${CLAUDE_PLUGIN_ROOT}/shared/post-packet.md`,
+`${CLAUDE_PLUGIN_ROOT}/shared/guardrails.md`, and `references/caption-rules.md`. Then read the
 brain: `Brand voice`, `What we offer`, `Who we talk to`, `Her preferences`,
 `What works (current)`.
+
+> **The four rules that never bend**, restated here so they hold even if the shared
+> file above fails to load: never post an identifiable child's face without a signed
+> release on file; never generate an AI image of a child; never write "licensed",
+> "certified", "guaranteed" or "100% safe" unless that exact credential is documented
+> in `What we offer`; never imply nannies are 1099 contractors. When in doubt, refuse
+> the specific thing, say why in one plain sentence, and offer the compliant version.
+
 
 ## Steps
 
@@ -81,4 +89,4 @@ this skill has nothing to read and would invent a brand. Say so in one plain lin
 minutes and you'll have three posts at the end."*
 
 If Setup exists but a value this skill needs is blank, ask for that one value,
-then replace the Setup doc (`../../shared/drive-conventions.md`) so nobody asks again.
+then replace the Setup doc (`${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md`) so nobody asks again.

@@ -19,7 +19,7 @@ Turn an owner who *cannot articulate her brand* into a complete, usable brain �
 about 40 minutes she enjoys, not a form she abandons. Everything downstream reads
 what this captures, so quality here is the ceiling for every future post.
 
-Read `../../shared/drive-conventions.md` and `../../shared/brain-layout.md` before
+Read `${CLAUDE_PLUGIN_ROOT}/shared/drive-conventions.md` and `${CLAUDE_PLUGIN_ROOT}/shared/brain-layout.md` before
 writing anything to Drive. `references/research-first.md` is what to look at before
 saying hello, `references/interview.md` is the questions, and
 `references/build-the-brain.md` is the exact creation sequence for Phase 8 —
@@ -37,7 +37,7 @@ that must pass before you tell her it worked.
   Never say "pillars", "voice matrix", "API", "connector". Say "topics", "how you
   sound", "your accounts".
 - **Adjectives → rules.** "Professional" is unusable. Convert it: sentence length,
-  emoji policy, how direct the ask is. See `../../shared/voice-profile-template.md`.
+  emoji policy, how direct the ask is. See `${CLAUDE_PLUGIN_ROOT}/shared/voice-profile-template.md`.
 - **Resumable.** She runs a business and will be interrupted. Save after every
   section (create the Drive doc as soon as a section is confirmed). On re-entry,
   read what exists and say what is done and what is left — never re-ask.
@@ -76,7 +76,7 @@ they, what do they worry about, what makes them choose her.
 **4 · Voice from evidence (10 min)** — show three sample captions in different
 voices; "which sounds like you?" Show one that's *wrong*; "why is this wrong?" —
 the sharpest question. Extract the sliders, mechanics, vocabulary, and the banned
-list. Fill `Brand voice` from `../../shared/voice-profile-template.md`.
+list. Fill `Brand voice` from `${CLAUDE_PLUGIN_ROOT}/shared/voice-profile-template.md`.
 
 **5 · Offers and CTAs (5 min)** — what she sells, the next step she wants, how leads
 actually reach her today (DM? call? form?). Capture exact, documented facts about
@@ -87,7 +87,7 @@ later by category. Explain the child-imagery rule warmly: it protects her accoun
 Ask whether photo releases exist for client families. Fill `Rules for the AI`.
 
 **7 · Topics, proposed (5 min)** — propose 5–7 topics derived from research + her
-answers (see `../plan-week/references/pillars-and-cadence.md`). She edits. Never
+answers (see `${CLAUDE_PLUGIN_ROOT}/skills/plan-week/references/pillars-and-cadence.md`). She edits. Never
 present as final.
 
 **8 · Build and prove** — create everything (below), then run `social-os:draft-post`
@@ -102,7 +102,7 @@ Drive-title mapping, and the account-health check. Summary:
 1. **Drive folder tree** per `brain-layout.md` — root, then every subfolder.
 2. **Docs in `Told to us/`** — `About the business`, `Brand voice`, `Who we talk to`,
    `What we offer`, `Colors and fonts`, `Rules for the AI` — from her answers, in
-   plain English. Seed text lives in `../../drive-template/`; never leave a blank doc.
+   plain English. Seed text lives in `assets/`; never leave a blank doc.
 3. **`Colors and fonts`** — ask for her website link and pull logo, primary colours
    and fonts from it; or take a plain-words description ("forest green and cream").
    Never ask for hex codes; work them out and write them down. This doc is what
@@ -117,7 +117,7 @@ Drive-title mapping, and the account-health check. Summary:
    Login needs no Facebook Page. Facebook needs a Page she admins. When she says
    done, `accounts_list` and record the account IDs.
 7. **`0 — Setup` doc** — every ID and setting per `brain-layout.md`.
-8. **`0 — Start Here` doc** — from `../../drive-template/0 — Start Here.md`, with her
+8. **`0 — Start Here` doc** — from `assets/0 — Start Here.md`, with her
    name and the approval word she chose.
 9. **Three drafts** via `social-os:draft-post`.
 

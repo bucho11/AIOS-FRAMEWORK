@@ -15,7 +15,7 @@ plugin/                              ← becomes the repo root
     ├── agents/compliance-reviewer.md
     ├── hooks/hooks.json             ← optional PreToolUse safety net (OQ-014)
     ├── shared/                      ← guardrails, drive-conventions, post-packet, brain-layout, voice template
-    ├── drive-template/              ← seed docs for the owner's Drive brain
+    └── skills/brand-onboarding/assets/  ← seed docs for the Drive brain
     └── evals/evals.json
 ```
 

@@ -44,7 +44,7 @@ one punchy-playful.
 
 If Instagram couldn't be read: *"Paste me five posts you were happy with."*
 
-Fill the template in `../../shared/voice-profile-template.md`. Play it back in plain
+Fill the template in `${CLAUDE_PLUGIN_ROOT}/shared/voice-profile-template.md`. Play it back in plain
 English: *"So: short lines, 'we' not 'I', one emoji at most, never 'don't miss
 out', always end with an invitation rather than an order. Right?"*
 
@@ -77,7 +77,7 @@ without warning, and parents trust an agency that visibly guards their kids.
 ## Phase 7 · Topics, proposed  (→ `Content Calendar` seed)
 
 Propose 5–7 topics from research + answers, each with one example post idea. Use
-the seven in `../../plan-week/references/pillars-and-cadence.md` as the starting
+the seven in `${CLAUDE_PLUGIN_ROOT}/skills/plan-week/references/pillars-and-cadence.md` as the starting
 set, renamed in her words. She strikes, adds, reorders.
 
 ## Phase 8 · Build, then prove
