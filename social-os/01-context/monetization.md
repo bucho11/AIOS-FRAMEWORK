@@ -58,7 +58,23 @@ Every client gets their **own** 2 free accounts.
 - ❌ **She** has to sign up and maintain it — which breaks "she barely does anything"
 - ❌ If it breaks, it is hers to fix
 
-**Recommendation: Model A.** $7/client is immaterial against a managed-service
+> **Correction, 2026-09-21 — Model A is right, but not for client one.**
+> The operator asked who owns Zernio while preparing the first setup call, and found
+> the runbook telling the client to sign in while this file recommended the operator
+> own the team. A real contradiction between two of our own documents.
+>
+> **Resolution: Model B for clients 1–2, Model A from client 3.** At one client,
+> Model A costs $0 and Model B costs $0, so "central control is the product" buys
+> nothing yet — and it carries an **unverified** dependency: whether an invited team
+> member, authenticating in *her* Cowork, can see and use the owner's profiles. Not
+> settled by the API (there are no team endpoints; it is a dashboard feature). At
+> client three you start paying regardless, so that is the natural switch point, and
+> you will have tested the invite flow without a client waiting.
+>
+> Her own account also sits better with DEC-007 — she owns everything — and moving
+> later costs one reconnect of two Meta accounts.
+
+**Recommendation (from client 3): Model A.** $7/client is immaterial against a managed-service
 fee, and central control *is* the product. Model B saves $138/month and costs the
 thing being sold.
 

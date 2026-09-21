@@ -462,3 +462,25 @@ an issue or a PR costs nothing, is good practice given we built on the work, and
 our name near a project in the same space.
 **Not done unilaterally** — it is a public post under the operator's identity on a
 venture he intends to resell, which makes it his decision rather than ours.
+
+
+### OQ-030 — What can an invited Zernio team member actually see and do?
+**Status:** open. **Blocks:** the switch to Model A at client three. **Not** blocking
+client one, which uses her own free account.
+Zernio's own pricing says `[PRIMARY]` *"Accounts are counted across your whole team
+(owner plus invited members), and the first 2 are free"* — so a team with invited
+members exists. What is **not** established: whether a member authenticating the
+Zernio connector in *their own* Cowork can see the owner's profiles, connect accounts
+to one, and publish from it; and whether a member sees **only their own profile or
+every client's**. The second matters commercially — at 20 franchises, one client
+seeing another's profiles is a problem.
+Probed the API directly: **no team, member, invite or organization endpoints exist**
+(all 404 against an authenticating key), so this is a dashboard feature and cannot be
+settled by the API.
+**The alternative to get right if member seats don't work:** putting the operator's
+API key into a client's Cowork connector would let anyone with her Cowork act as the
+whole team, including other clients' profiles. **That is not acceptable at scale** and
+should not be the fallback.
+**Test that closes it:** invite a spare email to the Zernio team, sign in as that
+member in a separate browser, and check what it can see. Ten minutes, no client
+involved.

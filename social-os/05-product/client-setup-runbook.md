@@ -34,7 +34,15 @@ repository** → paste the marketplace repo URL → install **Business OS**.
 **Customize → Connectors**, or when prompted:
 1. **Google Drive** — her account
 2. **Canva** — her Canva **Pro** login
-3. **Zernio** — browser sign-in, no key to paste
+3. **Zernio** — **she signs up for her own free account** (60 seconds, no card).
+   Accounts 1 and 2 are free *per team*, so her own team covers both her Instagram
+   and her Facebook at **$0 forever**.
+
+   > **Client one only.** From client three onward, switch to one Zernio team you
+   > own, with clients as profiles inside it — that is when you start paying anyway
+   > and when central visibility earns its keep (`01-context/monetization.md`,
+   > Model A). Test the member-invite flow on a spare account first: **what an
+   > invited member can see and do is not verified** (OQ-030).
 
 ### 3 · Paste the Project instructions (1 min — do this BEFORE the interview)
 Open the Cowork **project** → **Project instructions** → paste the block from
