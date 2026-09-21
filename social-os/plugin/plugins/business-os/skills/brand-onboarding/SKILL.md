@@ -107,13 +107,13 @@ what she has actually published. **Read all three before asking her a single
 question about how her brand looks** — most of this interview is only necessary
 because she has nothing.
 
-**6c · The actual files (3 min)** — logo, 10–20 photos she owns, her blank release
+**6b · The actual files (3 min)** — logo, 10–20 photos she owns, her blank release
 form, and any signed releases. Tell her to drag them into `2 — Brand Assets/` and say
 plainly that this is the one part of the folder she *should* put things into. **Record
 what is missing and what it blocks** — with no signed release on file, no post can
 show an identifiable child, and that is the first thing she will hit.
 
-**6b · How she wants to be worked with (2 min)** — when she wants drafts, whether to
+**6c · How she wants to be worked with (2 min)** — when she wants drafts, whether to
 ask or decide, when she reviews, what would annoy her. Fill `How she likes to work`.
 Every later correction about *how you work with her* comes back to this one document.
 
@@ -149,7 +149,7 @@ Drive-title mapping, and the account-health check. Summary:
    used, what the logo must never sit on, whether photos are warm or bright, what a
    post must never look like.
 
-   **The hex values are not the logo file.** Ask for the actual file too (Phase 6c) —
+   **The hex values are not the logo file.** Ask for the actual file too (Phase 6b) —
    `2 — Brand Assets/Logos/` starts empty and nothing else fills it.
 4. **Fold this interview's corrections into the rule documents themselves.** She
    corrected you a dozen times in the last forty minutes — that is the first real

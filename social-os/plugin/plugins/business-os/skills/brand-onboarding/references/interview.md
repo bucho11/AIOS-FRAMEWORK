@@ -74,7 +74,7 @@ out', always end with an invitation rather than an order. Right?"*
 Explain the child-imagery rule as protection: Meta removes accounts over this
 without warning, and parents trust an agency that visibly guards their kids.
 
-## Phase 6b · How she wants to be worked with  (→ `How she likes to work`)
+## Phase 6c · How she wants to be worked with  (→ `How she likes to work`)
 
 Two minutes, four questions. Cheap to ask now, and it is what stops the system
 being annoying in a way she never quite articulates.
@@ -128,7 +128,7 @@ questions. `Colors and fonts` is then built from her website and her answers, an
 works — it is the one source every room reads anyway. A missing Brand Kit costs
 five minutes of interview, not a feature.
 
-## Phase 6c · The actual files  (→ `2 — Brand Assets/`)
+## Phase 6b · The actual files  (→ `2 — Brand Assets/`)
 
 Three minutes, and **skipping it breaks things later** — the folders exist, and if
 nothing goes in them the system is missing the raw material it needs.
