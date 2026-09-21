@@ -481,6 +481,12 @@ settled by the API.
 API key into a client's Cowork connector would let anyone with her Cowork act as the
 whole team, including other clients' profiles. **That is not acceptable at scale** and
 should not be the fallback.
+**Field observation, 2026-09-21 (first client setup):** the Zernio UI surfaces
+**"add team"** — so the team feature is a deliberate, separate invite action rather
+than something a client falls into. Confirms the shape; still does not answer what a
+member can *see*. The operator had her connect her own account directly, which is the
+decision for clients 1–2.
+
 **Test that closes it:** invite a spare email to the Zernio team, sign in as that
 member in a separate browser, and check what it can see. Ten minutes, no client
 involved.
