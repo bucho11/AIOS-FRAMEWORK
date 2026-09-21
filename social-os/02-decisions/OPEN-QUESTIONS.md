@@ -259,3 +259,46 @@ the description's braces, but neither is verified.
 workspace. If pushback does not select the skill, the fix is not a longer
 description — it is making rule 4 of the bootstrap more explicit, since that text is
 in context before any skill is chosen.
+
+### OQ-021 — Do PERSONAL plugins on Cowork auto-update, and on what trigger?
+**Status:** open. **Blocks:** nothing structural — DEC-037's manual-Update backstop
+works either way — but it decides whether the operator has to tell each client to
+click Update after every release.
+What is verified `[PRIMARY]` applies to **organization** marketplaces: auto-sync is
+opt-in per marketplace, fires when *"a pull request that includes a plugin version
+bump is merged to the repository's default branch,"* and *"direct pushes to the
+default branch don't trigger a sync."* The **personal plugins** help page documents
+*"Add from a repository: Sync a marketplace from a GitHub repository or git URL"*
+and says **nothing at all** about updating, syncing, refreshing or versions.
+**Test that closes it:** install the marketplace as a personal plugin, note the
+version shown, ship a MINOR release through a PR with a bump, and check the next day
+whether the installed version moved without anyone clicking Update.
+**Until it closes:** assume manual. The runbook tells the operator to say one
+sentence to the client — *"open Plugins, find Business OS, click Update."*
+
+### OQ-022 — Does Cowork dereference symlinks inside a plugin directory?
+**Status:** open, **do not build on it**. **Blocks:** any future split into
+multiple plugins (DEC-036).
+Claude Code's documentation says a plugin may share files with siblings in the same
+marketplace via symlinks, which are *"dereferenced"* at install. That is **Claude
+Code** documentation; Cowork's plugin loader is a separate implementation and this
+is unverified there. A symlink that is not dereferenced is a file reference that
+resolves to nothing — the exact silent failure class of DEC-024, where every skill
+ran without its guardrails and nothing errored.
+**Test that closes it:** ship a throwaway two-plugin marketplace where plugin B
+symlinks a file from plugin A, install it in Cowork, and ask a skill in B to read
+that file.
+**Until it closes:** one plugin, many rooms (DEC-036).
+
+### OQ-023 — Has any migration ever been run, and has any rollback ever been performed?
+**Status:** open. **Blocks:** confidence in DEC-038/039.
+`migrations/001` is written, listed, and validated structurally. It has never been
+executed, because no version-1 workspace exists to run it against. Its rollback is
+documented and has never been performed. **A rollback that has never been run is a
+hypothesis.**
+**Test that closes it:** build a throwaway workspace in the version-1 shape by hand
+(`0 — Setup`, `0 — What's Installed`, `Her preferences`), run
+`business-os:upgrade-workspace` against it, confirm the plan is shown before
+anything moves, confirm every superseded document is readable in `9 — Archive/`,
+then perform the documented rollback and confirm the workspace returns to version 1.
+Also interrupt it mid-run once and confirm the `FAILED` row lets it resume.

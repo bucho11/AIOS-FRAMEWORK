@@ -1,69 +1,81 @@
-# social-os plugin — operator guide
+# Business OS — marketplace
 
-This folder is a complete Claude plugin marketplace. When the owning GitHub account
-is decided (OQ-011) and public/private is chosen (OQ-012), the contents of this
-folder become the root of a new repository. Until then it lives here, next to the
-reasoning that produced it.
+This folder is a complete Claude plugin marketplace. Its contents are the root of
+the public repo **`github.com/bucho11/social-os`** — mirror this folder there on
+every change.
+
+*(The repo keeps the name it was created with. Renaming it is outward-facing and
+GitHub redirects make it safe to do later, so it stays the operator's call. The
+marketplace works regardless of what the plugin inside is named.)*
 
 ```
-plugin/                              ← becomes the repo root
+plugin/                              ← the repo root
 ├── .claude-plugin/marketplace.json  ← the catalog clients sync
-└── plugins/social-os/               ← the plugin
-    ├── .claude-plugin/plugin.json
+├── tools/validate.py                ← gates every release
+└── plugins/business-os/             ← the plugin
+    ├── .claude-plugin/plugin.json   ← name, version (semver)
     ├── .mcp.json                    ← zernio · canva · google-drive
-    ├── skills/                      ← six skills, each SKILL.md + references/
+    ├── CHANGELOG.md                 ← Keep a Changelog; one entry per release
+    ├── shared/                      ← the laws, the map, conventions, versioning
+    ├── skills/                      ← 9 skills, each SKILL.md + references/
+    ├── rooms/                       ← room definitions as data + a template
+    ├── migrations/                  ← ordered workspace shape changes
     ├── agents/compliance-reviewer.md
     ├── hooks/hooks.json             ← optional PreToolUse safety net (OQ-014)
-    ├── shared/                      ← guardrails, drive-conventions, post-packet, brain-layout, voice template
-    └── skills/brand-onboarding/assets/  ← seed docs for the Drive brain
-    └── evals/evals.json
+    └── evals/evals.json             ← 18 prompts
 ```
 
-## Mint the repo (once)
+## Shipping a release
+
+**Never push straight to `main`.** It is documented that *"direct pushes to the
+default branch don't trigger a sync"* and that auto-sync fires *"when a pull request
+that includes a plugin version bump is merged."* A push without a bump reaches
+nobody.
 
 ```bash
-git init social-os && cd social-os
-cp -r /path/to/AIOS-FRAMEWORK/social-os/plugin/. .
-# set repository/homepage in plugins/social-os/.claude-plugin/plugin.json
-git add -A && git commit -m "feat: social-os plugin v0.1.0"
-git remote add origin <the venture's GitHub URL>   # never an employer org
-git push -u origin main
+git checkout -b release/vX.Y.Z
+# make the change
+# bump "version" in plugins/business-os/.claude-plugin/plugin.json
+#   and the matching marketplace entry — keep them equal
+# add the CHANGELOG.md entry: Added / Changed / Deprecated / Removed / Fixed / Security
+python3 tools/validate.py          # must print PASS
+git commit -am "feat: <what changes for the owner>"
+git push -u origin release/vX.Y.Z
+# open the PR, merge it
 ```
 
-## Install (what the client does, once)
+Then run it in your own workspace before a client sees it. That is the whole canary
+process at this scale, and it costs nothing.
 
-In Claude: **Customize → Plugins → Personal plugins → "+" → Add marketplace →
-Add from a repository** → paste the repo URL → install **Social OS**.
+To move a client onto a release the same day: *"open Plugins, find Business OS,
+click Update."* One sentence.
 
-Then connect, when prompted or under Customize → Connectors:
-1. **Google Drive** (native)
-2. **Canva** (native; sign in to her Canva **Pro**)
-3. **Zernio** (the plugin brings it; she signs in — no key to paste)
+## What the validator catches
 
-Then say: **"set me up"** → `brand-onboarding` runs.
+The failures that are **silent at runtime** — the skill runs, just without its
+guardrails, and nothing errors:
 
-## Two scheduled tasks (the client creates these in Cowork, ~1 minute)
+- a `${CLAUDE_PLUGIN_ROOT}` reference that resolves to nothing
+- a relative path that escapes its own skill directory
+- a skill name that doesn't match its directory, or a description over 1024 chars
+- `plugin.json` and the marketplace entry disagreeing on name or version
+- a migration listed but not written, out of sequence, missing a required section,
+  or with no step stating how to tell whether it already ran
+- a version with no CHANGELOG entry
 
-Plugins cannot create scheduled tasks; the owner does, once:
+This repo has already shipped two bugs of exactly that class. Run it every time.
 
-| Name | Frequency | Prompt |
-|---|---|---|
-| Weekly content plan | Weekly, Sunday evening | "Run social-os:plan-week for next week, then social-os:draft-post for every planned row, stage them as drafts, and tell me what's waiting for approval and what I need to film or upload." |
-| Weekly results | Weekly, Monday morning | "Run social-os:learn for last week. Lead with anything that needs me." |
+## Changing the shape of a workspace
 
-## Test before a client touches it (operator is client zero)
+Read `plugins/business-os/shared/versioning.md` first. The short version:
 
-1. Free Zernio account → connect **your own** test Instagram Business + Facebook Page.
-2. Install this plugin in your own Cowork from the minted repo (or upload the plugin
-   folder as a custom plugin file).
-3. Run `evals/evals.json` prompts 1 → 3 → 4 → 6 in order on a dummy brand.
-4. Confirm: draft created in Zernio as `isDraft`; approval promotes it (check it is
-   **not** still a draft); a Canva export → Zernio post actually publishes
-   (OQ-013); the compliance reviewer runs; the PreToolUse hook fires or is
-   inert (OQ-014).
-
-## What's deliberately not here
-
-- No API keys. Zernio and Canva authenticate by OAuth sign-in.
-- No Cloudinary, no Bannerbear, no Composio. Zernio hosts media; Canva Pro designs.
-- No Anthropic `small-business` plugin. One plugin, tailored.
+- **Two version numbers.** The plugin's is semver in git. The workspace's is an
+  integer in her `0 — Map`. They do not move together.
+- **Never a breaking change in one step** — expand, migrate, contract, as separate
+  releases.
+- **Additive changes need no migration.** A new room is a MINOR release and touches
+  nothing that already exists. That is the cheap path by design.
+- **Anything that renames, moves, merges or retires** gets a migration in
+  `migrations/`, and `upgrade-workspace` shows the owner the exact diff before it
+  touches anything.
+- **Nothing is ever deleted.** Superseded, dated, moved to `9 — Archive/`.

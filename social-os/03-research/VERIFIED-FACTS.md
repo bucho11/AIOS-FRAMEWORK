@@ -193,3 +193,47 @@ quirk above and can miss an edit. It is now anchored on the file's **own**
 `modifiedTime > createdTime ⇒ a human edited it`. The map stamp is demoted to a
 cross-check — if it disagrees with `createdTime`, the row is stale and gets healed
 before anything is decided.
+
+---
+
+## Google Drive trash retention  `[PRIMARY]` 2026-09-21
+
+| Fact | Evidence |
+|---|---|
+| Trash is **not** a safety net | Google Drive help: *"Files you move to the Trash are deleted forever after 30 days."* |
+
+**What that changed.** Replacing a rule document was specced as `create_file` new +
+`trash_file` old (DEC-020). That starts a 30-day timer on the record of what her
+brand voice used to be, and nothing warns anyone on day 31. Replaced by
+**supersession** — `update_file(title: "… — superseded YYYY-MM-DD", parentId: archive)`.
+One call, same cost, history survives. Law 6.
+
+## Anthropic plugin distribution  `[PRIMARY]` 2026-09-21
+
+Fetched from Anthropic's own help centre and Claude Code docs.
+
+| Fact | Evidence |
+|---|---|
+| A marketplace holds **many** plugins | `marketplace.json` carries a `plugins[]` array |
+| **A plugin cannot read another plugin's files** | Claude Code docs: *"Claude Code doesn't let a plugin reference files outside its own directory. It rejects a component path that resolves outside the plugin root."* |
+| Symlink exception exists | *"you can create symbolic links inside your plugin directory… Elsewhere within the same marketplace: the symlink is dereferenced"* — **Claude Code only; unverified on Cowork** |
+| `dependencies` field exists in `plugin.json` | resolves *enablement*, not file access |
+| `version` in `plugin.json` wins over the marketplace entry | *"If also set in the marketplace entry, `plugin.json` wins"* |
+| Setting `version` pins updates to bumps | *"users only receive updates when you bump it"* |
+| Org marketplace auto-sync is **opt-in**, and fires on a **version bump merged via PR** | *"automatic sync runs when a pull request that includes a plugin version bump is merged to the repository's default branch"* |
+| **Direct pushes do not trigger a sync** | *"Direct pushes to the default branch don't trigger a sync."* |
+| Manual sync always available | *"You can always trigger a sync manually by clicking 'Update' on the marketplace."* |
+| A sync replaces everything | *"Cowork reads the manifest, validates each plugin, and replaces all plugins in the marketplace with the current state of the repo."* |
+| A failed sync can remove plugins temporarily | *"If a sync fails, plugins may be temporarily removed for your team members."* |
+| Claude Code: third-party marketplaces have auto-update **off** by default | manual is `/plugin marketplace update <name>` |
+
+**`[UNVERIFIED]`** — whether **personal** (non-org) plugins on Cowork have the same
+auto-sync toggle and version-bump trigger. The personal-plugins help page documents
+*"Add from a repository"* and says nothing about updating. Tracked as `OQ-021`.
+
+**What that changed.** The no-cross-plugin-reference rule settled the architecture:
+**one plugin, many rooms** rather than a core plugin plus room plugins, because a
+`social` plugin could not have read `business-os/shared/the-law.md`. The symlink
+exception is Claude Code documentation and unverified on Cowork — building the whole
+architecture on it would repeat the silent-path-failure bug this repo already
+shipped once.

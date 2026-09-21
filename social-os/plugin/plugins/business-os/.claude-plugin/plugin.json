@@ -1,0 +1,31 @@
+{
+  "name": "business-os",
+  "displayName": "Business OS",
+  "version": "0.3.0",
+  "description": "A small business's whole AI workspace in one Google Drive folder, operated from chat. Social media is the first room; email, reviews, recruiting and invoicing are rooms you add later without touching what already works. Built so a correction always lands in the document that caused it.",
+  "author": {
+    "name": "Bucho"
+  },
+  "homepage": "https://github.com/bucho11/social-os",
+  "repository": "https://github.com/bucho11/social-os",
+  "keywords": [
+    "business",
+    "operations",
+    "small-business",
+    "workspace",
+    "google-drive",
+    "social-media",
+    "instagram",
+    "facebook",
+    "canva",
+    "zernio",
+    "franchise",
+    "automation"
+  ],
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills/",
+  "agents": [
+    "./agents/compliance-reviewer.md"
+  ],
+  "hooks": "./hooks/hooks.json"
+}

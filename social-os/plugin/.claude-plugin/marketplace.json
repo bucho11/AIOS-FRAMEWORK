@@ -1,15 +1,16 @@
 {
-  "name": "social-os",
+  "name": "business-os",
   "owner": {
     "name": "Bucho"
   },
   "plugins": [
     {
-      "name": "social-os",
-      "displayName": "Social OS",
-      "description": "Branded social content that runs itself, from one Google Drive folder and a chat. Interviews the owner once, learns the brand, drafts Instagram and Facebook content in their voice, makes graphics in Canva, stages every post for approval, publishes and schedules through Zernio, and gets smarter every week from real performance. Built for local service businesses; ships childcare-grade compliance guardrails.",
-      "category": "marketing",
-      "source": "./plugins/social-os"
+      "name": "business-os",
+      "displayName": "Business OS",
+      "description": "One Google Drive folder that becomes a small business's AI workspace, run entirely from chat. Interviews the owner once, learns the brand, and grows a room at a time — social media first, then email, reviews, recruiting, invoicing, whatever comes next. Corrections land in the document that caused them, so the system never holds two answers to one question. Upgrades itself safely, shows the owner the diff before changing anything, and never deletes.",
+      "category": "productivity",
+      "source": "./plugins/business-os",
+      "version": "0.3.0"
     }
   ]
 }

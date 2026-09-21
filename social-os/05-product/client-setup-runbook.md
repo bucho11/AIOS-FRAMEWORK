@@ -28,7 +28,7 @@ you only start paying at account 3.
 
 ### 1 · Install the plugin (2 min)
 **Customize → Plugins → Personal plugins → "+" → Add marketplace → Add from a
-repository** → paste the marketplace repo URL → install **Social OS**.
+repository** → paste the marketplace repo URL → install **Business OS**.
 
 ### 2 · Connect three things (5 min)
 **Customize → Connectors**, or when prompted:
@@ -38,7 +38,7 @@ repository** → paste the marketplace repo URL → install **Social OS**.
 
 ### 3 · Paste the Project instructions (1 min — do this BEFORE the interview)
 Open the Cowork **project** → **Project instructions** → paste the block from
-`plugin/plugins/social-os/shared/project-instructions.md`, replacing `<Business>`
+`plugin/plugins/business-os/shared/project-instructions.md`, replacing `<Business>`
 with her workspace folder name (`Lifetime of Love Nannies — Reno — AI Workspace`).
 
 **This is not optional and it is not cosmetic.** Project instructions are the only
@@ -75,8 +75,8 @@ Plugins cannot create scheduled tasks; the owner does, once, in Cowork.
 
 | Name | When | Prompt |
 |---|---|---|
-| **Weekly content plan** | Weekly, Sunday evening | `Run social-os:plan-week for next week, then social-os:draft-post for every planned row, stage them as drafts, and tell me what's waiting for approval and what I need to film or upload.` |
-| **Weekly results** | Weekly, Monday morning | `Run social-os:learn for last week. Lead with anything that needs me.` |
+| **Weekly content plan** | Weekly, Sunday evening | `Run business-os:plan-week for next week, then business-os:draft-post for every planned row, stage them as drafts, and tell me what's waiting for approval and what I need to film or upload.` |
+| **Weekly results** | Weekly, Monday morning | `Run business-os:learn for last week. Lead with anything that needs me.` |
 
 ### 6 · Approve one post together (5 min)
 Pick the best of the three drafts. She says **"approve \<post name\>"**. Watch it
@@ -105,10 +105,28 @@ Everything else is in `0 — Start Here` in her folder.
 
 ---
 
+## Keeping her on the current release
+
+Releases ship through a pull request with a version bump — that is what triggers the
+marketplace to sync. Whether a **personal** plugin then updates on its own is not
+documented (OQ-021), so assume it doesn't and say one sentence when you ship
+something she should have:
+
+> "Open Plugins, find Business OS, click Update."
+
+**Run every release in your own workspace first.** That is the whole canary process
+at this scale and it costs nothing.
+
+If a release changes the *shape* of a workspace — not just behaviour — her next
+session offers the upgrade itself. She sees the exact list of what will change
+before anything moves, and nothing is ever deleted. You don't have to coordinate it.
+
+---
+
 ## Week one — operator
 
 - **Day 2:** check `accounts/health`. Facebook tokens expire often.
-- **Day 7:** run `social-os:learn` yourself before her scheduled task does, so the
+- **Day 7:** run `business-os:learn` yourself before her scheduled task does, so the
   first report she sees is one you have read.
 - **Day 14:** ask what she has corrected. Those corrections should be in
   `Her preferences` — if they aren't, the loop isn't closing and that is the thing

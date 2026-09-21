@@ -618,3 +618,174 @@ correction lands in one of them at random. That is the single most likely way th
 system ever acquires a contradiction, so it is checked before the room is made
 rather than audited afterwards.
 **Reverses if:** never.
+
+### DEC-035 — This is a business OS. Social is the first room, not the product.
+**Date:** 2026-09-21 · **Status:** ✅ locked · **reframes DEC-025**
+**Decision:** The plugin is renamed `social-os` → **`business-os`**. It is a small
+business's whole AI workspace, operated from chat, with social media as room one and
+email, reviews, recruiting and invoicing as rooms added later. Room definitions live
+in `rooms/` as **data** — a definition file, folders, and one or two skills — because
+the laws, the map, onboarding, correction, housekeeping and upgrades already apply to
+every room.
+**Why:** the operator's read was right, and the artifacts already proved it —
+`the-law.md`, `the-map.md`, `drive-conventions.md`, `growth-and-upkeep.md`,
+`project-instructions.md` and `update-the-brain` **do not mention social media**.
+Only 5 of 9 skills are social-specific. The substrate was already general and merely
+packaged as though it were a social tool. Zero clients are installed, which makes
+this the cheapest it will ever be.
+**The GitHub repo keeps its name** (`bucho11/social-os`). Renaming it is
+outward-facing and reversible later via GitHub's automatic redirects; the marketplace
+works regardless of what the plugin inside is called. Operator's call, not ours.
+**Reverses if:** never.
+
+### DEC-036 — One plugin, many rooms. Not a core plugin plus room plugins.
+**Date:** 2026-09-21 · **Status:** ✅ locked · **forced by a verified constraint**
+**Decision:** Everything ships as a single plugin. Rooms are folders and skills
+inside it, not separate installable plugins.
+**Why:** `[PRIMARY]` — *"Claude Code doesn't let a plugin reference files outside its
+own directory. It rejects a component path that resolves outside the plugin root."*
+A separate `social` plugin could not read the core's laws. There is a documented
+symlink exception, but it is **Claude Code** documentation and unverified on Cowork,
+and this repo has already shipped one silent path-resolution bug (DEC-024) where
+every skill ran without its guardrails and nothing errored. Betting the architecture
+on an unverified substitution mechanism repeats that exact mistake.
+**It is also the better answer on its own merits.** Splitting the laws from the rooms
+would put one job in two places — our own Law 1, violated at the code level. And one
+plugin means one version, one changelog, one Update click.
+**Cost, stated:** only skill *descriptions* are always in context (~700 chars each,
+9 skills ≈ 6 KB). Each future room adds ~600 chars. Revisit at roughly twenty skills.
+**Reverses if:** Cowork's symlink dereferencing is verified AND the description
+budget becomes the binding constraint. Both, not either.
+
+### DEC-037 — Clients float to latest; every release is a PR with a version bump
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** Clients are not pinned. Every release goes through a pull request that
+bumps `version` in `plugin.json` (kept equal in the marketplace entry) and adds a
+`CHANGELOG.md` entry in Keep a Changelog format. Additive by default (MINOR).
+Breaking changes are MAJOR and require the expand/migrate/contract ceremony. The
+operator's own workspace is the canary — every release runs there first.
+**Why:** the operator's bar was *"future plugins can happen within a week and I want
+my clients to be aware of them... no ruckus, super simple, 10/10 value for the user,
+always."* A pinned client must be told to do something before receiving work already
+done for them — friction both ways, and a shipped fix helping nobody.
+**Floating is only safe because of everything else**: additive by default, breaking
+changes get the ceremony, migrations show a diff before touching anything, and
+nothing is ever deleted. **Make "latest" safe, then let everyone have it**, rather
+than making everyone opt in to safety.
+**The PR-with-bump is not ceremony — it is the mechanism.** `[PRIMARY]`: sync fires
+*"when a pull request that includes a plugin version bump is merged"* and *"direct
+pushes to the default branch don't trigger a sync."* We had been pushing straight to
+`main` at a frozen `0.1.0` — the configuration least likely to reach anyone.
+**Reverses if:** a release ever reaches a client in a broken state. Then clients pin
+and the operator promotes deliberately.
+
+### DEC-038 — Two lanes for change: reconcile silently, migrate with a visible diff
+**Date:** 2026-09-21 · **Status:** ✅ locked · **the answer to "how do we not cause chaos"**
+**Decision:** Workspace change splits by kind, not by size.
+**Lane 1 — reconcile.** Purely additive: a missing folder, a rule document she has
+never had, a stale ID. Runs **silently, continuously, no permission**. This is not
+changing her stuff; it is the system finishing building itself. (Kubernetes' control
+loop: observe actual state, move toward desired state, forever.)
+**Lane 2 — migrate.** Anything that renames, moves, merges or retires. **Plans
+first, shows her the exact diff, applies on one yes.** (Terraform's `plan`/`apply`,
+and its own stated reason: a visible diff exists *"because infrastructure changes are
+risky and often destructive; operators need to know exactly what will be created,
+changed, or destroyed before committing."*)
+**Why this rather than the three options put to the operator:** auto-migrate breaks
+the never-rearrange-without-a-yes stance we had just committed to; ask-every-time
+turns creating a missing folder into a permission dialog, and noise is how people
+stop reading what you say; never-touch guarantees divergence. The kind of change is
+the right discriminator, and it is the one the industry uses.
+**Putting a change in the wrong lane is the only real risk here**, which is why each
+migration declares its lane and a migration that does both is split in two.
+**Reverses if:** never.
+
+### DEC-039 — Never a breaking change in one step; a workspace carries its own version
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** Two version numbers, never conflated: the **plugin version** (semver,
+in git) and the **workspace version** (an integer, in her `0 — Map`). Shape changes
+ship as **expand → migrate → contract**, three separate releases minimum. Every
+migration step is idempotent and states how to tell whether it already ran. The map
+carries an upgrade history, and a half-applied upgrade is recorded **`FAILED`**.
+**Why:** we have no fleet orchestration — a workspace is reachable only when a
+session runs against it — so a client who doesn't open Cowork for six weeks **is** a
+client on an old shape. Research is unambiguous: additive changes are the only ones
+safe while older instances are still running, and *"a single migration that adds and
+removes in one shot is unsafe."* The governing rule we adopted verbatim: **"make
+readers tolerant before making writers strict."**
+**We took Flyway's failure behaviour, not Rails'.** Flyway writes an explicit failed
+entry; Rails and Django leave the migration reading as *pending* while *"partial side
+effects can remain."* A half-applied change that looks like it never started is
+exactly the chaotic state the operator asked us to prevent — worse than an old shape,
+because nothing about the folder looks wrong.
+**Reverses if:** never.
+
+### DEC-040 — Nothing is destroyed: supersede, never trash
+**Date:** 2026-09-21 · **Status:** ✅ locked · **Law 6 · fixes DEC-020**
+**Decision:** Replacing a rule document creates the new version and **supersedes**
+the old one — renamed `<title> — superseded YYYY-MM-DD`, moved to `9 — Archive/`.
+`trash_file` is reserved for something created by mistake seconds ago that nothing
+has referenced. Retired document roles and room numbers are recorded in `0 — Map`
+under `## Retired` and **never reused**.
+**Why:** `[PRIMARY]`, Google's own docs — *"Files you move to the Trash are deleted
+forever after 30 days."* Every correction was starting a 30-day timer on the record
+of what her brand voice used to be, with nothing warning anyone on day 31. For a
+system whose whole premise is *"correct me freely, thousands of times,"* **the cost
+of being wrong must be zero**, and it wasn't.
+Records management has held this line for decades: a superseded version is marked
+superseded and retained; a correction preserves the original and adds to it rather
+than overwriting the evidence. Same number of calls as trashing.
+**Never reusing a name** is Protobuf's rule about field numbers, for the same reason:
+her notes, an old report and an archived document all still point at "room 4," and
+reassigning it makes every one of them quietly wrong with nothing to notice.
+**Reverses if:** never.
+
+### DEC-041 — Resolve duplicates point by point, never by picking a winner
+**Date:** 2026-09-21 · **Status:** ✅ locked · **corrects DEC-027's resolution step**
+**Decision:** When two documents hold one job, reconcile **attribute by attribute**:
+keep what only one of them says, and ask only about the places they genuinely
+disagree — usually one or two. One reconciled document survives; the other is
+superseded.
+**Why:** master data management is explicit that *"good practice is to treat
+survivorship at the attribute level, not as a whole-record winner-takes-all
+decision."* Our original rule — *"she decides which survives, the other is trashed"*
+— was exactly the named anti-pattern. Two documents exist **because both got
+written**; each holds something the other doesn't. Picking one whole silently
+discards work she did, and she discovers it a month later as *"I already told you"*
+— the most serious signal in the system, produced by the system's own repair step.
+**Reverses if:** never.
+
+### DEC-042 — A change and a correction have different blast radii
+**Date:** 2026-09-21 · **Status:** ✅ locked · **Law 4 · corrects the blast-radius table**
+**Decision:** When a **fact** changes, ask one line: *"did that change, or was it
+always wrong?"* A **new fact** leaves already-published work historically correct —
+leave it alone. A **correction of a past belief** makes that work false — surface it
+immediately and let her decide whether to take it down.
+**Why:** bitemporal modeling exists for precisely this, separating *when a fact was
+true* from *when we came to believe it*: *"update as new fact"* versus *"correction
+of past belief."* We collapsed them — both rewrote the document and logged one line —
+and the blast-radius table said published claims *"now false"* should be flagged,
+which is right for one case and wrong for the other.
+**The cost of each error is real and opposite:** treating a price rise as a
+correction scrubs honest history off her feed, losing the engagement and links on
+those posts; treating a correction as a rise leaves a false pricing or credential
+claim standing. Three words from her settles it.
+**Reverses if:** never.
+
+### DEC-043 — Validate the plugin before every release
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** `tools/validate.py` runs before every release and gates it. It checks
+that every `${CLAUDE_PLUGIN_ROOT}` reference resolves, no relative path escapes its
+skill directory, skill names match their directories, descriptions are within 1024
+characters, `plugin.json` and the marketplace entry agree on name and version,
+every migration is both listed and written and states how to tell if it already ran,
+and the CHANGELOG has an entry for the version being shipped.
+**Why:** this repo has already shipped two bugs of exactly this class — 22 file
+references that escaped their skill directory (DEC-024) and a reference containing a
+space that cannot be parsed unambiguously. **Both were silent at runtime**: the skill
+runs, just without its guardrails, and nothing errors. A discipline that depends on
+files being read is a discipline that needs a machine to confirm the files are
+reachable.
+**It earned itself on its first run**, catching the space-in-path reference and a
+missing changelog entry.
+**Reverses if:** never. Extend it whenever a new silent-failure class appears.

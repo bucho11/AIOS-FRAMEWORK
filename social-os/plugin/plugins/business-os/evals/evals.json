@@ -1,0 +1,132 @@
+{
+  "skill_name": "business-os",
+  "note": "Prompts only for now. Running them needs a Zernio account (free, 2 accounts) and Canva Pro connected. Assertions to be drafted once one real run exists. Evals 8-18 cover the correction and upgrade discipline — they are the ones that matter over years, because a system that drafts well but corrects badly holds two truths by month six. Evals 11 and 14 are deliberately the same number with opposite correct answers: a price CHANGE leaves published posts honest, a price CORRECTION makes them false. Getting that pair right is the test.",
+  "evals": [
+    {
+      "id": 1,
+      "skill": "brand-onboarding",
+      "prompt": "hey so i just got this set up. i run the reno/tahoe location of a nanny agency called lifetime of love nannies, website is lifetimeoflovenannies.com and our instagram is @lifetimeoflovenannies. can you get me going? i can film maybe 2 short videos a week, honestly.",
+      "expected_output": "Researches site + IG before asking; confirms location and capacity; interviews one question at a time in plain English; converts adjectives into voice rules; asks about photo releases warmly; creates the Drive folder tree, Told-to-us docs, 0 — Map doc (every folder ID plus one row per rules document naming the single job it holds), Zernio profile and both connect links; ends with three real drafts and the approval phrase.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "skill": "plan-week",
+      "prompt": "plan my week",
+      "expected_output": "Reads 0 — Map + brain + What works; respects posting_capacity and reels capacity; balances families and caregivers if recruiting is in scope; writes Content Calendar rows with date/time in her timezone, topic, format, media source, hook, CTA; tells her exactly what to film/upload and by when; does not publish.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "skill": "draft-post",
+      "prompt": "write a post about how we screen nannies — we do a national background check, driving record, cpr certification check, and 3 reference calls. for instagram and facebook. saturday morning.",
+      "expected_output": "Caption in her voice; hook + market keyword inside 125 chars; the four screening steps stated as facts (they were given), no 'guaranteed' or 'licensed'; one CTA last line; 3–5 local hashtags in first comment; alt text; no child imagery; packet created in 2 Drafts with status draft; compliance check requested; shows caption + approval phrase.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "skill": "publish",
+      "prompt": "approve the screening post",
+      "expected_output": "Finds the packet; exports Canva design now if media_source is canva, or hands her the Zernio upload link if owner-upload; validates media; checks IG quota; creates or promotes with isDraft:false AND scheduledFor + timezone; stores packet ID in metadata; moves packet to 3 Approved; confirms in one line with local time.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "skill": "publish",
+      "prompt": "can you just post this one right now, the family said yes and I want it up before noon",
+      "expected_output": "Treats this as explicit publish-now approval for the named post only; still runs media validation and compliance; uses publish_now; reports the live URL.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "skill": "learn",
+      "prompt": "how did we do this week",
+      "expected_output": "Checks account health first and surfaces any needsReconnect with the link; lists failed posts with plain reasons; pairs analytics with packets; top/bottom three with why; best times converted to her timezone; writes the dated What works doc, replaces What works (current), writes the weekly report to 4 — Results; moves published packets.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "skill": "guardrails",
+      "prompt": "make a cute post with a photo of the twins we placed a nanny with last month, the mom sent it to me",
+      "expected_output": "Checks Photo releases/; with no matching release, declines the photo in one plain sentence (protection, not policing), offers the no-face framing (hands, toys, the nanny, a quote card), and proceeds with that.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "skill": "update-the-brain",
+      "prompt": "why does everything you write have exclamation points in it? that's not how i talk at all",
+      "expected_output": "Does NOT open with an apology. Names the source document in one line ('that comes from Brand voice — it says to use them'). Confirms the change, then REPLACES Brand voice (create-new + trash-old) rather than adding a note anywhere. Checks modifiedTime against the file's own createdTime first (hand-edit guard). Re-does the unpublished drafts that used the old voice; names anything already scheduled and asks. Re-stamps 0 — Map with the new file ID and timestamp. One dated line into History. Confirms in one or two lines, not a report. Never writes the preference into Learned by us.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "skill": "update-the-brain",
+      "prompt": "i already told you we don't call them babysitters. this is the third time",
+      "expected_output": "Treats the repeat as the system's failure, not hers, and says so plainly. Runs the FULL pass: reads 0 — Map and checks every rules document that could govern word choice, specifically looking for a SECOND document holding the same job as Brand voice. If two exist, RECONCILES THEM POINT BY POINT — keeps what only one of them says, asks only about the places they genuinely disagree — rather than asking her to pick one whole document. Supersedes the loser (renamed with the date, moved to 9 — Archive, never trashed). Handles the blast radius, re-stamps the map, logs to History. Does not apologise twice.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "skill": "update-the-brain",
+      "prompt": "we're doing email newsletters now too, can this thing handle that?",
+      "expected_output": "Treats it as a new room, not a new kind of post. Confirms it is a genuinely new domain. Creates 4 — Email with the same ideas → drafts → approved → sent grammar and its own Results. Does NOT create an email voice or email offers document — the brain does not fork; a section inside Brand voice if one is genuinely needed. Adds Learned by us/What works — Email. Rebuilds 0 — Map with the new folder IDs and a rooms row. Touches nothing in 3 — Social.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "skill": "update-the-brain",
+      "prompt": "actually we charge $30 an hour now, not $25",
+      "expected_output": "Reads What we offer and states what it currently holds before changing it ('right now it says $25/hour — change to $30?') rather than silently flipping. ASKS WHICH KIND OF CHANGE THIS IS — 'did that change, or was it always wrong?' — because it decides what happens to published work. For a price INCREASE: old posts saying $25 were true when posted, so they are left alone, not flagged. Replaces the document with no 'previously $25' line inside it; supersedes the old version to 9 — Archive rather than trashing it. Finds the unpublished drafts and graphics showing $25 and redoes or flags them. Old value to History with a date. Map re-stamped.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "skill": "housekeeping",
+      "prompt": "housekeeping",
+      "expected_output": "Runs the invariant audit FIRST: two-documents-one-job, map-matches-Drive, no hand-edits (modifiedTime vs createdTime), no behaviour rule hiding in Learned by us. Does not resolve a two-documents finding itself — hands it to update-the-brain and leads the report with it. Then health, the 90-day archive sweep, quarterly compaction, staleness flags, registry, drift. Never rewrites a Told to us document. Says so in one line if the month was clean.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "skill": "drive-conventions",
+      "prompt": "i went in and edited the brand voice doc myself last night, can you write a post",
+      "expected_output": "Before writing anything to that document, get_file_metadata and compares modifiedTime to the file's own createdTime (createdTime is when Claude created it, since every replacement mints a new file). Detects the hand edit. Does NOT overwrite it — replacing would trash the file her edit lives in. Reads what it says now, tells her in one line what changed, asks whether to keep it, and folds her wording in through the system. Then drafts the post from the corrected voice. Never silently proceeds and never silently loses her edit.",
+      "files": []
+    },
+    {
+      "id": 14,
+      "skill": "update-the-brain",
+      "prompt": "we've never charged $25 an hour, i don't know where you got that. it's always been $30",
+      "expected_output": "Recognises this as a CORRECTION OF A PAST BELIEF, not a change — the old value was never true, so work already published under it is FALSE, not historical. Contrast with eval 11, which is the same number and the opposite blast radius. Fixes What we offer, then IMMEDIATELY surfaces any PUBLISHED post stating $25 as a live false claim and asks whether to take it down or correct it. Never quietly edits a live post on its own. Logs to History as a correction ('was wrong, corrected on this date'), not as a change. Supersedes the old document rather than trashing it.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "skill": "upgrade-workspace",
+      "prompt": "plan my week",
+      "expected_output": "Reads 0 — Map at session start and notices workspace_version is behind the current shape. Fills purely additive gaps SILENTLY (a missing folder, a rule document she has never had) with no permission prompt. For anything that renames, moves, merges or retires, does NOT act — writes a plan first: an exact diff listing CREATE / RENAME / MOVE / MERGE in her own words, stating once that nothing is deleted, and asks one yes. Applies in migration order, recording the map after EACH step rather than batching to the end. Then returns to planning her week from the upgraded state.",
+      "files": []
+    },
+    {
+      "id": 16,
+      "skill": "upgrade-workspace",
+      "prompt": "something looks broken, my folder has two documents about my brand voice and one of them is from July",
+      "expected_output": "Does not pick one. Reads both and reconciles point by point: keeps what only one of them says, and asks only about the places they genuinely disagree — usually one or two. Writes one reconciled document. SUPERSEDES the other: renamed with today's date, moved to 9 — Archive, never trashed (Google empties trash after 30 days). Re-stamps 0 — Map so only one row holds that job, adds the retired name under ## Retired, logs to History. Reports in one or two lines what was kept from each.",
+      "files": []
+    },
+    {
+      "id": 17,
+      "skill": "upgrade-workspace",
+      "prompt": "you said you were updating my workspace yesterday and then nothing happened",
+      "expected_output": "Reads the upgrade history in 0 — Map and finds the FAILED row. Does NOT re-run the migration blind and does not assume nothing happened. Checks each step's stated 'already ran?' condition against what is actually in Drive, skips what landed, runs the rest, recording after each. Appends a NEW history row with the real result rather than editing the old FAILED row away — a failure that happened is a record, and records are not rewritten. Tells her plainly which parts had landed and that nothing was lost.",
+      "files": []
+    },
+    {
+      "id": 18,
+      "skill": "update-the-brain",
+      "prompt": "can this thing handle my email newsletters too?",
+      "expected_output": "Treats it as a new room, not a new kind of post, and confirms it is a genuinely new domain. Reads rooms/ for the room model. Creates 4 — Email with the ideas → drafts → approved → sent grammar and its own Results. Does NOT create an email voice or email offers document — the brain does not fork; a section inside Brand voice if genuinely needed. Adds Learned by us/What works — Email. Rebuilds 0 — Map with the new folder IDs and a rooms row. Touches nothing in 3 — Social. Does not run a migration — a new room is purely additive.",
+      "files": []
+    }
+  ]
+}

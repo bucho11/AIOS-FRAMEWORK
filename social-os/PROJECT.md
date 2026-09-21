@@ -4,7 +4,21 @@
 > source for these facts** — never use paths or status from memory or old notes.
 
 **Updated:** 2026-09-21
-**Phase:** **Phase 1 built and hardened.** Plugin scaffold, **8 skills**, reviewer agent, guardrails, Drive template, 13 evals — in `social-os/plugin/`, mirrored to the public repo `bucho11/social-os`. Zernio verified live end to end (OQ-009/013/016 closed). Latest pass added the **contradiction discipline** (DEC-027…034): one job one document, rules-vs-records, the `0 — Map` index, the `update-the-brain` guard, and the hand-edit precondition. **Untested:** nothing has been executed by Claude against a real workspace — see OQ-020.
+**Phase:** **Phase 2 — reframed as a business OS, benchmarked, and given an upgrade path.**
+The plugin is now `business-os` (DEC-035): a small business's whole AI workspace,
+with social as room one and rooms 4-8 open for email, reviews, recruiting and
+invoicing. Benchmarked against master data management, ISO 15489 records management,
+bitemporal modeling, CMDB/drift, multi-tenant schema migration, Johnny Decimal and
+release engineering — **four of six laws had decades-old names, and the study found
+three real defects, now fixed** (`03-research/benchmark-study.md`). Added: semver +
+CHANGELOG + PR-with-bump releases (DEC-037), two-lane workspace upgrades with a
+visible diff (DEC-038), workspace versioning with an explicit FAILED state
+(DEC-039), supersede-never-trash (DEC-040), and `tools/validate.py`, which gates
+every release and caught a real bug on its first run (DEC-043).
+**Still untested:** nothing has been executed against a real workspace (OQ-020,
+OQ-023).
+
+**Previously — Phase 1 built and hardened.** Plugin scaffold, **8 skills**, reviewer agent, guardrails, Drive template, 13 evals — in `social-os/plugin/`, mirrored to the public repo `bucho11/social-os`. Zernio verified live end to end (OQ-009/013/016 closed). Latest pass added the **contradiction discipline** (DEC-027…034): one job one document, rules-vs-records, the `0 — Map` index, the `update-the-brain` guard, and the hand-edit precondition. **Untested:** nothing has been executed by Claude against a real workspace — see OQ-020.
 
 ---
 
@@ -22,8 +36,10 @@
 | **Publishing layer** | **Zernio** — free at 2 accounts (DEC-010). Also hosts media + native draft gate. |
 | **Image layer** | **Canva Pro** via native MCP (DEC-018) — Brand Templates + `replace_text` + `resize-design`. Zernio hosts. |
 | **Connector layer** | Native Google Drive + Zernio custom MCP. Composio = fallback only. |
-| **Public plugin repo** | `github.com/bucho11/social-os` — branch `main`. Local clone at `/home/user/social-os`. Source of truth is `social-os/plugin/` in this repo; mirror on every change. |
-| **Correctness layer** | `0 — Map` (one index) + `shared/the-law.md` (five laws) + `skills/update-the-brain/` (the guard) + Cowork **Project instructions** pasted at setup (DEC-032). Housekeeping is the monthly backstop, not the guard (DEC-030). |
+| **Plugin** | `business-os` v0.3.0 · workspace shape version **2** · 9 skills · 1 room (social; 4-8 free) |
+| **Public plugin repo** | `github.com/bucho11/social-os` — branch `main`. Local clone at `/home/user/social-os`. Source of truth is `social-os/plugin/` in this repo; mirror on every change. **Repo name unchanged on purpose** — renaming it is outward-facing and the operator's call (DEC-035). |
+| **Release path** | PR + semver bump in `plugin.json` + CHANGELOG entry. `python3 tools/validate.py` gates it. Direct pushes to `main` do not trigger marketplace sync. |
+| **Correctness layer** | `0 — Map` (one index) + `shared/the-law.md` (six laws) + `skills/update-the-brain/` (the guard) + Cowork **Project instructions** pasted at setup (DEC-032). Housekeeping is the monthly backstop, not the guard (DEC-030). |
 | **Status** | Phase 1 built in repo (no Drive writes, DEC-013). Next: operator is client zero. |
 
 ## Platforms in scope
@@ -50,7 +66,9 @@
 | 8 | **Run evals 8, 9, 11, 13 against a real workspace** — the contradiction discipline has never been executed. Eval 9 ("I already told you") and eval 13 (hand-edit) are the two that matter most; OQ-020 is the open question they close | 7 |
 | 9 | At first setup: paste the Project-instructions block **before** the interview (runbook step 3), then confirm it reads back verbatim — closes OQ-018 | client call |
 | 10 | Rotate the Zernio API key before the first client onboards | operator |
-| 11 | Package as the clone kit | 8 |
+| 11 | **Run migration `001` end to end** against a hand-built version-1 workspace, including one deliberate mid-run interruption and the documented rollback — closes OQ-023. A rollback never performed is a hypothesis | 7 |
+| 12 | Confirm whether personal plugins auto-update after a PR-with-bump — closes OQ-021. Until then the runbook says "click Update" | 7 |
+| 13 | Package as the clone kit | 8, 11 |
 
 ---
 
