@@ -67,3 +67,14 @@ thumbnails, pick the closest, `create-design-from-candidate`.
   week's graphics with that in mind; don't hammer.
 - If Canva returns `license_required` on export, a premium element is blocking —
   swap it, don't buy it silently.
+
+## If there is no brain yet
+
+Search Drive for a folder named `<Business> — Social OS` and read its `0 — Setup`
+doc. **If either is missing, stop and run `social-os:brand-onboarding` instead** —
+this skill has nothing to read and would invent a brand. Say so in one plain line:
+*"I don't have your brand set up yet — let's do that first, it takes about forty
+minutes and you'll have three posts at the end."*
+
+If Setup exists but a value this skill needs is blank, ask for that one value,
+then replace the Setup doc (`../../shared/drive-conventions.md`) so nobody asks again.

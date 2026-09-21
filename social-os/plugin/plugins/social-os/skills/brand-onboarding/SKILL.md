@@ -20,8 +20,11 @@ about 40 minutes she enjoys, not a form she abandons. Everything downstream read
 what this captures, so quality here is the ceiling for every future post.
 
 Read `../../shared/drive-conventions.md` and `../../shared/brain-layout.md` before
-writing anything to Drive. Read `references/interview.md` for the questions and
-`references/research-first.md` for what to look at before saying hello.
+writing anything to Drive. `references/research-first.md` is what to look at before
+saying hello, `references/interview.md` is the questions, and
+`references/build-the-brain.md` is the exact creation sequence for Phase 8 —
+folder-tree order, seed-doc mapping, the Zernio connect flow, and the health check
+that must pass before you tell her it worked.
 
 ## The stance
 
@@ -92,7 +95,9 @@ three times on the first three calendar ideas, so she sees real posts today.
 
 ## What Phase 8 creates
 
-In this order, so a failure never leaves a half-built brain:
+**Follow `references/build-the-brain.md` step by step** — it has the folder-tree
+order (parents before children, holding each returned ID), the bundled-seed-doc to
+Drive-title mapping, and the account-health check. Summary:
 
 1. **Drive folder tree** per `brain-layout.md` — root, then every subfolder.
 2. **Docs in `Told to us/`** — `About the business`, `Brand voice`, `Who we talk to`,

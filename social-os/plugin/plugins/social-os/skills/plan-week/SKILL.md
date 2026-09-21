@@ -67,3 +67,14 @@ in `1 — Brain/Told to us/` and `Learned by us/What works (current)`. Read
 - Never repeat a hook or angle used in the last 60 days.
 - The calendar is the truth surface for the week. Drafts cite it; they don't
   compete with it.
+
+## If there is no brain yet
+
+Search Drive for a folder named `<Business> — Social OS` and read its `0 — Setup`
+doc. **If either is missing, stop and run `social-os:brand-onboarding` instead** —
+this skill has nothing to read and would invent a brand. Say so in one plain line:
+*"I don't have your brand set up yet — let's do that first, it takes about forty
+minutes and you'll have three posts at the end."*
+
+If Setup exists but a value this skill needs is blank, ask for that one value,
+then replace the Setup doc (`../../shared/drive-conventions.md`) so nobody asks again.
