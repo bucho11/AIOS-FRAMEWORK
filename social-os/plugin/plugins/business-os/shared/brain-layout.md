@@ -33,6 +33,8 @@ order.
 ├── 3 — Social/                     ── THE FIRST ROOM ──
 │   ├── 1 Ideas/ 2 Drafts/ 3 Approved/ 4 Published/
 │   ├── Content Calendar            (Doc) the truth surface for the week
+│   ├── Templates/                  the toolbox — appears when first needed
+│   ├── Examples/                   approved work that worked, with why (best 10)
 │   └── Results/                    weekly performance reports
 │
 ├── 4 — <next room>/                Email · Reviews · Recruiting · Invoicing …
@@ -87,6 +89,13 @@ then re-stamps the map (per `drive-conventions.md`) so nobody asks again.
 - **`Photo releases/`** turns a legal rule into a file Claude can check.
 - **`Colors and fonts`** exists because Canva's Brand Kit is Enterprise-only; the
   hex values living here is what lets Canva Pro produce on-brand output.
+- **`Templates/` and `Examples/` are per room, and they appear when first needed.**
+  A template is anything that got rebuilt from scratch after existing before; an
+  example is work she approved, carrying the reason it worked. Both are a job's
+  working material, which is why they live in the room rather than in the shared
+  brand assets. Empty folders at setup would be clutter — the folder-birth rule says
+  a folder appears the day it holds something
+  (`${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`).
 - **`How she likes to work`** is a rule document, not a notes file. Earlier versions
   kept corrections in `Learned by us/Her preferences` — a document about how to
   write, sitting beside `Brand voice`, another document about how to write. Two

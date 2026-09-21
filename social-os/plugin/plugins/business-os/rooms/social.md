@@ -21,8 +21,38 @@ schedule. Every week the results come back and change what gets planned next.
 ├── 3 Approved/        she said yes; scheduled
 ├── 4 Published/       live, with the URL (ages to Archive at ~90d)
 ├── Content Calendar   (Doc) the truth surface for the week
+├── Templates/         the toolbox — created when the first one is needed
+├── Examples/          posts she approved that worked, with why (best 10)
 └── Results/           weekly performance reports
 ```
+
+`Templates/` and `Examples/` appear the day they hold something, not at setup.
+`learn` fills `Examples/` weekly from the top performer; anything rebuilt from
+scratch during drafting is the signal for `Templates/`
+(`${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`).
+
+## Playbooks
+
+Every job here is **shipped** — we wrote the process, it ships in the plugin, and a
+release improves it for every client at once. That is right for social: we know how
+these platforms work, and a client who had to teach us that got a worse deal than
+one who didn't.
+
+A shipped playbook is a domain default, not a claim to know her business. Her first
+month of corrections is the most valuable it will ever have — harvest it into the
+skill, don't leave it in chat.
+
+| Job | Skill | Origin | Checks |
+|---|---|---|---|
+| Plan the week | `plan-week` | shipped | — |
+| Draft a post | `draft-post` | shipped | 10 · 2 blocking |
+| Make a graphic | `make-graphic` | shipped | 6 · 3 blocking |
+| Publish or schedule | `publish` | shipped | 11 · 7 blocking |
+| Weekly report | `learn` | shipped | 7 |
+
+A job specific to *her* — a local-partnership outreach sequence, a particular kind
+of caregiver spotlight she does her own way — is **interviewed**, via
+`business-os:teach-it-a-job`, and lives in her Drive where no upgrade can rewrite it.
 
 ## Skills
 
@@ -45,6 +75,30 @@ schedule. Every week the results come back and change what gets planned next.
 
 `1 — Brain/Learned by us/What works — Social (current)`, rewritten weekly, plus a
 dated weekly document that is never replaced.
+
+## Definition of done
+
+**A post is done when it is live and its packet says so** — the live URL, the
+publish time, the platform, and an evidence report with no unresolved blocking
+failure. Not when the vendor accepted it; not when the caption looked good.
+
+**A week is done** when every planned row is either published, scheduled, or
+explicitly dropped with a reason, and she knows which.
+
+## Proof
+
+34 checks across the five jobs, 12 of them blocking. Two carry the whole weight and
+are blocking in three places on purpose, because a graphic can pick up a photo the
+caption never mentioned:
+
+- **a child's face with no release on file** — checked in `draft-post` and again in
+  `make-graphic`
+- **a claim she has not written down** — *licensed, certified, guaranteed, 100%
+  safe* — checked in the caption, in the first comment, and in text baked into the
+  image
+
+Everything else is needs-a-look or informational. Blocking stays a short list: each
+one buys safety with her Friday evening.
 
 ## Guardrails
 

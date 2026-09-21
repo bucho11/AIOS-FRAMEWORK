@@ -61,6 +61,28 @@ reads through them; it never schedules.
 9. **Move published packets.** Any `3 Approved/` packet the vendor shows as
    `published` → add `published_urls`, move to `4 Published/`.
 
+10. **Save this week's best as an example.** The top performer, copied into the
+    room's `Examples/` as `YYYY-MM-DD — <what made it good>`, with two or three lines
+    on **why** it worked: the hook shape, the audience, the format, the slot.
+
+    An example with no reason on it is just an old post. The reason is the whole
+    value — it is what `draft-post` reads to write the next one, and it is far
+    stronger training than any description of her voice, because it is her voice
+    proven against her own audience.
+
+    Keep the **ten best per room**, not the ten most recent. When an eleventh
+    arrives, retire the weakest to `9 — Archive/` (superseded, never trashed) and say
+    which one in the report.
+
+    Examples are **records** (`the-law.md`, Law 2). They show what worked; they never
+    override `Brand voice`. If an example and the voice document disagree, the voice
+    document wins and the disagreement is worth raising with her.
+
+11. **Run the checks.** `${CLAUDE_PLUGIN_ROOT}/skills/learn/references/checks.md`.
+    The first one is the one that matters: **every number in the report traces to the
+    analytics response it came from.** A report she cannot trace is a report she
+    cannot correct, and she will act on it anyway.
+
 ## When the results say a rule is wrong
 
 This is the moment the whole contradiction discipline is built for, and it happens
@@ -82,6 +104,13 @@ document that owns that job — one document, replaced, blast radius handled.
 `What works (current)` stays what it is: a guide to choosing *between things the
 rules already allow* — which topic, which format, which time slot. It never decides
 what is allowed.
+
+## Done means
+
+A dated weekly document in `Learned by us/`, a rolling `What works (current)` under
+a page, a report in the room's `Results/` that leads with anything needing her, every
+published packet moved and recorded, this week's best saved as an example with its
+reason, and an evidence report showing every number traced.
 
 ## Rules
 

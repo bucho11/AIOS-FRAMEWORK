@@ -38,6 +38,20 @@ conversation**, naming the post. Approval of a plan is not approval of a post.
 `compliance-reviewer` left issues in the packet's `## Compliance check`, surface
 them and stop — she can override, but only explicitly.
 
+## Run the checks first
+
+`${CLAUDE_PLUGIN_ROOT}/skills/publish/references/checks.md` — eleven, most of them
+blocking, which is correct here and nowhere else: this is the one skill whose
+mistakes are visible to her customers and cannot be taken back.
+
+Run them **before** the vendor call, not after. Write the evidence report into the
+packet (`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`). Two of them run again after the
+vendor confirms, to prove the post is actually live and the packet says so.
+
+**Check 3 matters most:** the packet must already carry a passing evidence report
+from `draft-post`. That is what stops a blocking check being escaped by going around
+the skill that runs it.
+
 ## Approve → schedule
 
 1. **Find the packet** in `2 Drafts/` by title. Read it.
@@ -116,6 +130,15 @@ automation so the promise is kept automatically: create-comment-automation with
 `typoTolerance: true`, `alsoMatchInDms: true`, a warm `dmMessage` in her voice
 (≤ 640 chars if buttons), optional `commentReply`. One automation per keyword; they
 stack account-wide.
+
+## Done means
+
+The post is scheduled or live with the vendor; the packet is in `3 — Approved/` (or
+`4 — Published/` with its live URL, publish time and platform); the evidence report
+shows every check run with no unresolved blocking failure; and she has been told in
+one line, with the local time.
+
+Not done: the vendor accepted it. Done: the URL resolves and the packet says so.
 
 ## Rules
 

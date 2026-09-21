@@ -113,7 +113,35 @@ it last meaningfully changed? Flag — do not edit — anything that looks out o
 room nobody has used in 90 days is worth asking about — pause it, or is something
 blocking her? A connector listed but disconnected is a broken promise.
 
-**7 · Look for drift.** Loose documents that do not fit the router, three-plus files
+**7 · Mine the corrections log.** Read `Learned by us/History` for the month. Each
+entry names a layer (`update-the-brain` step 8). Group them and look for repetition,
+because **the same failure three times is not three corrections — it is one missing
+mechanism**, and it will keep costing her attention until something changes:
+
+   - **the same layer failing the same way 3+ times** → name it. Three `proof`
+     entries about claims nobody caught is a missing check, not three bad drafts.
+   - **`toolbox` entries repeating** → something is being rebuilt weekly. That is a
+     template that should exist. Propose it.
+   - **`context` entries pulling one direction** → a brain document is wrong and the
+     corrections have been landing shallowly. That outranks the rest of this pass.
+   - **a job with no corrections in three months** → it works. Say so; that is the
+     candidate to let run with less review, and trust should grow as it is earned.
+
+   **The point is to stop paying for the same mistake.** A correction log that is
+   written and never read is a diary. Propose one concrete mechanism per repeated
+   pattern — a check, a template, a step — and let her pick.
+
+**8 · Check the toolbox and the examples.** Per room:
+
+   - `Templates/INDEX.md` lists every file that is there, and every file listed is
+     there. An unindexed template is a template that gets rebuilt because nobody knew
+     it existed — which is the exact waste the toolbox exists to stop.
+   - `Examples/` holds at most ten, each one carrying **why** it was good. An example
+     with no reason is an old post; propose retiring it or ask her what made it work.
+   - A room with real output and an empty `Templates/` after two months is worth a
+     question. Either nothing repeats, or nobody is noticing that it does.
+
+**9 · Look for drift.** Loose documents that do not fit the router, three-plus files
 of a kind that want a subfolder (the rule of three), a room whose inner folders have
 gone empty. Name them; propose homes.
 

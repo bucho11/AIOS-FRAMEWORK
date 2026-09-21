@@ -59,6 +59,33 @@ results. They cannot contradict anything, because they have no authority.
 
 ## The pass
 
+### 0 · Which layer failed?
+
+Before looking for a document, name the layer. The fix is different in each, and
+fixing in the wrong one means the same thing happens again next month
+(`${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`).
+
+| What happened | Layer | The fix |
+|---|---|---|
+| a step was skipped, or done out of order | **process** | add or correct the step in the job's playbook |
+| something was rebuilt that already existed | **toolbox** | write the file into the room's `Templates/`, index it, use it |
+| it reached her and nothing caught it | **proof** | **write the check** — `${CLAUDE_PLUGIN_ROOT}/shared/proof.md` |
+| the steps ran correctly and the output was still wrong | **context** | fix the brain document — steps 1–8 below |
+
+**The proof row is the one that compounds, and the one most often skipped**, because
+fixing the output feels like fixing the problem. It is not. The same escape returns
+next month, and the month after, until a check exists.
+
+> **Every escape earns a check.** Something that reached her and shouldn't have is
+> the best possible check-generator: it is real, it already happened, and you now
+> know exactly what evidence would have caught it. Write it the same day, in that
+> job's `checks.md`, with a tier.
+
+Most corrections are **context** — that is what the rest of this skill is for. But
+answer this question first, out loud, in one line, because *"the checks didn't catch
+it"* and *"the voice document was wrong"* are different problems and only one of
+them is fixed by editing a brain document.
+
 ### 1 · Find the source
 
 Name the document that caused the behaviour. Not "I'll fix it" — *which document*.
@@ -167,8 +194,17 @@ is how the next lookup fails and the next hand-edit goes unnoticed.
 
 ### 8 · Record it
 
-One dated line in `1 — Brain/Learned by us/History`: what changed, from what to
-what, and why. That is the trail — the rule document itself keeps no history.
+One dated line in `1 — Brain/Learned by us/History`: **the layer**, what changed,
+from what to what, and why. That is the trail — the rule document itself keeps no
+history, and the layer is what makes the log mineable later.
+
+```
+2026-10-14 · proof · Posts were going out with 9 hashtags. Nothing checked the
+count. Added the hashtag check to draft-post, needs-a-look, 3-5.
+```
+
+`housekeeping` reads these monthly and looks for the same layer failing the same
+way three times — which is not three corrections, it is one missing mechanism.
 
 ### 9 · Go back to what she asked for
 

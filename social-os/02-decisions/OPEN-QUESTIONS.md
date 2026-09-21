@@ -302,3 +302,45 @@ hypothesis.**
 anything moves, confirm every superseded document is readable in `9 — Archive/`,
 then perform the documented rollback and confirm the workspace returns to version 1.
 Also interrupt it mid-run once and confirm the `FAILED` row lets it resume.
+
+### OQ-024 — The four prompt texts from the Delegation Loop guide are unread
+**Status:** open, easily closed by the operator. **Blocks:** nothing built — the
+architecture came through, the wording did not.
+The guide body is behind an email gate. Fetching it returned the **structure and
+concepts** — all eleven headings, the three layers, what each of the four prompts
+does, the folder shape, the five mistakes, the loop steps, the worked example and the
+eight interview topics — but declined to reproduce the text on copyright grounds.
+**What is missing specifically:** the literal wording of the four prompts (one per
+layer plus the correction prompt). Our `teach-it-a-job` interview was written from
+the eight *topics*, not from their prompt. Theirs has been used by 30,000+ readers
+and ours has been used zero times, so their phrasing is worth reading.
+**Test that closes it:** the operator signs up (free) and pastes the four prompts.
+Then compare against `skills/teach-it-a-job/SKILL.md` and fold in anything sharper.
+
+### OQ-025 — No check has ever been run
+**Status:** open. **Blocks:** confidence in the entire proof layer.
+34 checks are written across five jobs, each with a concrete *fails when* line. None
+has been executed. The failure modes that matter are not whether a check is
+well-worded but whether it can actually get its evidence: can a skill reliably read
+`Photo releases/` and match a family name; can it fetch a published URL from inside
+Cowork's egress allow-list; does `read_file_content` on a Google Doc return text
+clean enough for a verbatim claim match.
+**That last one is the real risk.** The claim check and the banned-claims check both
+depend on **verbatim matching against a Google Doc read back as text**. If conversion
+mangles quotes, dashes or line breaks, a claim that *is* documented reads as *not
+found* — and a blocking check that false-positives will be overridden habitually
+within two weeks, at which point it is worse than no check.
+**Test that closes it:** build a workspace, write a caption stating a price that IS in
+`What we offer`, and confirm the check passes. Then change one character and confirm
+it fails. Both directions, or it is not tested.
+
+### OQ-026 — Does an override actually get recorded, and is it readable later?
+**Status:** open. **Blocks:** the audit value of the proof layer.
+A blocking check may be overridden in words, and the override is supposed to land in
+the evidence report inside the packet, with her reason and the date. Never tested.
+An override that is acted on but not written down turns the blocking tier into a
+speed bump and removes the one artifact that would explain, a year later, how
+something got out.
+**Test that closes it:** trigger a blocking failure, override it in conversation,
+then read the packet back in a fresh session and confirm the override, the reason and
+the date are all there.

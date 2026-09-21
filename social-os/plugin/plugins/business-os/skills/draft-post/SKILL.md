@@ -62,16 +62,48 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any fol
    - Any real child → check `Photo releases/` first. No match → refuse that image,
      offer the no-face framing, keep going.
 
-6. **Self-check against `guardrails.md`.** Claims, classification, testimonial
+6. **Run the checks.** `${CLAUDE_PLUGIN_ROOT}/skills/draft-post/references/checks.md`
+   — ten of them, two blocking. **Every one runs, including the ones you expect to
+   pass**, and the result goes into the packet as an evidence report
+   (`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`), not into the conversation. A check that
+   could not run reports `SKIP` with the reason and is surfaced — never a pass.
+
+   **A blocking failure means the packet is not staged.** Say what failed, with the
+   evidence, and offer the nearest version that would pass. She can override in
+   words, and the override is written into the report with her reason and the date.
+
+   This is what stops her being the quality control. Without it she is proofreading
+   every draft for a missing release and a price that changed — which is the most
+   expensive possible use of the one person this system exists to protect.
+
+7. **Judgement pass against `guardrails.md`.** Claims, classification, testimonial
    disclosure, child imagery. Fix before staging.
 
-7. **Stage.** Create the packet doc in `2 Drafts/` per `post-packet.md`, status
+8. **Stage.** Create the packet doc in `2 Drafts/` per `post-packet.md`, status
    `draft`, with the calendar row's time as `publish_at`. Ask the
    `compliance-reviewer` agent to read it and fill `## Compliance check`.
 
-8. **Show her**, briefly: the caption as it will post, the graphic thumbnail or edit
+9. **Show her**, briefly: the caption as it will post, the graphic thumbnail or edit
    link if any, what she needs to upload if anything, and the exact phrase to
    approve it.
+
+## Done means
+
+The packet is in `2 Drafts/` with a caption, media decision, alt text, audience and
+first comment; its evidence report shows every check run with no unresolved blocking
+failure; and she has seen the caption exactly as it will post, with one line on
+anything that needs her.
+
+Not done: a caption in the chat. Not done: checks that were "looked at".
+
+## Was anything rebuilt?
+
+If you wrote something from scratch that has been written before — the screening
+paragraph, the local hashtag set, a standard opener — that is the toolbox signal
+(`${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`). Say so in one line, write it into the
+room's `Templates/` with placeholders, index it, and use it from then on.
+
+You are the only one who can notice this, because you are the one rebuilding it.
 
 ## Rules
 

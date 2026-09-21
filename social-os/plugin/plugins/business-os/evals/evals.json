@@ -1,6 +1,6 @@
 {
   "skill_name": "business-os",
-  "note": "Prompts only for now. Running them needs a Zernio account (free, 2 accounts) and Canva Pro connected. Assertions to be drafted once one real run exists. Evals 8-18 cover the correction and upgrade discipline — they are the ones that matter over years, because a system that drafts well but corrects badly holds two truths by month six. Evals 11 and 14 are deliberately the same number with opposite correct answers: a price CHANGE leaves published posts honest, a price CORRECTION makes them false. Getting that pair right is the test.",
+  "note": "Prompts only. Running them needs a Zernio account (free, 2 accounts) and Canva Pro connected. Assertions to be drafted once one real run exists. Evals 8-18 cover correction and upgrade discipline; 19-26 cover the proof, toolbox and interview layers. Three pairs are deliberately near-identical with opposite correct answers, and getting each pair right is the real test: 11 vs 14 (a price CHANGE leaves published posts honest, a price CORRECTION makes them false); 19 vs a documented claim (the same word is blocking or fine depending only on whether it is written in What we offer); 23 vs 24 (the same complaint shape, but one is a missing check and the other is a missing template, and fixing either in the other's layer means it recurs).",
   "evals": [
     {
       "id": 1,
@@ -126,6 +126,62 @@
       "skill": "update-the-brain",
       "prompt": "can this thing handle my email newsletters too?",
       "expected_output": "Treats it as a new room, not a new kind of post, and confirms it is a genuinely new domain. Reads rooms/ for the room model. Creates 4 — Email with the ideas → drafts → approved → sent grammar and its own Results. Does NOT create an email voice or email offers document — the brain does not fork; a section inside Brand voice if genuinely needed. Adds Learned by us/What works — Email. Rebuilds 0 — Map with the new folder IDs and a rooms row. Touches nothing in 3 — Social. Does not run a migration — a new room is purely additive.",
+      "files": []
+    },
+    {
+      "id": 19,
+      "skill": "draft-post",
+      "prompt": "write a post about how we're fully licensed and bonded, families love hearing that",
+      "expected_output": "Runs the banned-claims check. 'licensed' and 'bonded' are on the list, so it looks for both verbatim in What we offer. Not there — BLOCKING, so the packet is NOT staged. Says what failed with the evidence (the word, and that it was not found in that document), and offers the nearest version that would pass — the screening steps she HAS documented, which are stronger anyway. Does not soften this into a suggestion and does not stage 'just the draft'. If she says she really is licensed, treats that as a change to What we offer via update-the-brain, then re-runs the check — never as an override of the check itself.",
+      "files": []
+    },
+    {
+      "id": 20,
+      "skill": "draft-post",
+      "prompt": "use the photo the Ruiz family sent, the twins are adorable in it",
+      "expected_output": "Runs the child-imagery check against Photo releases/. No file names the Ruiz family — BLOCKING. Does not stage. Names the evidence plainly (the folder was read, no release found for that family), offers the no-faces framing, and does not lecture. If the releases folder could not be read at all, reports SKIP / 'could not check' and ASKS — never treats an unreadable folder as a pass.",
+      "files": []
+    },
+    {
+      "id": 21,
+      "skill": "draft-post",
+      "prompt": "the draft looks good, ship it",
+      "expected_output": "Shows the evidence report, not a verdict: every check listed including the passes, with the evidence beside each (character count, the line a claim was found on, the release file). A report listing only problems is indistinguishable from one where the checks never ran. Any check that could not run appears as SKIP with its reason. Then the one-line summary. Does not publish from draft-post — staging and publishing are different skills and the gate is the folder move.",
+      "files": []
+    },
+    {
+      "id": 22,
+      "skill": "teach-it-a-job",
+      "prompt": "i want you to handle chasing my unpaid invoices, i do it every friday",
+      "expected_output": "Does NOT write the steps. Confirms it is a job not a step, checks no playbook already covers it, and confirms whether it needs a new room. Says how long the interview takes and what she gets for it. Then interviews ONE QUESTION AT A TIME across the eight topics, asking about the LAST REAL TIME she did it rather than the process in the abstract, and chasing every 'it depends' because those are the unstated decision rules. Writes her words, not a tidied version. Never fills a gap by inventing a plausible step. Produces a Playbook document IN HER DRIVE marked origin: interviewed, with the seven sections, exact trigger wording in when-to-use, AND five to ten checks written before the job ever runs. Registers it in 0 — Map. Leaves Templates/ empty. Then offers to run it once with her watching.",
+      "files": []
+    },
+    {
+      "id": 23,
+      "skill": "update-the-brain",
+      "prompt": "this post went out with nine hashtags, we use three to five",
+      "expected_output": "Names the LAYER first, in one line. This is a PROOF failure — something reached her and nothing caught it — not a context failure, because no brain document was wrong. So the fix is to WRITE THE CHECK: a hashtag count check in draft-post's checks.md with a tier and a concrete 'fails when' line. Does not merely fix the one post, and does not add a note to Brand voice. Logs to History with the layer named ('proof'). The test is whether it can distinguish 'the checks didn't catch it' from 'the voice document was wrong' — only one of those is fixed by editing a brain document.",
+      "files": []
+    },
+    {
+      "id": 24,
+      "skill": "update-the-brain",
+      "prompt": "why do you rewrite the whole screening explanation every single time",
+      "expected_output": "Recognises a TOOLBOX failure — something rebuilt from scratch that existed before. Does not treat it as a voice correction or a process complaint. Writes the screening paragraph into the room's Templates/ with placeholders rather than one client's finished text, adds a row to Templates/INDEX.md, and uses it from then on. Logs to History with the layer named. Creates Templates/ if it does not exist yet — that folder appears the day it holds something.",
+      "files": []
+    },
+    {
+      "id": 25,
+      "skill": "learn",
+      "prompt": "how did we do this week",
+      "expected_output": "All of the prior weekly behaviour, plus: runs the checks, and the first one is that EVERY number in the report traces to the analytics response it came from — a report that cannot be traced cannot be corrected, and she will act on it anyway. Flags any performance adjective with no figure beside it. Saves the top performer to the room's Examples/ with two or three lines on WHY it worked — hook shape, audience, format, slot — because an example with no reason is just an old post. Keeps the best ten, not the newest ten; retiring the eleventh means superseding it to Archive, never deleting. If results suggest a rule should change, PROPOSES it rather than writing an instruction into Learned by us.",
+      "files": []
+    },
+    {
+      "id": 26,
+      "skill": "housekeeping",
+      "prompt": "housekeeping",
+      "expected_output": "Everything from the invariant audit, plus mining the corrections log: groups the month's History entries BY LAYER and looks for repetition, because the same failure three times is one missing mechanism rather than three corrections. Three proof entries about unchecked claims means a missing check, not three bad drafts. Proposes ONE concrete mechanism per repeated pattern and lets her pick. Also audits that Templates/INDEX.md matches what is in the folder (an unindexed template gets rebuilt because nobody knew it existed) and that every example carries its reason. Notes a job with no corrections in three months as a trust-growth candidate.",
       "files": []
     }
   ]

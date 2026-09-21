@@ -91,6 +91,12 @@ social do?" — so it lives in `3 — Social/Results/`, not in a logs folder.
 > Room definitions live in `${CLAUDE_PLUGIN_ROOT}/rooms/` — one file each, plus a
 > template. A room is mostly **data**: the laws, the map, correction, housekeeping
 > and upgrades already apply to it. Read that folder before building anything.
+>
+> A room holds one or more **playbooks** — one per job, each with four layers
+> (process, toolbox, proof, context). Before writing any job's steps yourself, read
+> `${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`: a process that is *hers* must be
+> interviewed, not invented, and it lives in her Drive where no upgrade can rewrite
+> it.
 
 
 When she wants something the workspace does not do yet — email marketing, review

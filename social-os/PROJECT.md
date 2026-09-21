@@ -18,6 +18,16 @@ every release and caught a real bug on its first run (DEC-043).
 **Still untested:** nothing has been executed against a real workspace (OQ-020,
 OQ-023).
 
+**Plus — the playbook and proof layers (v0.4.0).** Benchmarked a second time, against
+*The AI Delegation Loop* (Actionable AI), which the operator brought. It confirmed two
+of our laws by independent convergence and exposed the largest gap the project has
+had: **we had one real check in the entire system, so the owner was the quality
+control.** Added 34 checks across five jobs with three severity tiers (DEC-044/045),
+`teach-it-a-job` to interview a process rather than invent it (DEC-046), a toolbox
+that fills from rebuilt work and examples that carry their reason (DEC-047), and
+four-layer diagnosis where **every escape earns a check** (DEC-048). No migration —
+the release is purely additive.
+
 **Previously — Phase 1 built and hardened.** Plugin scaffold, **8 skills**, reviewer agent, guardrails, Drive template, 13 evals — in `social-os/plugin/`, mirrored to the public repo `bucho11/social-os`. Zernio verified live end to end (OQ-009/013/016 closed). Latest pass added the **contradiction discipline** (DEC-027…034): one job one document, rules-vs-records, the `0 — Map` index, the `update-the-brain` guard, and the hand-edit precondition. **Untested:** nothing has been executed by Claude against a real workspace — see OQ-020.
 
 ---
@@ -36,7 +46,7 @@ OQ-023).
 | **Publishing layer** | **Zernio** — free at 2 accounts (DEC-010). Also hosts media + native draft gate. |
 | **Image layer** | **Canva Pro** via native MCP (DEC-018) — Brand Templates + `replace_text` + `resize-design`. Zernio hosts. |
 | **Connector layer** | Native Google Drive + Zernio custom MCP. Composio = fallback only. |
-| **Plugin** | `business-os` v0.3.0 · workspace shape version **2** · 9 skills · 1 room (social; 4-8 free) |
+| **Plugin** | `business-os` v0.4.0 · workspace shape version **2** · 10 skills · 1 room (social; 4-8 free) · 34 checks, 12 blocking |
 | **Public plugin repo** | `github.com/bucho11/social-os` — branch `main`. Local clone at `/home/user/social-os`. Source of truth is `social-os/plugin/` in this repo; mirror on every change. **Repo name unchanged on purpose** — renaming it is outward-facing and the operator's call (DEC-035). |
 | **Release path** | PR + semver bump in `plugin.json` + CHANGELOG entry. `python3 tools/validate.py` gates it. Direct pushes to `main` do not trigger marketplace sync. |
 | **Correctness layer** | `0 — Map` (one index) + `shared/the-law.md` (six laws) + `skills/update-the-brain/` (the guard) + Cowork **Project instructions** pasted at setup (DEC-032). Housekeeping is the monthly backstop, not the guard (DEC-030). |
@@ -68,7 +78,10 @@ OQ-023).
 | 10 | Rotate the Zernio API key before the first client onboards | operator |
 | 11 | **Run migration `001` end to end** against a hand-built version-1 workspace, including one deliberate mid-run interruption and the documented rollback — closes OQ-023. A rollback never performed is a hypothesis | 7 |
 | 12 | Confirm whether personal plugins auto-update after a PR-with-bump — closes OQ-021. Until then the runbook says "click Update" | 7 |
-| 13 | Package as the clone kit | 8, 11 |
+| 13 | **Test one check in both directions** — a documented claim must PASS and a one-character change must FAIL. Closes OQ-025. The verbatim match against a Google Doc read back as text is the real risk: a blocking check that false-positives gets overridden habitually within two weeks, which is worse than no check | 7 |
+| 14 | Trigger a blocking failure, override it, and read the packet back in a fresh session to confirm the override, reason and date survived — closes OQ-026 | 13 |
+| 15 | Operator signs up for the Delegation Loop guide and pastes the four prompt texts; fold anything sharper into `teach-it-a-job` — closes OQ-024 | operator |
+| 16 | Package as the clone kit | 8, 11, 13 |
 
 ---
 

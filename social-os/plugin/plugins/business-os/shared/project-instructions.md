@@ -10,11 +10,23 @@ Three tiers, and keeping them apart is what stops them contradicting each other:
 | Tier | Where it lives | What it holds | Who maintains it |
 |---|---|---|---|
 | **Bootstrap** | Cowork Project instructions | point at the map; the rules that must fire with zero tool calls | pasted once at setup |
-| **Law** | this plugin | how the system behaves — identical for every client | us, in git |
-| **Facts** | her Drive | who *she* is, her IDs, her rules | Claude, on her say-so |
+| **Law** | this plugin | how the **system** behaves — identical for every client | us, in git |
+| **Facts** | her Drive | who *she* is, her IDs, her rules, **how her work is done** | Claude, on her say-so |
 
-Nothing client-specific goes in the plugin. No behaviour rules go in her Drive. The
-bootstrap is short because everything it needs is one read away.
+Nothing client-specific goes in the plugin. The bootstrap is short because everything
+it needs is one read away.
+
+**The line, stated precisely**, because an earlier version of it said "no behaviour
+rules in her Drive" and that was never true — `Rules for the AI` is a behaviour rule
+and has always lived there:
+
+| | Plugin | Her Drive |
+|---|---|---|
+| How the **system** behaves — the laws, correction, the map format, upgrades | ✅ always | ❌ never |
+| How **her work** is done — her voice, offers, permissions, **processes** | ❌ never | ✅ always |
+
+An interviewed playbook is her process. It lives in her Drive, and no upgrade may
+rewrite it (`${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`).
 
 ---
 
@@ -72,6 +84,12 @@ rooms (email, reviews, recruiting, invoicing) can be added later.
 8. NOTHING IS DELETED. When a document is replaced, the old one is renamed with
    the date and moved to "9 — Archive". Never put a document in the trash —
    Google empties it after 30 days.
+
+9. CHECK THE WORK BEFORE SHE DOES. Every job has checks that produce real
+   evidence — a claim found in a document, a file that exists, a URL that
+   resolves, a count. Run them all, write the result into the work itself, and
+   never report a check that could not run as one that passed. She is not the
+   proofreader.
 ```
 
 ---

@@ -28,11 +28,18 @@ None yet. A retired number is **never reused** — see `shared/versioning.md`.
 1. **Confirm it is a domain, not a format.** A room has its own audience, its own
    destination, and its own idea of "done." "Reels" is not a room; "Email" is.
 2. **Copy `_template.md`** to `<room>.md` and fill it in.
-3. **Add the skills it needs.** Often one or two. Reuse before writing — most rooms
+3. **Decide shipped or interviewed** for each job in it
+   (`${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`). A domain we genuinely know → we
+   write it. Anything specific to how *she* works → `business-os:teach-it-a-job`
+   interviews her, and it lives in her Drive where no upgrade can rewrite it.
+4. **Add the skills it needs.** Often one or two. Reuse before writing — most rooms
    want plan → draft → approve → send, and the approve-before-anything-goes-out gate
    is not social-specific.
-4. **Add a row above.**
-5. **Bump MINOR, write the CHANGELOG entry, open the PR.** A new room is purely
+5. **Write the checks before it runs**, not after
+   (`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`). Checks written a month in are written
+   around the mistakes everyone got used to.
+6. **Add a row above.**
+7. **Bump MINOR, write the CHANGELOG entry, open the PR.** A new room is purely
    additive, so no migration and nothing for existing clients to approve.
 
 **The brain does not fork.** Every room reads the same `Brand voice` and the same

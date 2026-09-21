@@ -13,6 +13,7 @@ because your brand, your offers and your logos are shared across all of them.
 | `brand-onboarding` | Researches the business, interviews the owner, builds the workspace, connects accounts, drafts three posts |
 | `update-the-brain` | The only safe way to change anything. Fires on every correction |
 | `upgrade-workspace` | Brings a workspace to the current shape — shows the diff before changing anything |
+| `teach-it-a-job` | Learns a job by interviewing the owner about it, instead of guessing how she works |
 | `housekeeping` | Monthly safety net: audits the invariants, archives, compacts |
 | `plan-week` | *(social)* Plans the week across topics and both audiences from real performance |
 | `draft-post` | *(social)* Writes one post in the owner's voice, stages it for approval |
@@ -59,6 +60,57 @@ Six laws, in `shared/the-law.md`:
    correction turns out to have been wrong.
 
 Enforced by `update-the-brain`, audited monthly by `housekeeping`.
+
+## Why the owner isn't the proofreader
+
+Every job runs **checks that can actually fail**, producing external evidence before
+the work reaches her:
+
+| A check | Not a check |
+|---|---|
+| "$30/hour" appears verbatim in `What we offer` | "the pricing looks right" |
+| `Photo releases/` holds a file naming this family | "this photo seems fine" |
+| the published URL returns 200 | "it should be live" |
+| every number in the report is in the analytics response | "the numbers look consistent" |
+
+**If a check cannot fail, it is not a check.** The right-hand column is judgment —
+worth having, and it is what the compliance reviewer does — but judgment is not
+proof, and a system with only judgment has no floor.
+
+Three tiers, declared per check. **Blocking** stops the work and is a deliberately
+short list: for a childcare brand, a child's face with no release on file, and a
+claim she hasn't written down. **Needs-a-look** surfaces with the evidence and one
+word approves it anyway. **Informational** is recorded. An override is written down
+with her reason and the date.
+
+**A check that could not run is never reported as one that passed.** That is the
+most common way a checking layer quietly becomes decoration.
+
+The result is written into the work itself, not the conversation — every check
+listed including the passes, because a report showing only problems is
+indistinguishable from one where the checks never ran.
+
+## Four layers per job
+
+A room is a domain. A **playbook** is one job inside it, with four layers:
+
+**Process** (the steps, in her order) · **Toolbox** (anything rebuilt from scratch
+that existed before) · **Proof** (the checks) · **Context** (the shared brain).
+
+That fourth layer is what makes this different from a standalone playbook: one
+`Brand voice` serves every room, so correcting it once changes all of them — and it
+creates a failure mode worth naming, where the process ran correctly, the checks
+passed, and the output was still wrong because the document it read was wrong.
+
+So diagnosis has four answers. **The proof one compounds**: every escape earns a
+check, which means an escape can happen once instead of forever.
+
+**Shipped or interviewed.** A shipped playbook is ours, improves for every client on
+release, and is a domain default rather than a claim to know her business. An
+interviewed one is hers — extracted by asking, living in her Drive, and **no upgrade
+may ever rewrite it.** Writing someone's process for them fails in a way that is hard
+to see: what you wrote is plausible, so it survives review, and it is only wrong in
+the specifics that made it theirs.
 
 ## Why it stays fast as it grows
 

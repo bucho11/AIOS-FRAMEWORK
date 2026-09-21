@@ -282,3 +282,83 @@ Keep a Changelog and progressive delivery. All `[SECONDARY]`.
 Primary sources verified separately and recorded in `VERIFIED-FACTS.md`: Google
 Drive trash retention, Drive connector timestamp fields, and Anthropic's plugin
 marketplace sync behaviour.
+
+---
+
+# Addendum — the AI Delegation Loop (Actionable AI)  `[SECONDARY]` 2026-09-21
+
+**Source:** *The AI Delegation Loop*, Cooper Simson, Actionable AI
+(`theactionableai.com/guides/ai-delegation-loop`). Brought by the operator.
+
+**Access, stated honestly:** the landing page is public; the guide body sits behind
+an email gate. Fetching it returned the **structure and concepts** — all eleven
+section headings, the three layers, what each of the four prompts does, the folder
+shape, the five mistakes, the loop steps, the worked example, the eight interview
+topics — but **declined to reproduce the text**, on copyright. So: we have the
+architecture, not the prompts. **The four prompt texts remain unread**, and if the
+operator signs up they are the missing piece.
+
+## The thesis
+
+**One AI. One playbook per job** — not one agent per job. A playbook is a folder for
+one job with three layers: **process** (extracted by interview, never written for
+her), **toolbox** (reusable artifacts; the signal is *anything rebuilt from scratch
+that existed before*), and **proof** (5–10 checks per job producing external
+evidence before the output reaches her — *"if a check cannot fail, it is not a
+check"*). Plus `examples/` of approved work and `notes.md` of corrections, newest
+first, mined monthly.
+
+## What it confirmed
+
+Two are near-verbatim independent convergence, which is the most useful kind:
+
+- **Mistake 5 — "fixing in chat instead of the folder; same correction repeats
+  weekly."** That is our Law 3, reached from a different direction.
+- **Mistake 2 — one giant folder, the AI cannot disambiguate purpose.** Law 1 plus
+  the room model.
+- Mistake 3 (vague when-to-use) is the skill-description collision fixed in v0.3.0.
+  `notes.md` is `History`. Its diagnostic loop is `update-the-brain`'s pass.
+
+## What it exposed — the proof layer, and it was not close
+
+**Mistake 4: "no proof layer; human becomes the quality control."** That was our
+design, exactly. The approve-then-publish gate is right for *authority*, but nothing
+caught an error *before* it reached her, so every draft she opened, she was
+proofreading — for a missing release, for a price that changed. That is the most
+expensive possible use of the one person the system exists to protect, and it
+degrades: proofreading the tenth draft is not proofreading the first.
+
+We had **one** real check in the entire system — `validate_media` before scheduling.
+`compliance-reviewer` reads and opines, which the guide is explicit is not proof.
+
+Three more gaps, smaller but real: no mechanism to notice **rebuilt work** (we learn
+from post performance, never from the agent redoing something), **no interview for a
+job's process** (we interview about the *brand*, never about a *job* — fine for
+social, indefensible the moment she wants invoicing), and **no mining of the
+corrections log** for repeated failures.
+
+## Where we were ahead, and it is worth recording
+
+The guide's own stated limitation: *"there is exactly one master copy, and every
+upload is a snapshot of it that goes stale the moment you edit the master."* Browser
+users keep a local master and upload stale copies, because the AI cannot write back
+into the project.
+
+**We do not have that problem.** The Drive connector writes back — the folder *is*
+the master (DEC-002). The guide is working around a constraint we removed.
+
+It also has no anti-contradiction mechanism (`notes.md` is a log; nothing stops two
+playbooks disagreeing, or a correction landing beside an old one), no versioning or
+migration, no blast radius, no context-bloat control, and no change-versus-correction
+distinction. **It solved delegation. We had solved durability.** The layers are
+complementary, and the proof layer is where it was plainly better.
+
+## The one thing we added that it does not have
+
+Their model assumes a job's knowledge lives in its playbook. Here it mostly lives in
+the **shared brain** — one `Brand voice` serving every room. That is an advantage,
+and it creates a failure mode three layers cannot name: *the process ran correctly,
+the toolbox was right, the checks passed, and the output was still wrong, because
+the document it read was wrong.*
+
+So diagnosis has **four** answers here: process · toolbox · proof · **context**.

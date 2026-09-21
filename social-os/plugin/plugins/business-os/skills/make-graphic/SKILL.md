@@ -77,6 +77,23 @@ thumbnails, pick the closest, `create-design-from-candidate`.
    *is* the handoff — she can nudge anything in Canva before approving, and
    `publish` exports whatever is there at that moment.
 
+## Checks
+
+`${CLAUDE_PLUGIN_ROOT}/skills/make-graphic/references/checks.md` — six, three
+blocking. Run them after export and write the evidence into the packet
+(`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`).
+
+Two are easy to think are unnecessary and are not: **text baked into an image is not
+seen by the caption checks**, and **an unreplaced `{{placeholder}}` on a published
+graphic** is the most embarrassing failure available and is entirely mechanical to
+catch.
+
+## Done means
+
+An exported image whose URL resolves, sized for its destination, using only colours
+from `Colors and fonts`, with every placeholder substituted, and an evidence report
+in the packet with no unresolved blocking failure.
+
 ## Rules
 
 - Hex values and fonts come from `Colors and fonts`. Never approximate a brand

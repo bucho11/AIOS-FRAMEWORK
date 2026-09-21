@@ -16,6 +16,15 @@ ran, and changing what "3" means makes that record a lie.
 **Current shape: version 2.** A workspace with no `workspace_version` in its map is
 version 1.
 
+**Not every release changes the shape, and most shouldn't.** Plugin v0.4.0 added the
+playbook and proof layers and needed **no migration**: the new folders (`Templates/`,
+`Examples/`) are created on first use rather than at setup, evidence reports are
+written into new work only, and the map's playbooks section appears the day a first
+interviewed playbook exists. Nothing already in a workspace had to move.
+
+That is the shape a healthy release should have. A version bump here when nothing
+moved would be ceremony, and ceremony teaches people to skip the list.
+
 ---
 
 ## The two lanes

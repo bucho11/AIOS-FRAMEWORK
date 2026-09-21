@@ -10,6 +10,76 @@ says so. See `shared/versioning.md`.
 
 ## [Unreleased]
 
+## [0.4.0] — 2026-09-21
+
+**No workspace migration.** The new folders are created on first use and the new
+artifacts are written into new work only, so nothing already in a workspace moves.
+
+### Added
+- **It checks its own work before the owner does.** Every job now runs checks that
+  can actually fail — is that price written in *What we offer*, is there a release on
+  file for that photo, does the published link resolve, does every number in the
+  weekly report trace to the data it came from. 34 checks across the five social
+  jobs. The result is written into the work itself as an evidence report, so it can
+  be read a year later when someone asks how something got out.
+
+  Until now the owner was the quality control: every draft she opened, she was
+  proofreading. That is the most expensive possible use of the one person this whole
+  system exists to protect.
+
+- **Three severity tiers instead of one policy.** *Blocking* stops the work and is a
+  deliberately short list — for a childcare brand, a child's face with no release,
+  and a claim she hasn't written down. *Needs-a-look* surfaces with the evidence and
+  one word approves it anyway. *Informational* is recorded. An override is written
+  down with her reason and the date, because an override is a decision.
+
+- **A check that could not run says so.** It is never reported as a pass. That is
+  the most common way a checking layer quietly becomes decoration.
+
+- **`teach-it-a-job`** — learns a job by interviewing the owner about it instead of
+  guessing how she works, then writes it into her own workspace. Eight topics: what
+  starts it, what you need and where it lives, the steps in your order, the decisions
+  and why, how you know it's done, what has gone wrong before, how it should sound,
+  and what a bad one looks like. Writes the checks before the job ever runs.
+
+  Writing someone's process for them fails in a way that is hard to see: what you
+  wrote is plausible, so it survives review, and it is only wrong in the specifics
+  that made it theirs.
+
+- **Playbooks, with four layers per job** — process, toolbox, proof, and context.
+  Every playbook declares whether it is *shipped* (we wrote it, improves for everyone
+  on release) or *interviewed* (hers, in her Drive, **and no upgrade may ever
+  rewrite it**).
+
+- **A toolbox per room.** Anything rebuilt from scratch that existed before is the
+  signal that it should be a template. Written into the room's `Templates/` with
+  placeholders and indexed, so nothing gets rebuilt because nobody knew it existed.
+
+- **Examples that carry their reason.** Each week's best post is saved to the room's
+  `Examples/` with two or three lines on *why* it worked. An example with no reason
+  is just an old post. Best ten per room, not the most recent ten — and they are
+  records, so they inform drafting and never override *Brand voice*.
+
+- **Diagnosis names the layer.** When something goes wrong: process (a step was
+  missed), toolbox (something was rebuilt), proof (nothing caught it), or context
+  (the brain document was wrong). The proof row is the one that compounds and the one
+  most often skipped, because fixing the output feels like fixing the problem. It
+  isn't — **every escape now earns a check.**
+
+- **The corrections log gets read.** Monthly, grouped by layer: the same failure
+  three times is not three corrections, it is one missing mechanism. One concrete
+  proposal per repeated pattern.
+
+- **A definition of done** on every job, concrete enough that a check could test it.
+  A post is done when it is live and its packet says so — not when the vendor
+  accepted it.
+
+### Changed
+- **The plugin/Drive line is stated precisely.** It was written as "no behaviour
+  rules in her Drive", which was never true — `Rules for the AI` is a behaviour rule
+  and always lived there. The real line: how the *system* behaves is the plugin's,
+  how *her work* is done is hers. Her processes are her work.
+
 ## [0.3.0] — 2026-09-21
 
 **Workspace version: 2.** Existing workspaces upgrade through migration `001`, which

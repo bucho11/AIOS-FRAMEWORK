@@ -102,6 +102,18 @@ One role per row. Two rows may never share a role.
 | Zernio | publishes and schedules, hosts photos | connected |
 | Canva | branded graphics | connected |
 
+## Playbooks she owns
+
+Only interviewed playbooks appear here — the ones extracted from her, living in her
+Drive. Shipped playbooks are in the plugin and need no row. **An upgrade may never
+rewrite anything listed here** (`${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`).
+
+Omit the section entirely until the first one exists.
+
+| Job | Room | Document | Interviewed | claude_wrote |
+|---|---|---|---|---|
+| Chase unpaid invoices | 6 — Invoicing | {{id}} | 2026-11-03 | 2026-11-03T16:20Z |
+
 ## Upgrade history
 
 | To version | When | Result |

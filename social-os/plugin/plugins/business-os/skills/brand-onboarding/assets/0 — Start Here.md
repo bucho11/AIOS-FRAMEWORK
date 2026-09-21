@@ -63,6 +63,17 @@ needs to know something, it'll ask you one short question, not five.
 **"I already told you" is the most useful thing you can say.** It means a fix didn't
 stick last time, and Claude goes looking for why.
 
+## It checks its own work
+
+Before anything reaches you, it runs a list of checks that can actually fail — is
+that price written in **What we offer**, is there a release on file for that photo,
+does the caption fit, does the link work. You'll see a line like *"7 checks passed"*,
+and when something needs you, you'll see exactly what and why.
+
+**You are not the proofreader.** Two things it will refuse to stage no matter what:
+a child's face with no signed release, and a claim you haven't written down. You can
+still override it by saying so — it just won't happen quietly.
+
 ## It gets better on its own
 
 This system gets updated. When it does, your workspace might need a small tidy-up

@@ -789,3 +789,106 @@ reachable.
 **It earned itself on its first run**, catching the space-in-path reference and a
 missing changelog entry.
 **Reverses if:** never. Extend it whenever a new silent-failure class appears.
+
+### DEC-044 — A proof layer: checks that can fail, before the work reaches her
+**Date:** 2026-09-21 · **Status:** ✅ locked · **the largest gap this project has had**
+**Decision:** Every job runs checks producing **external evidence** — a claim found
+verbatim in a named document, a file that exists, a URL that resolves, a count — and
+the result is written into the work itself as an evidence report, never only into the
+conversation. 34 checks across the five social jobs. **"If a check cannot fail, it is
+not a check."** A check that could not run reports `SKIP` and is surfaced; it is
+**never** reported as a pass.
+**Why:** we had exactly **one** real check in the whole system (`validate_media`).
+Everything else was judgment — `compliance-reviewer` reads a draft and opines, which
+is worth having and is not proof. The consequence was that **the owner was the
+quality control**: every draft she opened, she was proofreading for a missing release
+and a price that changed. That is the most expensive possible use of the one person
+this system exists to protect, and it degrades — proofreading the tenth draft is not
+proofreading the first.
+**The report lists every check including the passes**, because a report showing only
+problems cannot be told apart from one where the checks never ran. And it carries
+**evidence, not verdicts** — `"$30/hour" found in What we offer, line 12`, not
+`pricing ok` — so it is auditable by someone who does not trust the checker.
+**Reverses if:** never. Extend it; the generator for new checks is escapes, not
+imagination.
+
+### DEC-045 — Three severity tiers, declared per check — not one gate/annotate policy
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** **blocking** (work cannot move to Approved; she may override in words,
+and the override is recorded with her reason and the date) · **needs-a-look**
+(surfaced with the evidence; one word approves anyway) · **informational** (recorded,
+not surfaced). Blocking is a deliberately short list — for this brand, a child's face
+with no release on file and a claim not written in `What we offer`, checked in the
+caption, the first comment, **and text baked into a graphic**.
+**Why:** one global policy is the wrong shape; CI systems have had error/warning/info
+for thirty years. A missing photo release and a caption three words over are not the
+same event, and treating them alike either blocks her over nothing or lets through
+the thing that ends an account. **Every check promoted to blocking buys safety with
+her Friday evening**, so promotion needs a reason each time.
+**The override is recorded because an override is a decision**, and decisions are
+recorded (Law 2). It is also the signal that a brain document is out of date — she
+approving a price the document does not know is exactly when `What we offer` should
+be updated.
+**Reverses if:** never.
+
+### DEC-046 — Playbooks are shipped or interviewed, and an upgrade may never rewrite an interviewed one
+**Date:** 2026-09-21 · **Status:** ✅ locked · **refines DEC-032's tier line**
+**Decision:** Every job declares its origin. **Shipped** — we wrote the process, it
+lives in the plugin, a release improves it for every client at once. **Interviewed** —
+extracted from her by `business-os:teach-it-a-job`, lives in her Drive, listed in
+`0 — Map`, and **no upgrade may rewrite it**; an upgrade may only propose, with a
+diff, like any other Lane 2 change.
+**Why:** writing someone's process for them fails in a way that is hard to catch —
+what you wrote is plausible, so it survives review, and it is only wrong in the
+specifics that made it theirs. Social stays shipped because we genuinely know the
+domain and a client who had to teach us that got a worse deal. Her invoicing sequence
+is not ours to invent.
+**The correction this forces:** DEC-032 said *"no behaviour rules go in her Drive."*
+That was never true — `Rules for the AI` is a behaviour rule and has always lived
+there. The real line: **how the *system* behaves is the plugin's; how *her work* is
+done is hers.** Her processes are her work. Restated in `playbooks.md` and the
+bootstrap.
+**Reverses if:** never. The interaction with DEC-039 is load-bearing — a migration
+that overwrites an interviewed playbook destroys something no release can restore.
+
+### DEC-047 — The toolbox fills from rebuilt work; examples carry their reason
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** **Toolbox** — the signal is *anything rebuilt from scratch that existed
+before*. When you notice it while working, write it into the room's `Templates/` with
+placeholders, index it, use it from then on. **Examples** — `learn` saves each week's
+top performer to the room's `Examples/` with two or three lines on **why** it worked.
+Best ten per room, not the newest ten; the eleventh supersedes the weakest to Archive.
+**Why:** we learned from post *performance* and never from the agent **redoing work
+it had already done**. If the screening paragraph is rewritten monthly, that is a
+template nobody noticed. The agent is the only party who can see it, because it is
+the one rebuilding it — so the check is "did I just rebuild something?", watched
+while working rather than on a schedule.
+**Examples carry their reason or they are worthless** — the source's own tell is
+*"the update the client replied to."* An example with no reason is an old post.
+Quality-selected, not recent, and `learn` already identifies top performers weekly,
+so the selector already existed.
+**Examples are records (Law 2):** they inform drafting and never override
+`Brand voice`. A disagreement between an example and the voice document is resolved
+by the document, and is worth raising with her.
+**Reverses if:** never.
+
+### DEC-048 — Diagnosis names the layer, and every escape earns a check
+**Date:** 2026-09-21 · **Status:** ✅ locked · **extends DEC-031**
+**Decision:** Before finding the document, name the layer: **process** (a step was
+missed) · **toolbox** (something was rebuilt that existed) · **proof** (it reached her
+and nothing caught it) · **context** (the steps ran correctly and the brain document
+was wrong). `History` entries record the layer, and `housekeeping` mines them monthly
+— the same layer failing the same way three times is **one missing mechanism**, not
+three corrections.
+**Why:** the source's three-layer diagnosis is sharper than "which document", and
+`proof` is a diagnosis we previously could not even express, because we had no
+checks. **The proof row is the one that compounds and the one most often skipped**,
+because fixing the output feels like fixing the problem — it is not, and the same
+escape returns every month until a check exists. *An escape that produces a check
+cannot happen twice; an escape that produces an apology happens forever.*
+**The fourth layer is ours, and it is why this is a merge rather than an adoption.**
+Their model assumes a job's knowledge lives in its playbook. Here one `Brand voice`
+serves every room, which is an advantage and which creates a failure their taxonomy
+cannot name: everything ran correctly and the output was still wrong, because the
+shared document was wrong.
+**Reverses if:** never.
