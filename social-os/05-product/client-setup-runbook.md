@@ -44,8 +44,25 @@ repository** → paste the marketplace repo URL → install **Business OS**.
    > Model A). Test the member-invite flow on a spare account first: **what an
    > invited member can see and do is not verified** (OQ-030).
 
-### 3 · Paste the Project instructions (1 min — do this BEFORE the interview)
-Open the Cowork **project** → **Project instructions** → paste the block from
+### 3 · Create the project, then paste the instructions (3 min — BEFORE the interview)
+
+**A project does not exist yet, and installing the plugin does not create one.**
+`[PRIMARY]` — projects are made by hand at **claude.ai/projects → + New Project**,
+and project instructions *"only apply to chats within that project."*
+
+**She does this, in her account:**
+
+1. **claude.ai/projects → + New Project**
+2. Name it for her business — `Lifetime of Love Nannies — Reno`. The name and
+   description are for her; Claude does not read them.
+3. Open it → **Project instructions** → paste the block.
+
+**Then tell her the part that makes it work:** every conversation about this business
+happens **inside that project**. A chat started outside it gets none of these rules —
+it will not read the map, will not stop on pushback, and will happily publish without
+asking. **Pin it or bookmark it.**
+
+Same block from
 `plugin/plugins/business-os/shared/project-instructions.md`, replacing `<Business>`
 with her workspace folder name (`Lifetime of Love Nannies — Reno — AI Workspace`).
 

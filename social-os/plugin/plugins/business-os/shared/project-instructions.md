@@ -32,9 +32,18 @@ rewrite it (`${CLAUDE_PLUGIN_ROOT}/shared/playbooks.md`).
 
 ## Setup step
 
-At client setup, paste the block below into the Cowork project's **Project
-instructions**, replacing `<Business>` with her workspace folder name. It is
+**First, a project has to exist.** Installing the plugin does not create one —
+`[PRIMARY]`, projects are made by hand at **claude.ai/projects → + New Project**, and
+project instructions *"only apply to chats within that project."*
+
+So: create the project, name it for the business, then paste the block below into its
+**Project instructions**, replacing `<Business>` with her workspace folder name. It is
 identical for every client except that one word.
+
+**And say this out loud to her, because nothing enforces it:** every conversation
+about this business happens **inside that project**. A chat started outside it has
+none of these rules — it will not read the map, will not stop on pushback, and will
+publish without asking.
 
 `brand-onboarding` prints this at the end of setup so it never has to be found.
 
