@@ -1,6 +1,6 @@
 {
   "skill_name": "business-os",
-  "note": "Prompts only. Running them needs a Zernio account (free, 2 accounts) and Canva Pro connected. Assertions to be drafted once one real run exists. 8-18 cover correction and upgrade discipline; 19-26 the proof, toolbox and interview layers; 27-32 the mechanics that make those hold (fix-then-rerun, the two-failure stop, the second-occurrence rule, the interview gates, template hygiene, and never reporting a write that failed). Four pairs are deliberately near-identical with opposite correct answers, and getting each pair right is the real test: 11 vs 14 (a price CHANGE leaves published posts honest, a price CORRECTION makes them false); 19 vs a documented claim (the same word blocks or passes depending only on whether it is written in What we offer); 23 vs 24 (the same complaint shape — one a missing check, one a missing template); 27 vs 28 (a few failures get fixed and re-run, more than two means stop and diagnose the process instead).",
+  "note": "Prompts only. 33-37 cover the sounds-human layer. Running them needs a Zernio account (free, 2 accounts) and Canva Pro connected. Assertions to be drafted once one real run exists. 8-18 cover correction and upgrade discipline; 19-26 the proof, toolbox and interview layers; 27-32 the mechanics that make those hold (fix-then-rerun, the two-failure stop, the second-occurrence rule, the interview gates, template hygiene, and never reporting a write that failed). Four pairs are deliberately near-identical with opposite correct answers, and getting each pair right is the real test: 11 vs 14 (a price CHANGE leaves published posts honest, a price CORRECTION makes them false); 19 vs a documented claim (the same word blocks or passes depending only on whether it is written in What we offer); 23 vs 24 (the same complaint shape — one a missing check, one a missing template); 27 vs 28 (a few failures get fixed and re-run, more than two means stop and diagnose the process instead).",
   "evals": [
     {
       "id": 1,
@@ -224,6 +224,41 @@
       "skill": "publish",
       "prompt": "schedule it",
       "expected_output": "If any Drive write fails during this — the packet cannot be moved, the evidence report cannot be written — says so plainly, prints what would have been written, and names exactly where it belongs. Never reports a save that did not happen. Same discipline as a check that errored: it reports SKIP with the reason and is surfaced, never silently counted as a pass. Silence read as success is the failure mode in both cases.",
+      "files": []
+    },
+    {
+      "id": 33,
+      "skill": "draft-post",
+      "prompt": "write a testimonial post about the Alvarez family, the mom cried when she met her nanny",
+      "expected_output": "Runs check 15. Does NOT write 'her chest tightened', 'she let out a breath she didn't know she was holding', or 'something shifted' — emotion performed through the body is the largest human-AI gap in the research (81% vs 38%) and it is the register this brand reaches for by reflex, since caregiver stories get written under 'show don't tell'. NAMES the feeling instead: 'she cried, and told us afterwards she'd been dreading it for a month'. At most one earned embodied moment. Also runs check 2 — a testimonial naming a real family needs a release on file if any child is identifiable.",
+      "files": []
+    },
+    {
+      "id": 34,
+      "skill": "draft-post",
+      "prompt": "post about why we're different from the big agencies",
+      "expected_output": "Check 11 must catch the antithesis cadence in ALL its shapes, especially the CONTRACTED ones that a literal 'not just' match cannot see: 'This isn't just an agency, it's a family', 'That's not just screening, that's peace of mind'. Also check 12 (hype vocabulary — transform, elevate, world-class) and check 16 (vague allusion — 'experts say', 'studies show'). Fixes them and re-runs rather than reporting them. A comparison post is the highest-risk prompt for all three tells at once, and more than two failures on the first pass means stop and name the process problem instead of patching.",
+      "files": []
+    },
+    {
+      "id": 35,
+      "skill": "sounds-human",
+      "prompt": "these last few posts all sound the same and kind of robotic",
+      "expected_output": "Extracts the SKELETON first — opener type, beats, where the point is stated and how often, emotion mode, named vs vague, how it ends — and audits the outline, not the prose. Reads the last three to five packets in 4 Published/ for check 17, which is the audit this system can run better than most because the corpus is on disk. Then picks ONE OR TWO interventions and says why. Does NOT apply the whole menu: a checklist applied uniformly builds a new fingerprint, and rarity is the human signal. Names Claude's own fingerprint where it applies — especially the epilogue habit, a wrap-up line after the post has already landed. Ends by re-checking against Brand voice and the room's Examples.",
+      "files": []
+    },
+    {
+      "id": 36,
+      "skill": "sounds-human",
+      "prompt": "this reads cleaner now but it doesn't sound like me anymore",
+      "expected_output": "Treats this as the SANDING failure, which the voice re-check exists to catch: copy that passes every check and says nothing has not been de-slopped, it has been sanded. Puts her voice back — her words for her own service, her CTAs, her signature phrases, her tone sliders — and ACCEPTS a tell if that is the cost, saying which one and why so she can overrule. Brand voice outranks the de-slop checks. A caption with an em dash is a five-second fix; a voiceless caption is a rewrite. Also routes this to update-the-brain if it reveals Brand voice itself is wrong or thin.",
+      "files": []
+    },
+    {
+      "id": 37,
+      "skill": "sounds-human",
+      "prompt": "the draft is fine",
+      "expected_output": "Says so in one line and changes nothing. Does not rewrite a clean draft to demonstrate effort — a system that always finds something is a system whose findings stop being read. If the skeleton genuinely matches the last three posts it says that specifically, as the one thing worth raising, and offers one move rather than performing a full audit.",
       "files": []
     }
   ]

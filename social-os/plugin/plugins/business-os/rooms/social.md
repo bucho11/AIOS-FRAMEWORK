@@ -45,10 +45,11 @@ skill, don't leave it in chat.
 | Job | Skill | Origin | Checks |
 |---|---|---|---|
 | Plan the week | `plan-week` | shipped | — |
-| Draft a post | `draft-post` | shipped | 10 · 2 blocking |
+| Draft a post | `draft-post` | shipped | 17 · 2 blocking |
 | Make a graphic | `make-graphic` | shipped | 6 · 3 blocking |
 | Publish or schedule | `publish` | shipped | 11 · 7 blocking |
 | Weekly report | `learn` | shipped | 7 |
+| Make it sound human | `sounds-human` | shipped | judgement pass |
 
 A job specific to *her* — a local-partnership outreach sequence, a particular kind
 of caregiver spotlight she does her own way — is **interviewed**, via
@@ -87,7 +88,7 @@ explicitly dropped with a reason, and she knows which.
 
 ## Proof
 
-34 checks across the five jobs, 12 of them blocking. Two carry the whole weight and
+41 checks across the jobs, 12 of them blocking. Two carry the whole weight and
 are blocking in three places on purpose, because a graphic can pick up a photo the
 caption never mentioned:
 
@@ -99,6 +100,15 @@ caption never mentioned:
 
 Everything else is needs-a-look or informational. Blocking stays a short list: each
 one buys safety with her Friday evening.
+
+**Checks 11–17 on a draft ask whether a person wrote it** — the antithesis cadence,
+hype vocabulary, em dash density, sycophancy, emotion performed through the body,
+vague allusion, and a skeleton identical to the last three posts. None block; under
+fix-then-re-run she never sees most of them. For a childcare brand this is not a
+style layer: a parent choosing who watches their kid decides in about a second and a
+half whether a human wrote the post, and copy that reads as machine-made leaks trust
+in the one market where trust is the entire product
+(`${CLAUDE_PLUGIN_ROOT}/shared/sounds-human.md`).
 
 ## Guardrails
 

@@ -120,3 +120,129 @@ version that would pass:
 
 She can override, in words, and the override goes into the evidence report with her
 reason and the date. An override is a decision, and decisions are recorded.
+
+---
+
+# Sounds-human checks (11–17)
+
+The reader's first question is not *is this true* but *did a person write this* — and
+for a childcare brand those are the same question, because trust is the product. Why
+this layer exists, the evidence behind it, and **the trap**:
+`${CLAUDE_PLUGIN_ROOT}/shared/sounds-human.md`.
+
+**None of these block.** They are style, and blocking is reserved for what ends an
+account. They are needs-a-look, which under the fix-then-re-run rule means **you fix
+them and she never sees them** — the report records what was caught.
+
+The deeper structural work is `business-os:sounds-human`. These are the mechanically
+checkable slice.
+
+### 11 · The antithesis cadence
+**Tier:** needs-a-look
+**Evidence:** the caption and first comment, matched for negate-then-assert
+**Fails when:** any of these shapes appears —
+
+| Shape | Example |
+|---|---|
+| `it's not just X, it's Y` | It's not just childcare, it's peace of mind |
+| **contracted: `isn't / aren't / wasn't just X, it's Y`** | This **isn't** just childcare, it's peace of mind |
+| **closer other than `it's`** | That's not just a nanny, **that's** a partner |
+| `not only X, but Y` | Not only do we screen, but we train |
+| `not because X. Because Y.` | Not because it's easy. Because it matters |
+
+**Report as:** the sentence and which shape
+
+**The contracted forms are the ones that get missed**, and they are the common ones in
+social copy, which runs on contractions. Measured against a published scanner for this
+exact tell: it caught `It's not just X, it's Y` and `Not only X, but Y`, and missed
+all three of `isn't just`, `It isn't just`, and a `that's` closer — three of five
+realistic variants. A regex anchored on the literal string `not just` cannot see
+`isn't`, because the letters *n-o-t* do not occur in it. **Read for the shape, not
+the string.**
+
+**Fix:** lead with the real claim and drop the negation. The negation is almost always
+there to inflate a thin point, so if what remains is thin, that is the actual problem.
+
+### 12 · Hype vocabulary
+**Tier:** needs-a-look
+**Evidence:** the caption, first comment and alt text
+**Fails when:** any of — *transform your · supercharge · unleash · effortlessly ·
+unlock your potential · dive in · deep dive · delve · elevate your · in today's
+fast-paced world · game-changer · revolutionary · world-class · cutting-edge ·
+best-in-class · take it to the next level · reimagined · seamless · empower*
+**Report as:** the word and its sentence
+
+**Fix:** write what the thing literally does. *"Supercharge your search"* says nothing;
+*"most families meet three candidates in the first week"* says something checkable —
+and it doubles as a fact that check 4 can then verify.
+
+### 13 · Em dash density
+**Tier:** needs-a-look
+**Evidence:** count of em dashes between words in the caption and first comment
+**Fails when:** more than one in a caption under 200 words
+**Report as:** the count and each sentence
+
+The single most-cited "a machine wrote this" writing tell, above any vocabulary word.
+**Fix:** a comma, a full stop, or brackets. Not a colon — readers flag that as the
+same reflex in a different hat.
+
+**One may stay if `Brand voice` says it is hers**, or if an approved example in the
+room uses the same pause. Her voice outranks the tell; say which you kept and why.
+
+**This check does not apply to internal documents.** Our own folder names contain em
+dashes (`1 — Brain`, `3 — Social`), so run this against captions only. Measured: a
+scan of our own client-facing seed documents returned 13 hits, every one a folder
+name.
+
+### 14 · Sycophancy and signposting
+**Tier:** needs-a-look
+**Evidence:** the opening and closing lines
+**Fails when:** the copy opens with *great question · I hope this helps · of course ·
+absolutely* or closes with *in conclusion · in summary · at the end of the day ·
+ultimately*
+**Report as:** the phrase and where it sat
+
+A wrap-up line restating what the reader just read is the written form of the stated
+lesson — audit 1 in `sounds-human`.
+
+### 15 · Emotion performed through the body
+**Tier:** needs-a-look
+**Evidence:** every emotional moment in the caption
+**Fails when:** more than one renders feeling physically rather than naming it —
+*chest tightened · breath caught · heart sank · a knot in her stomach · swallowed
+hard · hands shaking · something shifted · a weight lifted*
+**Report as:** each instance
+
+**The largest human-AI gap in the research: 81% of AI text against 38% of human.**
+And the one this brand is most exposed to, because caregiver stories are written under
+"show, don't tell" by reflex — which the data now says is a machine signature.
+
+**Fix:** name the feeling. *"honestly, that first day scared her."* One earned
+embodied moment per post is fine; it is the default that fails.
+
+### 16 · Vague allusion where a name belongs
+**Tier:** needs-a-look
+**Evidence:** the caption's claims and references
+**Fails when:** it contains *experts say · studies show · research shows · a popular
+book · a well-known approach · some parents say · it's often said · recently* without
+naming the thing
+**Report as:** the phrase
+
+Humans name real things at **47% against 24%**. **Fix:** name it, date it, price it —
+or cut it. Then run the new specific past check 4, because anything specific enough to
+name is specific enough to be wrong.
+
+### 17 · Shape convergence
+**Tier:** informational
+**Evidence:** the last three packets in `4 Published/` — opener type, arc, emotion
+mode, closer, CTA shape
+**Fails when:** this draft's skeleton matches all three
+**Report as:** the shared skeleton
+
+**The audit we can run better than almost anyone**, because the corpus is on disk with
+its packets. Informational rather than needs-a-look because the fix is a rewrite, not
+an edit — hand it to `business-os:sounds-human` rather than patching it here.
+
+**And apply it to the fix, too.** If every post now opens mid-scene and ends
+unresolved, that is a new fingerprint. **Rarity is the signal; a uniformly applied
+checklist destroys it.**

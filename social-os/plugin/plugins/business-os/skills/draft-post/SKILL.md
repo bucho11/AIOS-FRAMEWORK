@@ -63,7 +63,10 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any fol
      offer the no-face framing, keep going.
 
 6. **Run the checks.** `${CLAUDE_PLUGIN_ROOT}/skills/draft-post/references/checks.md`
-   — ten of them, two blocking. **Every one runs, including the ones you expect to
+   — seventeen of them, two blocking. Checks 11–17 ask the question a reader asks
+   first: *did a person write this?* For a childcare brand that is not a style
+   question, because trust is the product
+   (`${CLAUDE_PLUGIN_ROOT}/shared/sounds-human.md`). **Every one runs, including the ones you expect to
    pass**, and the result goes into the packet as an evidence report
    (`${CLAUDE_PLUGIN_ROOT}/shared/proof.md`), not into the conversation. A check that
    could not run reports `SKIP` with the reason and is surfaced — never a pass.
@@ -94,7 +97,16 @@ Read `${CLAUDE_PLUGIN_ROOT}/shared/growth-and-upkeep.md` before creating any fol
    `draft`, with the calendar row's time as `publish_at`. Ask the
    `compliance-reviewer` agent to read it and fill `## Compliance check`.
 
-9. **Show her**, briefly: the caption as it will post, the graphic thumbnail or edit
+9. **If the shape is the problem, not the words** — check 17 flags a skeleton
+   matching the last three posts, or the draft states its point twice and closes on a
+   wrap-up line — hand it to `business-os:sounds-human` before staging. That pass
+   rewrites structure and then checks the result still sounds like *her*, which is a
+   different job from fixing a word.
+
+   **One or two structural moves, not the whole menu.** A checklist applied uniformly
+   builds a new fingerprint; rarity is the human signal.
+
+10. **Show her**, briefly: the caption as it will post, the graphic thumbnail or edit
    link if any, what she needs to upload if anything, and the exact phrase to
    approve it.
 

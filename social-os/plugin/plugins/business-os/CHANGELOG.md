@@ -10,6 +10,45 @@ says so. See `shared/versioning.md`.
 
 ## [Unreleased]
 
+## [0.6.0] — 2026-09-21
+
+**No workspace migration.** Behaviour only.
+
+### Added
+- **It now checks whether a person appears to have written the post.** That is the
+  question a reader asks first, in about a second and a half, before any question
+  about whether the post is true. For a childcare brand it is not a style question:
+  a parent choosing who watches their kid is making a trust decision, and copy that
+  reads as machine-made leaks trust in the one market where trust is the product.
+- **Seven new checks on every draft** (11–17): the "it's not just X, it's Y" cadence,
+  hype vocabulary, em dash density, sycophantic openers and wrap-ups, emotion
+  performed through the body, vague allusion where a name belongs, and a skeleton
+  identical to the last three posts. None block — they are style, and blocking is for
+  what ends an account. Under fix-then-re-run she never sees most of them.
+- **`sounds-human`** — the structural pass, for when the shape is the problem rather
+  than the words. Extracts the skeleton and audits *that*, because structural tells
+  are invisible at sentence level. Four audits at caption length, two more for
+  long-form.
+- **Emotion is now named rather than performed.** "Honestly, that first day scared
+  her" instead of "her chest tightened." This is the largest measured gap between
+  human and AI writing, and it inverts "show, don't tell" — which is precisely the
+  advice caregiver stories get written under, making it the highest-yield change here.
+- **Shape convergence checked against her actual published posts.** The last three
+  packets are on disk, so "does this look like everything else we've run" is a real
+  comparison rather than a memory exercise.
+- **`ATTRIBUTION.md` and `LICENSE`.** MIT for this repository's own work, with the
+  upstream lineages named — including one that carries a share-alike obligation, which
+  is why the general-purpose humanizer skill was deliberately *not* vendored and
+  childcare-scoped checks were written instead. Read it before white-labelling.
+
+### Changed
+- **`Brand voice` now outranks the de-slop checks**, explicitly. If removing a tell
+  costs her voice, the tell stays and the reason is said out loud. Copy that passes
+  every check and says nothing has not been de-slopped — it has been sanded, and a
+  voiceless caption is a rewrite where an em dash was a five-second fix.
+- **The voice profile gained a section on handling feeling**, because it is the rule
+  most likely to be broken by instinct.
+
 ## [0.5.0] — 2026-09-21
 
 **No workspace migration.** Behaviour only.

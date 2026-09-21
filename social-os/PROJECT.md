@@ -35,6 +35,17 @@ re-run** before she sees anything, **three failures on one pass stops the run** 
 diagnoses the process instead of patching output, and **the second occurrence of a
 mistake earns a preventive rule rather than a reminder.**
 
+**Then the sounds-human layer (v0.6.0).** Every check asked *is this true?*; none
+asked the question a reader asks first. For a childcare brand those are the same
+question. Added seven surface checks and a structural `sounds-human` skill, adapted
+from `humanizer-stack` (MIT) and grounded in Russell et al. 2026 — **verified against
+the paper's own abstract** (DEC-055). The rule that outranks the rest: **one or two
+moves per piece; a uniformly applied checklist is a new fingerprint** (DEC-056). Voice
+is the input and the final guard, not a coat of paint (DEC-057). And the first
+licensing decision this project has had to make: **the CC BY-SA lineage was
+deliberately not vendored** (DEC-058), with `LICENSE` and `ATTRIBUTION.md` added —
+the repo had neither.
+
 **Previously — Phase 1 built and hardened.** Plugin scaffold, **8 skills**, reviewer agent, guardrails, Drive template, 13 evals — in `social-os/plugin/`, mirrored to the public repo `bucho11/social-os`. Zernio verified live end to end (OQ-009/013/016 closed). Latest pass added the **contradiction discipline** (DEC-027…034): one job one document, rules-vs-records, the `0 — Map` index, the `update-the-brain` guard, and the hand-edit precondition. **Untested:** nothing has been executed by Claude against a real workspace — see OQ-020.
 
 ---
@@ -53,7 +64,7 @@ mistake earns a preventive rule rather than a reminder.**
 | **Publishing layer** | **Zernio** — free at 2 accounts (DEC-010). Also hosts media + native draft gate. |
 | **Image layer** | **Canva Pro** via native MCP (DEC-018) — Brand Templates + `replace_text` + `resize-design`. Zernio hosts. |
 | **Connector layer** | Native Google Drive + Zernio custom MCP. Composio = fallback only. |
-| **Plugin** | `business-os` v0.5.0 · workspace shape version **2** · 10 skills · 1 room (social; 4-8 free) · 34 checks, 12 blocking · 32 evals |
+| **Plugin** | `business-os` v0.6.0 · workspace shape version **2** · 11 skills · 1 room (social; 4-8 free) · 41 checks, 12 blocking · 37 evals · MIT + `ATTRIBUTION.md` |
 | **Public plugin repo** | `github.com/bucho11/social-os` — branch `main`. Local clone at `/home/user/social-os`. Source of truth is `social-os/plugin/` in this repo; mirror on every change. **Repo name unchanged on purpose** — renaming it is outward-facing and the operator's call (DEC-035). |
 | **Release path** | PR + semver bump in `plugin.json` + CHANGELOG entry. `python3 tools/validate.py` gates it. Direct pushes to `main` do not trigger marketplace sync. |
 | **Correctness layer** | `0 — Map` (one index) + `shared/the-law.md` (six laws) + `skills/update-the-brain/` (the guard) + Cowork **Project instructions** pasted at setup (DEC-032). Housekeeping is the monthly backstop, not the guard (DEC-030). |
@@ -88,7 +99,9 @@ mistake earns a preventive rule rather than a reminder.**
 | 13 | **Test one check in both directions** — a documented claim must PASS and a one-character change must FAIL. Closes OQ-025. The verbatim match against a Google Doc read back as text is the real risk: a blocking check that false-positives gets overridden habitually within two weeks, which is worse than no check | 7 |
 | 14 | Trigger a blocking failure, override it, and read the packet back in a fresh session to confirm the override, reason and date survived — closes OQ-026 | 13 |
 | 15 | ~~Get the four prompt texts and fold in anything sharper~~ **✅ done** — operator supplied them; 13 hardenings shipped as v0.5.0 (DEC-049…054). OQ-024 closed | ✅ |
-| 16 | Package as the clone kit | 8, 11, 13 |
+| 16 | Decide whether to report the two measured upstream scanner defects back to `humanizer-stack` — one-line regex fixes, MIT repo, good practice given we built on it. Outward-facing, so operator's call (OQ-029) | operator |
+| 17 | Test whether a bundled script executes in a real Cowork session (OQ-028). If it does, checks 11-14 become deterministic scripts and their false-negative rate goes to zero | 7 |
+| 18 | Package as the clone kit | 8, 11, 13 |
 
 ---
 

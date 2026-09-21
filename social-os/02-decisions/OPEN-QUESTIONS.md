@@ -357,3 +357,45 @@ something got out.
 **Test that closes it:** trigger a blocking failure, override it in conversation,
 then read the packet back in a fresh session and confirm the override, the reason and
 the date are all there.
+
+### OQ-027 — Does the fiction-to-caption transfer actually hold?
+**Status:** open, and honestly stated wherever it is used. **Blocks:** nothing;
+sharpens everything.
+StoryScope examined ~5,000-word fiction from published authors. Every rate we cite —
+embodied emotion 81/38, named references 47/24, stated theme 77/52 — is measured on
+that corpus. **Applying it to a 150-word Instagram caption is an inference, not a
+result the paper establishes**, and we say so in `sounds-human.md`, in
+`ATTRIBUTION.md` and in the checks themselves.
+The four audits we kept are the ones whose *mechanism* plainly survives the jump
+(they concern what is said, not how long the arc is). The two we dropped need room.
+**Test that closes it:** after ~30 published posts, compare the engagement of posts
+that got a structural intervention against those that didn't. Not proof of the
+mechanism, but it is the only evidence available at this scale, and a null result
+after 30 posts is worth knowing before selling this as a feature.
+
+### OQ-028 — Can a client's Cowork session execute a bundled script?
+**Status:** open. **Blocks:** whether any check can ever be deterministic rather than
+read by the model.
+Every one of our 41 checks is something the model reads and judges. The upstream
+stack ships Python scanners, which are genuinely better for the mechanical slice —
+deterministic, no drift, hook-friendly. We did not vendor them because **nothing in
+this system has a verified path to executing Python inside a client's Cowork session**,
+and a scanner that silently never runs is worse than no scanner: it reads as coverage.
+This is adjacent to `OQ-014` (does the plugin's PreToolUse hook fire in Cowork) and
+would be settled by the same experiment.
+**Test that closes it:** ship a trivial script in a skill's `scripts/`, have the skill
+attempt to run it in a real Cowork session, and see whether it executes, errors, or is
+silently ignored. If it executes, the mechanical checks (11, 12, 13, 14) should become
+scripts, and their false-negative rate drops to zero.
+
+### OQ-029 — Should the two upstream scanner defects be reported back?
+**Status:** open, **operator's call — it is outward-facing.**
+Two measured defects in `humanizer-stack`'s `copy_scan.py`, recorded in our
+`ATTRIBUTION.md`: the antithesis rule cannot match contracted forms (`isn't just`),
+and its closer alternation misses `that's`. Three of five realistic variants pass
+clean. Both are one-line regex fixes.
+The repository is MIT, actively maintained, and the author invites engagement. Filing
+an issue or a PR costs nothing, is good practice given we built on the work, and puts
+our name near a project in the same space.
+**Not done unilaterally** — it is a public post under the operator's identity on a
+venture he intends to resell, which makes it his decision rather than ours.

@@ -65,6 +65,17 @@ guardrails, and nothing errors:
 
 This repo has already shipped two bugs of exactly that class. Run it every time.
 
+## Licensing, before you resell this
+
+`LICENSE` is MIT for this repository's own work. **`ATTRIBUTION.md` is the one to read
+before white-labelling**, because a few parts adapt other people's work and one
+upstream lineage carries a **share-alike** obligation.
+
+The short version: we deliberately did **not** vendor the general-purpose humanizer
+skill whose pattern catalogue traces to Wikipedia's CC BY-SA 4.0 material, and wrote
+our own childcare-scoped checks instead. Full reasoning, credits and the two upstream
+scanner defects we found while testing are in `ATTRIBUTION.md`.
+
 ## Changing the shape of a workspace
 
 Read `plugins/business-os/shared/versioning.md` first. The short version:

@@ -10,6 +10,12 @@ childcare brand alive). Every dimension below must be a **rule specific enough t
 imitate**, and the never-dos matter most: a single "circle back" in a caption is an
 instant tell that a machine wrote it.
 
+**This document also outranks the de-slop checks.** Anything here beats a
+sounds-human finding: if removing a tell costs her voice, the tell stays and the
+reason is said out loud. *Copy that passes every check and says nothing has not been
+de-slopped — it has been sanded*, and a voiceless caption is a rewrite where an em
+dash was a five-second fix.
+
 ```
 # Brand voice — <Business>
 
@@ -51,6 +57,18 @@ Caregiver spotlight:
 Recruiting a nanny:
 Sensitive topic (safety, a difficult story):
 Celebration / milestone:
+
+## How we handle feeling   (the one that matters most)
+Name the feeling, don't perform it through the body.
+  Do:    "honestly, that first day scared her"
+  Don't: "her chest tightened", "she let out a breath she didn't know she was holding"
+Embodied moments allowed per post: at most one, and only when it earns it.
+
+*Why this is a section and not a nicety:* rendering emotion physically is the single
+largest gap between human and AI writing in the research — 81% of AI text against 38%
+of human. It inverts "show, don't tell", which is exactly the advice caregiver stories
+get written under. This brand reaches for it by reflex, which is what makes it the
+highest-yield rule in this document.
 
 ## Do / Don't pairs   (at least five, from her real posts)
 Do:    "…"

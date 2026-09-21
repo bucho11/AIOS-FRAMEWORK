@@ -989,3 +989,100 @@ looked for again. This was already the rule for checks (DEC-044); it now covers
 writes, which is where it is more likely to bite, because a Drive write failing
 mid-session is an ordinary event.
 **Reverses if:** never.
+
+### DEC-055 — "Did a person write this" is a check, not a style preference
+**Date:** 2026-09-21 · **Status:** ✅ locked · **extends DEC-044**
+**Decision:** Seven checks (11–17) run on every draft for the signs of machine
+writing, plus a `sounds-human` skill for when the *shape* is the problem rather than
+the words. None block — style is not what blocking is for.
+**Why:** all 34 existing checks asked *is this true?* None asked the question a reader
+actually asks first, in about a second and a half. **For a childcare brand those are
+the same question:** a parent choosing who watches their kid is making a trust
+decision, and copy that reads as machine-generated leaks trust in the one market where
+trust is the entire product. A caregiver deciding where to apply reads it identically.
+**Two layers, because one does not reach the other.** Surface (words, punctuation,
+cadence) is cheap, mechanical, and **decaying as a signal** as vendors tune it away.
+Structure (where the lesson sits, how emotion is rendered, what gets named, whether
+the skeleton repeats) is where the durable fingerprint lives.
+**Verified, not taken on trust:** Russell et al. 2026 (arXiv:2604.03136) classified
+61,608 stories on discourse features alone, with every style feature withheld, at
+**93.2% macro-F1** — checked against the paper's own abstract, along with the 68.4%
+six-way attribution figure and the corpus size. Professional span-level surface
+rewriting of AI text moved detection **1.6 points**. A caption can pass every
+word-level check and still read as machine-written, and that is the normal case.
+**Reverses if:** never, though the surface half will need re-derivation as models
+change. The structural half is the durable investment.
+
+### DEC-056 — One or two moves per piece. A uniformly applied checklist is a new fingerprint.
+**Date:** 2026-09-21 · **Status:** ✅ locked · **outranks DEC-055's audits**
+**Decision:** Never apply the full intervention menu. One or two deliberate structural
+moves per piece, varied across pieces, each one justifiable in a line.
+**Why:** the research's deepest finding is **convergence** — five models occupy one
+tight region of structural space while human writing is dispersed; 24.7% of human
+stories fall in the corpus's rarest 10% against 7.1% of AI stories. **Rarity is the
+human signal.** Which means a de-slopping checklist applied uniformly does not remove
+a fingerprint, it replaces one with ours — and four posts that all open mid-scene and
+end unresolved read exactly as machine-made to anyone reading them in sequence.
+**This is the rule most likely to be broken while following every other one**, because
+each individual fix looks correct. It is stated in three places on purpose.
+**Reverses if:** never.
+
+### DEC-057 — Voice is the input and the final guard, not a coat of paint
+**Date:** 2026-09-21 · **Status:** ✅ locked
+**Decision:** The order is **draft in her voice → surface pass → structural pass →
+re-check against her voice.** `Brand voice` and the room's `Examples/` explicitly
+**outrank** every de-slop check: if removing a tell costs her voice, the tell stays
+and the reason is stated so she can overrule.
+**Why:** the published pipeline for this work puts a voice layer *last, as something
+additive*. That assumes a generic draft being cleaned and then voiced. Ours is voiced
+from the start — `draft-post` writes *from* `Brand voice` — so running de-slop passes
+over it risks the opposite failure, and it has a name: **copy that passes every check
+and says nothing has not been de-slopped, it has been sanded.**
+**The asymmetry is what settles it.** An em dash left in is a five-second fix. A
+voiceless caption is a rewrite, and worse, it is the failure nobody notices because
+everything passed.
+**Reverses if:** never.
+
+### DEC-058 — Do not vendor the CC BY-SA lineage; write our own and credit it
+**Date:** 2026-09-21 · **Status:** ✅ locked · **commercial, not academic**
+**Decision:** The general-purpose `humanizer` skill from the upstream stack is **not
+vendored.** Our surface checks are written for this system, in our own check format,
+scoped to short childcare social copy. `ATTRIBUTION.md` credits every lineage, and
+`LICENSE` (MIT) is added — the repo previously had none, which is a real gap for
+something being resold.
+**Why:** that skill's pattern catalogue traces to Wikipedia's *Signs of AI writing*,
+**CC BY-SA 4.0 — a share-alike license**, and the upstream repository says plainly
+that redistribution should carry the obligation and that relicensing needs a legal
+read. This plugin is built to be deployed to paying clients across ~20 franchises.
+**Inheriting a share-alike obligation on a core file is a question better avoided than
+answered.**
+The individual observations — that models overuse em dashes, that "not just X, it's Y"
+is a tell — are facts about how language models write, and facts are not
+copyrightable; a particular selection and arrangement of them can be, which is exactly
+why we made our own selection for a different purpose. Wikipedia is credited anyway,
+because someone did the work of noticing.
+**Stated as our reading, not as legal advice**, with a recommendation to get a real one
+if it matters commercially.
+**Reverses if:** a legal read says otherwise, in which case vendoring saves us nothing
+we care about anyway.
+
+### DEC-059 — Read for the shape, not the string; and scope the em dash check to captions
+**Date:** 2026-09-21 · **Status:** ✅ locked · **both findings measured, not assumed**
+**Decision:** Check 11 reads for the antithesis **shape** and names the contracted
+forms explicitly. Check 13 (em dashes) applies to captions only, never to internal
+documents.
+**Why, measured:** we ran the upstream scanner against five realistic variants of the
+antithesis tell and **it caught two.** The pattern anchors on the literal string
+`not just`, which cannot match `isn't just` — the letters *n-o-t* do not occur in that
+word — so the contracted forms, which are the common ones in social copy, pass clean.
+Its closer alternation accepts only `it's` or `but`, so *"That's not just a nanny,
+that's a partner"* also passes. **A regex over a contraction-heavy genre is the wrong
+tool**, and a model reading for the shape is the right one.
+**And:** scanning our own client-facing seed documents returned **13 em dash hits,
+every one a folder name** (`1 — Brain`, `3 — Social`). Our workspace's entire naming
+convention is built on the character the check flags. The upstream README warns that
+applying it to internal docs will fire constantly; we confirmed it empirically rather
+than trusting either direction.
+**Both are recorded in `ATTRIBUTION.md`** so the upstream author can have them if he
+wants them.
+**Reverses if:** never.

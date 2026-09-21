@@ -20,6 +20,7 @@ because your brand, your offers and your logos are shared across all of them.
 | `make-graphic` | *(social)* Designs on-brand graphics in Canva Pro, resized per platform |
 | `publish` | *(social)* The only skill that knows the publisher. Approve → schedule → live |
 | `learn` | *(social)* Weekly: results → what works → the brain gets smarter |
+| `sounds-human` | *(social)* Fixes the shape when a draft reads as machine-written |
 
 Plus an independent **compliance reviewer** that reads every draft before it can be
 approved, and shared **guardrails** written for childcare brands.
