@@ -160,3 +160,67 @@ have not done.**
 4. **Stock with adults, carefully.** Never implying they are her caregivers or
    families.
 5. **Stock with children.** Never.
+
+---
+
+## Part 3 — Higgsfield AI
+
+### What it is `[PRIMARY]`
+
+An AI-native creative suite generating **video, images and voice**, wrapping 30–50+
+models (Sora 2, Kling 3.0, Veo 3.1, Seedance, Ideogram, plus proprietary Soul 2, DoP,
+Marketing Studio Image). Known for cinematic motion — camera presets, VFX, and
+**Genjutsu** motion transfer: *"recast motion with your characters, locations, and
+products."* Claims 4.5M video generations a day.
+
+### Access `[PRIMARY]`
+
+**Official MCP server, shipped 2026-04-30: `mcp.higgsfield.ai/mcp`.** Browser OAuth,
+no API key. One of the few first-party MCPs in this space — unlike every stock-photo
+MCP, which are all community-built.
+
+**Two separate billing systems, and confusing them costs money:**
+
+| | MCP / app | Developer API |
+|---|---|---|
+| Billed in | plan **credits** | **US dollars**, pay-as-you-go |
+| Cost | Starter $19/mo · 270 credits · Plus $59 · 1,200 · Ultra $129 · 3,000 | $5 minimum top-up |
+| Sample rates | — | Kling 3.0 video **$0.112/sec** · Soul 2 image **$0.0032** |
+
+Verbatim: *"A plan on higgsfield.ai neither grants API access nor changes API
+pricing."* The MCP spends plan credits; the API is a separate product.
+
+### The fit problem, stated plainly
+
+**She said AI content looks too AI. This is an AI generation engine.** It answers a
+different question than the one she asked — and the answer we already found, from
+the product she admires, is *fewer generated images, not better ones.*
+
+**The guardrail collision is near-total for this brand.** Our hard, blocking rule:
+never generate an AI image of a child. For a childcare agency, almost everything
+Higgsfield would be *used* for is the banned thing. The intersection of what it is
+good at and what she may post is small.
+
+**And the cost stacks.** $19–129/mo on top of Claude Pro (~$20) and Canva Pro (~$15).
+At 20 franchises that is $380–2,580/mo of client cost or margin, against a thesis of
+cheapest-viable.
+
+### The one use that is genuinely strong
+
+**Image-to-video on a photo she already owns.** Motion applied to a real, consented,
+hers photograph is a categorically different proposition from generating a fake
+family — the subject is real, the release is real, and the output is her caregiver in
+her space, moving.
+
+That matters because there **is** a real gap: her filming capacity is ~2 Reels a week
+and video is what the platforms reward. We have no answer to that beyond "film more."
+
+**But test the cheaper thing first.** Canva Pro includes video, and the Canva MCP is
+already connected and paid for. Whether it exposes video generation through MCP is
+**unverified** — that check costs nothing and could close the gap for $0.
+
+### Verdict
+
+**Not now.** Revisit for video specifically, once her own photo library exists, and
+**never for people.** Order of investigation: Canva video (already paid) → image-to-
+video on her own photos → generated imagery, if ever.
